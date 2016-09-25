@@ -21,9 +21,8 @@
 
 .center[![Kanban at Acme Corp](img\KanbanAtAcmeCorp.jpeg)]
 
---
+[*~John Cutler*](https://medium.com/@johnpcutler/real-world-kanban-a-cartoon-116fd37f14ac#.eu6lfj706)
 
-**This is, right?**
 
 ???
 
