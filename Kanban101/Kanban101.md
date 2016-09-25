@@ -19,7 +19,11 @@
 
 --
 
-![Kanban at Acme Corp](img\KanbanAtAcmeCorp.jpeg)
+.center[![Kanban at Acme Corp](img\KanbanAtAcmeCorp.jpeg)]
+
+--
+
+**This is, right?**
 
 ???
 
