@@ -82,6 +82,50 @@ So we can use inventory management techniques to optimize the flow of inventory 
 
 ---
 
+# Four Core Principles
+
+1. Visualize Work
+2. Limit Work in Process
+3. Optimize for Flow
+4. Continuous Improvement
+
+???
+
+1. Visualizing the workflow (typically with Kanban board) we can instantly see bottlenecks that need to be addressed. If we pay attention, we'll also see the blocked items. Blocked items need to be unblocked as soon as possible. **Almost done isn't done.**
+
+2. By limiting how much unfinished work is in process, you can reduce the time it takes an item to travel through the Kanban system. (Little's Law) You can also avoid problems caused by task switching and reduce the need to constantly reprioritize items.
+
+3. Being busy doens't deliver value. Delivering working code into production does.
+
+4. If you have an idea to improve our process, speak up now. (Well, not right *now*, after the presentation.) Don't wait for the retrospective to improve things.
+
+
+---
+
+# Visualize the Work
+
+ - The Kanban board isn't just a visual status update.
+ - It gives us a 30,000 ft. view of the state of the system.
+
+--
+
+ .center[
+ ![Over Wip](img/OverWip.png)
+ ]
+
+???
+
+ - Can anyone spot the bottleneck?
+ - What should we do in this situation?
+
+---
+
+# WIP Limits
+
+
+
+---
+
 count: false
 exclude: true
 
