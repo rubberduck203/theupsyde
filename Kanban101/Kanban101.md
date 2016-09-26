@@ -22,7 +22,7 @@
 
 .center[![Kanban at Acme Corp](img\KanbanAtAcmeCorp.jpeg)]
 
-[*~John Cutler*][AcmeCorp]
+[*~John Cutler*](https://medium.com/@johnpcutler/real-world-kanban-a-cartoon-116fd37f14ac#.eu6lfj706)
 
 
 ???
@@ -44,7 +44,7 @@
 
 ???
 
-- [Toyota line-workers used a kanban (i.e., an actual card) to signal steps in their manufacturing process. The system’s highly visual nature allowed teams to communicate more easily on what work needed to be done and when. It also standardized cues and refined processes, which helped to reduce waste and maximize value.][LeanKitKanban]
+- [Toyota line-workers used a kanban (i.e., an actual card) to signal steps in their manufacturing process. The system’s highly visual nature allowed teams to communicate more easily on what work needed to be done and when. It also standardized cues and refined processes, which helped to reduce waste and maximize value.](https://leankit.com/learn/kanban/what-is-kanban/)
 
 --
 
@@ -123,13 +123,3 @@ So we can use inventory management techniques to optimize the flow of inventory 
 # WIP Limits
 
 
-
----
-
-count: false
-exclude: true
-
-# References
-
-[LeanKitKanban]:https://leankit.com/learn/kanban/what-is-kanban/
-[AcmeCorp]:https://medium.com/@johnpcutler/real-world-kanban-a-cartoon-116fd37f14ac#.eu6lfj706
