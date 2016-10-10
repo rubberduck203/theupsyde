@@ -75,12 +75,54 @@ How can we achieve that?
 
 ***
 
-## Small
+## Testable
+
+ - Each story should have an acceptance criteria
+ - Without a test to say "this is done", how do we know it's done?
+ - If it can't be tested, the story is too vague and/or too large, so it's not ready to implement.
+
+***
+
+## What's wrong here?
+
+> As a user,
+> I want a green icon
+> when the battery is > 20%
+> and a red icon when the battery is <= 20%
+
+***
+
+## What's wrong here?
+
+> As a user,
+> I want a green icon
+> when the battery is > 20%
+> and a red icon when the battery is <= 20%
+
+ - Who is the user?
+ - Why does the user want this functionality?
+ - What is the user's problem?
+ - How can we be sure this will solve it?
+
+***
+
+## Better
 
 > Jim, the gamer, wants a green icon
 > when the battery is > 20% and a red
 > icon when the battery is <= 20%,
 > so he doesn't kill his phone and miss calls.
+
+***
+
+## Better
+
+> Jim, the gamer, wants a green icon
+> when the battery is > 20% and a red
+> icon when the battery is <= 20%,
+> so he doesn't kill his phone and miss calls.
+
+But can we deliver less, faster?
 
 ***
 
@@ -96,13 +138,3 @@ How can we achieve that?
 > wants a colored icon
 > so that he can see how much battery is left at a glance,
 > saving him some time and effort.
-
-***
-
-## Testable
-
- - Each story should have an acceptance criteria
- - Without a test to say "this is done", how do we know it's done?
- - If it can't be tested, the story is too vague and/or too large, so it's not ready to implement.
-
-***
