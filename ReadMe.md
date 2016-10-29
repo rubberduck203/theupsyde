@@ -10,3 +10,12 @@ After changing the server config, run the following command.
 ```
 
 http://www.cyberciti.biz/faq/stop-lighttpd-server/
+
+
+---
+
+To promote from test to prod
+
+```bash
+sudo cp -R /var/www/htdocs/test/www.theupsyde.net /var/www/htdocs/prod
+```
