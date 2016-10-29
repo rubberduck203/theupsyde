@@ -1,3 +1,9 @@
 header p{
   font-size: x-large;
 }
+
+footer {
+    border-top-color: gray;
+    border-top-style: double;
+    border-top-width: medium;
+}
