@@ -1,9 +1,34 @@
-header p{
-  font-size: x-large;
+body {
+    font-family: sans-serif;
 }
 
-footer {
-    border-top-color: gray;
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+header p{
+  font-size: 1.5em;
+}
+
+header, footer{
+	border-color: gray;
+	text-align: center;
+}
+
+footer{
     border-top-style: double;
     border-top-width: medium;
+}
+
+header {
+	border-bottom-style: double;
+	border-bottom-width: medium;
 }
