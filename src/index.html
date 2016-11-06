@@ -14,36 +14,42 @@
       The simplest website that could possibly work. 
     </p>
   </header>
-  <section id="mission">
-    <h2>Mission Statement</h2>
-    <p>
-      This my personal sketchbook, a place to organize all the half finished projects that we developers all seem to have. 
-    </p>
-    <p>
-      This site is also a place for me to play with tech that I don't necessarily get an opportunity to work with at my 9-5, an opportunity to learn non-Microsoft stacks and .Net Core. 
-    </p>
-  </section>
+  <section id="main">
+	  <article id="mission">
+		<h2>Mission Statement</h2>
+		<p>
+		  This my personal sketchbook, a place to organize all the half finished projects that we developers all seem to have. 
+		</p>
+		<p>
+		  This site is also a place for me to play with tech that I don't necessarily get an opportunity to work with at my 9-5, an opportunity to learn non-Microsoft stacks and .Net Core. 
+		</p>
+	  </article>
 
-  <section id="todo">
-    <h2>The Backlog</h2>
-    <ul>
-      <li><strike>Setup test site on different port.</strike></li>
-      <li>
-		Decide on a method to transform markdown into html. (Precomiled or on the fly?)
+	  <article id="todo">
+		<h2>The Backlog</h2>
 		<ul>
-			<li><a href="http://pandoc.org/">Pandoc</a></li>
-			<li><a href="https://ikiwiki.info/">Ikiwiki</a></li>
-		</ul>
-	  </li>
-      <li>Add Rss feed from blog.</li>
-      <li>Add subdomain and migrate blog here.</li>
-      <li>Come up with an excuse to deploy an Asp.Net Core app.</li>
-      <li>Add resume here.</li>
-      <li><strike>https</strike></li>
-      <li>Pretty it up.</li>
-     </ul>
+		  <li><strike>Setup test site on different port.</strike></li>
+		  <li>
+			Decide on a method to transform markdown into html. 
+			<ul>
+				<li>Use a pre-compiled method. There's surely a performance hit for transpiling markdown to html on the fly.</li>
+				<li>Options to evaluate.
+					<ul>
+						<li><a href="http://pandoc.org/">Pandoc</a></li>
+						<li><a href="https://ikiwiki.info/">Ikiwiki</a></li>
+					</ul>
+				</li>
+			</ul>
+		  </li>
+		  <li>Add Rss feed from blog.</li>
+		  <li>Add subdomain and migrate blog here.</li>
+		  <li>Come up with an excuse to deploy an Asp.Net Core app.</li>
+		  <li>Add resume here.</li>
+		  <li><strike>https</strike></li>
+		  <li><strike>Pretty it up.</strike></li>
+		 </ul>
+	  </article>
   </section>
-  
   <footer>
 	<p>Powerd by Lighttpd and CentOS</p>
 	<img src="light_button.png"/>
