@@ -30,6 +30,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="routes\root.js" />
     <Compile Include="routes\todo.js" />
     <Compile Include="server.js" />
     <Content Include="package.json" />
