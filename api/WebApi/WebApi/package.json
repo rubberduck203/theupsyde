@@ -1,0 +1,9 @@
+{
+  "name": "web-api",
+  "version": "0.0.0",
+  "description": "WebApi",
+  "main": "server.js",
+  "author": {
+    "name": "ChrisM"
+  }
+}
