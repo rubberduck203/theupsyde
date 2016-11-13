@@ -1,6 +1,8 @@
 ﻿var loki = require('lokijs'),
     db = new loki('todo.json');
 
+//todo: add error handling
+
 exports.findAll = function (request, response) {
 
     db.loadDatabase({}, function() {
@@ -28,10 +30,42 @@ exports.findAll = function (request, response) {
 exports.findById = function (request, response) {
 
     db.loadDatabase({},
-        function() {
+        function () {
             var items = db.getCollection('todo');
             //request params is a string, must be int to lookup properly
             var item = items.findOne({ '$loki': request.params.id * 1 });
             response.send(item);
+        });
+}
+
+exports.update = function (request, response) {
+    db.loadDatabase({},
+        function () {
+            var items = db.getCollection('todo');
+
+            var doc = items.findOne({ '$loki': request.params.id * 1 });
+            doc.title = request.body.title;
+            doc.done = request.body.done;
+
+            items.update(doc);
+            db.save();
+
+            response.send(doc);
+        }
+    );
+}
+
+exports.insert = function (request, response) {
+    //todo: document
+    //todo: remove the lokijs stuff from the repsonse
+    //todo: return a url to the new resource
+    db.loadDatabase({},
+        function() {
+            var items = db.getCollection('todo');
+
+            var doc = items.insert(request.body);
+            db.save();
+
+            response.send(doc);
         });
 }
