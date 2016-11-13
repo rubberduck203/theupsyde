@@ -1,21 +1,26 @@
-﻿exports.findAll = function(request, response) {
+﻿exports.findAll = function (request, response) {
+    var loki = require('lokijs'),
+        db = new loki('todo.json');
 
-    var data = [{ name: 'Hello' }, { name: 'World' }];
+    db.loadDatabase({}, function() {
+        var data = db.getCollection('todo').data;
+        console.log(data);
 
-    response.format({
-        html: function () {
-            response.write('<ul>');
-            for (var i = 0; i < data.length; i++) {
-                response.write('<li>' + data[i].name + '</li>');
+        response.format({
+            html: function () {
+                response.write('<ul>');
+                for (var i = 0; i < data.length; i++) {
+                    response.write('<li>' + data[i].title + '</li>');
+                }
+                response.write('</ul>');
+
+                response.send();
+            },
+
+            json: function () {
+                response.send(data);
             }
-            response.write('</ul>');
-
-            response.send();
-        },
-
-        json: function() {
-            response.send(data);
-        }
+        });
     });
 }
 
