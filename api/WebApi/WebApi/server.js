@@ -3,6 +3,9 @@
     root = require('./routes/root'),
     bodyParser = require('body-parser');
 
+var loki = require('lokijs');
+todo.setDb(new loki('todo.json'));
+
 var app = express();
 app.use(bodyParser.json());
 

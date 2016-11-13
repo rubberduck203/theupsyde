@@ -1,7 +1,8 @@
-﻿var loki = require('lokijs'),
-    db = new loki('todo.json');
-
-//todo: add error handling
+﻿//todo: add error handling
+var db;
+exports.setDb = function(database) {
+    db = database;
+}
 
 exports.findAll = function (request, response) {
 
