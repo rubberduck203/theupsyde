@@ -1,12 +1,13 @@
-﻿exports.findAll = function (request, response) {
-    var loki = require('lokijs'),
-        db = new loki('todo.json');
+﻿var loki = require('lokijs'),
+    db = new loki('todo.json');
+
+exports.findAll = function (request, response) {
 
     db.loadDatabase({}, function() {
         var data = db.getCollection('todo').data;
-        console.log(data);
 
         response.format({
+            //todo: use a templating library
             html: function () {
                 response.write('<ul>');
                 for (var i = 0; i < data.length; i++) {
@@ -24,6 +25,13 @@
     });
 }
 
-exports.findById = function(request, response) {
-    response.send({ id: request.params.id, name: 'Hello', description: 'Awesome sauce!' });
+exports.findById = function (request, response) {
+
+    db.loadDatabase({},
+        function() {
+            var items = db.getCollection('todo');
+            //request params is a string, must be int to lookup properly
+            var item = items.findOne({ '$loki': request.params.id * 1 });
+            response.send(item);
+        });
 }
