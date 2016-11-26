@@ -27,5 +27,23 @@ describe('ApiInfo', function(){
             var apiInfo = new ApiInfo();
             expect(apiInfo._links[0].self.href).to.equal('/');
         });
+
+        it('should have a list of all the Todo endpoints', function(){
+            var apiInfo = new ApiInfo();
+            expect(apiInfo._links[1].todo).to.be.a('Array');
+        });
+
+        it('should have an index', function(){
+            var apiInfo = new ApiInfo();
+            var todoLinks = apiInfo._links[1].todo;
+            expect(todoLinks[0].href).to.equal('/todo');
+        });
+
+        it('should have a templated id lookup', function(){
+            var apiInfo = new ApiInfo();
+            var todoLinks = apiInfo._links[1].todo;
+            expect(todoLinks[1].href).to.equal('/todo/{id}');
+            expect(todoLinks[1].templated).to.be.true;
+        });
     });
 });
