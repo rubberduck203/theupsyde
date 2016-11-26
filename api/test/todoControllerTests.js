@@ -7,8 +7,14 @@ var todo = require('../routes/todo');
 
 describe('TodoController', function(){
 
-    beforeEach(function(){
+    var req, res;
 
+    beforeEach(function(){
+        // mock http request & response
+        req = httpMocks.createRequest();
+        res = httpMocks.createResponse();
+
+        // set up a clean db stub
         var lokiStub = function loki(filename){
             this.loadDatabase = function(options, callback){
                 callback();
@@ -27,21 +33,14 @@ describe('TodoController', function(){
     describe('findAll', function(){
         it('should return api info', function(){
 
-            var req = httpMocks.createRequest(),
-                res = httpMocks.createResponse();
-
             todo.findAll(req, res);
-
             var actual = res._getData();
             expect(actual).to.deep.equal({name: 'hello'});
         });
 
         it('should return a 200 ok', function(){
-            var req = httpMocks.createRequest(),
-                res = httpMocks.createResponse();
-
+            
             todo.findAll(req, res);
-
             expect(res.statusCode).to.equal(200);
         });
     });
