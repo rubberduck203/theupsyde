@@ -1,7 +1,7 @@
 var loki = require('lokijs'),
     db = new loki('todo.json');
 
-exports.index = function(request, response, next) {
+exports.findAll = function(request, response, next) {
 
     db.loadDatabase({}, function(){
         var data = db.getCollection('todo').data;

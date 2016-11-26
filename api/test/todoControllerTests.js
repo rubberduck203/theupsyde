@@ -24,13 +24,13 @@ describe('TodoController', function(){
         todo = proxy('../routes/todo', {'lokijs': lokiStub});
     })
 
-    describe('index', function(){
+    describe('findAll', function(){
         it('should return api info', function(){
 
             var req = httpMocks.createRequest(),
                 res = httpMocks.createResponse();
 
-            todo.index(req, res);
+            todo.findAll(req, res);
 
             var actual = res._getData();
             expect(actual).to.deep.equal({name: 'hello'});
@@ -40,7 +40,7 @@ describe('TodoController', function(){
             var req = httpMocks.createRequest(),
                 res = httpMocks.createResponse();
 
-            todo.index(req, res);
+            todo.findAll(req, res);
 
             expect(res.statusCode).to.equal(200);
         });
