@@ -2,5 +2,10 @@ var ApiInfo = require('../ApiInfo');
 
 exports.index = function (request, response) {
 
-    response.send(new ApiInfo);
+    response.format({
+        json: function(){
+            response.send(new ApiInfo());
+            return;
+        }
+    });
 }

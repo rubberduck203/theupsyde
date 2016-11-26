@@ -6,19 +6,24 @@ var root = require('../routes/root');
 
 describe('RootController', function () {
     
-    var req, res;
-    beforeEach(function(){
-        req = httpMocks.createRequest();
-        res = httpMocks.createResponse();
-    });
-
     describe('index', function(){
-        it('returns a 200 ok', function(){
-            root.index(req, res);
-            expect(res.statusCode).to.equal(200);
-        });
+         describe('when json reqested', function(){
+            var req, res;
+            beforeEach(function(){
+                req = httpMocks.createRequest({
+                    headers: {
+                        Accept: 'application/json'
+                    }
+                });
+                var responseOptions = {req: req};
+                res = httpMocks.createResponse(responseOptions);
+            });
 
-        describe('when json reqested', function(){
+            it('returns a 200 ok', function(){
+                root.index(req, res);
+                expect(res.statusCode).to.equal(200);
+            });
+
             it('should return ApiInfo', function(){
                 var ApiInfo = require('../ApiInfo');
                 var expected = new ApiInfo();
