@@ -1,5 +1,12 @@
+var loki = require('lokijs'),
+    db = new loki('todo.json');
+
 exports.index = function(request, response, next) {
-   response.send({name: 'hello'});
+
+    //db.loadDatabase('todo').data;
+
+    response.send(db.loadDatabase('todo').data);
+   //response.send({name: 'hello'});
 }
 
 

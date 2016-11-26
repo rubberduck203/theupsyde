@@ -4,23 +4,27 @@ var mocha = require('mocha'),
 
 
 var todo = require('../routes/todo');
-var proxy = require('proxyquire');
-var dbStub; 
+var proxy = require('proxyquire'); 
 
 describe('TodoController', function(){
 
+
     beforeEach(function(){
-        dbStub = {
+       var dbStub = {
             loadDatabase : function(collectionName){
                  return  { 
-                     data : function(){
-                         return { name: 'hello'}
-                     }        
+                     data : { name: 'hello'}        
                 }
             }
         };
-        
-        todo = proxy('../routes/todo', {'lokijs': dbStub});
+
+        function loki(filename){
+            this.loadDatabase = dbStub.loadDatabase;
+        }
+
+        var lokiStub = loki;
+
+        todo = proxy('../routes/todo', {'lokijs': lokiStub});
     })
 
     describe('index', function(){
