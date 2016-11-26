@@ -31,7 +31,7 @@ describe('TodoController', function(){
     })
 
     describe('findAll', function(){
-        it('should return api info', function(){
+        it('should return all items', function(){
 
             todo.findAll(req, res);
             var actual = res._getData();
