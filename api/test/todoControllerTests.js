@@ -1,28 +1,25 @@
 var mocha = require('mocha'),
     expect = require('chai').expect,
-    httpMocks = require('node-mocks-http');
-
+    httpMocks = require('node-mocks-http'),
+    proxy = require('proxyquire');
 
 var todo = require('../routes/todo');
-var proxy = require('proxyquire'); 
 
 describe('TodoController', function(){
 
-
     beforeEach(function(){
-       var dbStub = {
-            loadDatabase : function(collectionName){
+
+        var lokiStub = function loki(filename){
+            this.loadDatabase = function(options, callback){
+                callback();
+            };
+            
+            this.getCollection = function(collectionName){
                  return  { 
                      data : { name: 'hello'}        
                 }
             }
-        };
-
-        function loki(filename){
-            this.loadDatabase = dbStub.loadDatabase;
         }
-
-        var lokiStub = loki;
 
         todo = proxy('../routes/todo', {'lokijs': lokiStub});
     })
@@ -34,7 +31,9 @@ describe('TodoController', function(){
                 res = httpMocks.createResponse();
 
             todo.index(req, res);
-            expect(res._getData()).to.deep.equal({name: 'hello'});
+
+            var actual = res._getData();
+            expect(actual).to.deep.equal({name: 'hello'});
         });
 
         it('should return a 200 ok', function(){

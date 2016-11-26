@@ -3,10 +3,10 @@ var loki = require('lokijs'),
 
 exports.index = function(request, response, next) {
 
-    //db.loadDatabase('todo').data;
-
-    response.send(db.loadDatabase('todo').data);
-   //response.send({name: 'hello'});
+    db.loadDatabase({}, function(){
+        var data = db.getCollection('todo').data;
+        response.send(data);
+    })
 }
 
 
