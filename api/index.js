@@ -10,6 +10,7 @@ var root = require('./controllers/root'),
 
 app.get('/', root.index);
 app.get('/todo', todo.findAll);
+app.get('/todo/:id', todo.findById);
 
 app.listen(1337,
     function () {
