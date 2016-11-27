@@ -34,5 +34,11 @@ describe('RootController', function () {
                 expect(actual).to.deep.equal(expected);
             });
         });
+
+        describe('when html is requested', function(){
+            it('Needs to be implmented', function(){
+                //todo:
+            });
+        });
     });
 });
