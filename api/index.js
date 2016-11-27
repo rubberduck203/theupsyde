@@ -5,8 +5,8 @@ var app = express();
 app.use(bodyParser.json());
 app.set('view engine', 'hbs');
 
-var root = require('./routes/root'),
-    todo = require('./routes/todo');    
+var root = require('./controllers/root'),
+    todo = require('./controllers/todo');    
 
 app.get('/', root.index);
 app.get('/todo', todo.findAll);

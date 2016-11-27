@@ -3,58 +3,58 @@ var mocha = require('mocha'),
     httpMocks = require('node-mocks-http');
 
 var ApiInfo = require('../ApiInfo');
-var root = require('../routes/root');
+var root = require('../controllers/root');
 
 describe('RootController', function () {
     
     describe('index', function(){
          describe('when json reqested', function(){
-            var req, res;
+            var request, response;
             beforeEach(function(){
-                req = httpMocks.createRequest({
+                request = httpMocks.createRequest({
                     headers: {
                         Accept: 'application/json'
                     }
                 });
-                var responseOptions = {req: req};
-                res = httpMocks.createResponse(responseOptions);
+                var responseOptions = {req: request};
+                response = httpMocks.createResponse(responseOptions);
             });
 
             it('returns a 200 ok', function(){
-                root.index(req, res);
-                expect(res.statusCode).to.equal(200);
+                root.index(request, response);
+                expect(response.statusCode).to.equal(200);
             });
 
             it('should return ApiInfo', function(){
                 var expected = new ApiInfo();
 
-                root.index(req, res);
-                var actual = res._getData();
+                root.index(request, response);
+                var actual = response._getData();
                 
                 expect(actual).to.deep.equal(expected);
             });
         });
 
         describe('when html is requested', function(){
-            var req, res;
+            var request, response;
             beforeEach(function(){
-                req = httpMocks.createRequest({
+                request = httpMocks.createRequest({
                     headers: {
                         Accept: 'text/html'
                     }
                 });
-                responseOptions = {req: req};
-                res = httpMocks.createResponse(responseOptions);
+                responseOptions = {req: request};
+                response = httpMocks.createResponse(responseOptions);
             });
 
             it('should get the root view', function(){
-                root.index(req, res);
-                expect(res._getRenderView()).to.equal('root');
+                root.index(request, response);
+                expect(response._getRenderView()).to.equal('root');
             });
 
             it('should return ApiInfo', function(){
-                root.index(req, res);
-                expect(res._getRenderData()).to.deep.equal(new ApiInfo());
+                root.index(request, response);
+                expect(response._getRenderData()).to.deep.equal(new ApiInfo());
             });
         });
     });

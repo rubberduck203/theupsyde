@@ -3,7 +3,7 @@ var mocha = require('mocha'),
     httpMocks = require('node-mocks-http'),
     proxy = require('proxyquire');
 
-var todo = require('../routes/todo');
+var todo = require('../controllers/todo');
 
 describe('TodoController', function(){
 
@@ -27,7 +27,7 @@ describe('TodoController', function(){
             }
         }
 
-        todo = proxy('../routes/todo', {'lokijs': lokiStub});
+        todo = proxy('../controllers/todo', {'lokijs': lokiStub});
     })
 
     describe('findAll', function(){
