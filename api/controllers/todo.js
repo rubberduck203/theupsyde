@@ -12,6 +12,7 @@ exports.findAll = function(request, response) {
 exports.findById = function(request, response){
     db.loadDatabase({}, function(){
         var items = db.getCollection('todo');
+         //request params is a string, must be int to lookup properly
         var item = items.findOne({'$loki': request.params.id * 1});
         response.send(item);
     });
