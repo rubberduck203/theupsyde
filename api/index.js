@@ -3,6 +3,7 @@ var express = require('express'),
 
 var app = express();
 app.use(bodyParser.json());
+app.set('view engine', 'hbs');
 
 var root = require('./routes/root'),
     todo = require('./routes/todo');    

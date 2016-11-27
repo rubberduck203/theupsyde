@@ -11,8 +11,6 @@
   "license": "",
   "devDependencies": {
     "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "express-mocks-http": "0.0.11",
     "mocha": "^3.1.2",
     "node-mocks-http": "^1.5.4",
     "proxyquire": "^1.7.10"
@@ -21,7 +19,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "handlebars": "^4.0.6",
-    "lokijs": "^1.4.1",
-    "q": "^1.4.1"
+    "hbs": "^4.0.1",
+    "lokijs": "^1.4.1"
   }
 }

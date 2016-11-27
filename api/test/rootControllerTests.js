@@ -2,6 +2,7 @@ var mocha = require('mocha'),
     expect = require('chai').expect,
     httpMocks = require('node-mocks-http');
 
+var ApiInfo = require('../ApiInfo');
 var root = require('../routes/root');
 
 describe('RootController', function () {
@@ -25,7 +26,6 @@ describe('RootController', function () {
             });
 
             it('should return ApiInfo', function(){
-                var ApiInfo = require('../ApiInfo');
                 var expected = new ApiInfo();
 
                 root.index(req, res);
@@ -36,8 +36,25 @@ describe('RootController', function () {
         });
 
         describe('when html is requested', function(){
-            it('Needs to be implmented', function(){
-                //todo:
+            var request, response;
+            beforeEach(function(){
+                request = httpMocks.createRequest({
+                    headers: {
+                        Accept: 'text/html'
+                    }
+                });
+                responseOptions = {req: request};
+                response = httpMocks.createResponse(responseOptions);
+            });
+
+            it('should get the root view', function(){
+                root.index(request, response);
+                expect(response._getRenderView()).to.equal('root');
+            });
+
+            it('should return ApiInfo', function(){
+                root.index(request, response);
+                expect(response._getRenderData()).to.deep.equal(new ApiInfo());
             });
         });
     });
