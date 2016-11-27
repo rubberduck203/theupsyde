@@ -85,8 +85,14 @@ describe('TodoController', function(){
         });
 
         describe('when item is not found', function(){
-            it('should return 404 not found');
-            it('should have no data');
+            beforeEach(function(){
+                req._setParameter('id', 0);
+            });
+
+            it('should return 404 not found', function(){
+                todo.findById(req, res);
+                expect(res.statusCode).to.equal(404);
+            });
         });
     });
 });

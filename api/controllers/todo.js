@@ -18,6 +18,9 @@ exports.findById = function(request, response){
         var items = db.getCollection('todo');
          //request params is a string, must be int to lookup properly
         var item = items.findOne({'$loki': request.params.id * 1});
+        if (!item) {
+            response.sendStatus(404);
+        }
         response.send(item);
     });
 }
