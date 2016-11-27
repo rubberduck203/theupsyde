@@ -7,9 +7,21 @@ var todo = require('../controllers/todo');
 
 describe('TodoController', function(){
 
-    var req, res;
-
+    var req, res, testData;
     beforeEach(function(){
+        testData = [
+            {
+                "title":"Setup test site on different port.",
+                "done":true,
+                "meta":{"revision":0,"created":1479043435802,"version":0},
+                "$loki":1
+            },
+            {
+                "title":"Finish the todo api",
+                "meta":{"revision":0,"created":1479051068239,"version":0},
+                "$loki":2
+            }];
+
         // mock http request & response
         req = httpMocks.createRequest();
         res = httpMocks.createResponse();
@@ -22,7 +34,7 @@ describe('TodoController', function(){
             
             this.getCollection = function(collectionName){
                  return  { 
-                     data : { name: 'hello'}        
+                     data : testData        
                 }
             }
         }
@@ -35,7 +47,7 @@ describe('TodoController', function(){
 
             todo.findAll(req, res);
             var actual = res._getData();
-            expect(actual).to.deep.equal({name: 'hello'});
+            expect(actual).to.deep.equal(testData);
         });
 
         it('should return a 200 ok', function(){
