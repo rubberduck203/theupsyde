@@ -27,6 +27,7 @@ describe('TodoController', function(){
         res = httpMocks.createResponse();
 
         // set up a clean db stub
+        //todo: move loki mock to it's own module
         var lokiStub = function loki(filename){
             this.loadDatabase = function(options, callback){
                 callback();
@@ -94,5 +95,36 @@ describe('TodoController', function(){
                 expect(res.statusCode).to.equal(404);
             });
         });
+    });
+
+    describe('insert', function(){
+        describe('when successful', function(){
+            it('saves to the database');
+            it('returns the new todo item in the response body');
+            it('includes a uri pointing to the new resource');
+            it('returns 201 created');
+        });
+
+        describe('when failed', function(){
+            it('returns a 500 server error');
+        });
+    });
+
+    describe('update', function(){
+        describe('when item is found', function(){
+            describe('when successful', function(){
+                it('saves to the database');
+                it('includes updated todo item in response body');
+                it('returns 200 ok');
+            });
+
+            describe('when failure', function(){
+                it('returns 500 server error');
+            });
+        });
+
+        describe('when item is not found', function(){
+            it('returns 404 not found');
+        })
     });
 });
