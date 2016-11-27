@@ -36,25 +36,25 @@ describe('RootController', function () {
         });
 
         describe('when html is requested', function(){
-            var request, response;
+            var req, res;
             beforeEach(function(){
-                request = httpMocks.createRequest({
+                req = httpMocks.createRequest({
                     headers: {
                         Accept: 'text/html'
                     }
                 });
-                responseOptions = {req: request};
-                response = httpMocks.createResponse(responseOptions);
+                responseOptions = {req: req};
+                res = httpMocks.createResponse(responseOptions);
             });
 
             it('should get the root view', function(){
-                root.index(request, response);
-                expect(response._getRenderView()).to.equal('root');
+                root.index(req, res);
+                expect(res._getRenderView()).to.equal('root');
             });
 
             it('should return ApiInfo', function(){
-                root.index(request, response);
-                expect(response._getRenderData()).to.deep.equal(new ApiInfo());
+                root.index(req, res);
+                expect(res._getRenderData()).to.deep.equal(new ApiInfo());
             });
         });
     });
