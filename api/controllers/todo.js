@@ -1,6 +1,10 @@
 var loki = require('lokijs'),
     db = new loki('todo.json');
 
+/*
+    todo: pass back html when requested via response.render()
+*/ 
+
 exports.findAll = function(request, response) {
 
     db.loadDatabase({}, function(){
@@ -17,11 +21,3 @@ exports.findById = function(request, response){
         response.send(item);
     });
 }
-
-/*
-    //todo: pass back html when requested
-
-    What I would like to have is a `route` middleware which delegates to a `todoJson` and `todoHtml` middleware.
-    I think that beyond this level, there probably isn't a need to request/response around,
-    but rather pass around domain types instead.
-*/ 
