@@ -7,7 +7,7 @@ exports.index = function (request, response) {
             response.send(new ApiInfo());
         },
         html: function(){
-            response.render('root', new ApiInfo);
+            response.render('root', new ApiInfo());
         }
     });
 }

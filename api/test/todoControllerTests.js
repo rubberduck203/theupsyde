@@ -1,14 +1,23 @@
 var mocha = require('mocha'),
     expect = require('chai').expect,
     httpMocks = require('node-mocks-http'),
-    proxy = require('proxyquire');
+    proxy = require('proxyquire'),
+    sinon = require('sinon');
 
 var todo = require('../controllers/todo');
+
+var lokiStub, saveSpy;
 
 describe('TodoController', function(){
 
     var req, res, testData;
     beforeEach(function(){
+
+        // mock http request & response
+        req = httpMocks.createRequest();
+        res = httpMocks.createResponse();
+
+        //set up a clean, fake db
         testData = [
             {
                 "title":"Setup test site on different port.",
@@ -22,29 +31,31 @@ describe('TodoController', function(){
                 "$loki":2
             }];
 
-        // mock http request & response
-        req = httpMocks.createRequest();
-        res = httpMocks.createResponse();
+        collectionStub = 
+        { 
+            data : testData,     
+            findOne : function(query){
+                for (var i = 0; i < testData.length; i++){
+                    if (query.$loki === testData[i].$loki){
+                        return testData[i];
+                    }
+                }      
+            },
+            insert : function(){}
+        };
 
-        // set up a clean db stub
         //todo: move loki mock to it's own module
-        var lokiStub = function loki(filename){
+        saveSpy = sinon.spy();
+        lokiStub = function loki(filename){
             this.loadDatabase = function(options, callback){
                 callback();
             };
             
             this.getCollection = function(collectionName){
-                 return  { 
-                     data : testData,     
-                     findOne : function(query){
-                         for (var i = 0; i < testData.length; i++){
-                             if (query.$loki === testData[i].$loki){
-                                 return testData[i];
-                             }
-                         }
-                     }   
-                }
-            }
+                 return collectionStub;
+            };
+
+            this.save = saveSpy;
         }
 
         todo = proxy('../controllers/todo', {'lokijs': lokiStub});
@@ -99,8 +110,36 @@ describe('TodoController', function(){
 
     describe('insert', function(){
         describe('when successful', function(){
-            it('saves to the database');
-            it('returns the new todo item in the response body');
+
+            var insertSpy;
+            var body = {name: 'spy on the insert'};
+
+            beforeEach(function(){
+
+                req = httpMocks.createRequest({body: body});
+                insertSpy = sinon.stub(collectionStub, 'insert', function(){
+                    return body;
+                });
+                
+            
+            });
+
+            it('inserts to the database', function(){
+
+                todo.insert(req, res);
+
+                expect(insertSpy.calledWithExactly(body)).to.be.true;
+                expect(insertSpy.calledOnce).to.be.true;
+            });
+
+            it('saves to the database',function(){
+                todo.insert(req, res);
+                expect(saveSpy.calledOnce).to.be.true;
+            });
+            it('returns the new todo item in the response body', function(){
+                todo.insert(req, res);
+                expect(res._getData()).to.deep.equal({name: 'spy on the insert'});
+            });
             it('includes a uri pointing to the new resource');
             it('returns 201 created');
         });
