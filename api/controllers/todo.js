@@ -30,9 +30,9 @@ exports.insert = function(request, response){
     db.loadDatabase({}, function(){
         var items = db.getCollection('todo');
         var doc = items.insert(request.body);
-        
-        db.save();
 
-        response.send(doc);
+        db.save();
+        
+        response.status(201).send(doc);
     });
 }

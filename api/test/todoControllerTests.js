@@ -136,12 +136,18 @@ describe('TodoController', function(){
                 todo.insert(req, res);
                 expect(saveSpy.calledOnce).to.be.true;
             });
+
             it('returns the new todo item in the response body', function(){
                 todo.insert(req, res);
                 expect(res._getData()).to.deep.equal({name: 'spy on the insert'});
             });
+
+            it('returns 201 created', function(){
+                todo.insert(req, res);
+                expect(res.statusCode).to.equal(201);
+            });
+
             it('includes a uri pointing to the new resource');
-            it('returns 201 created');
         });
 
         describe('when failed', function(){
