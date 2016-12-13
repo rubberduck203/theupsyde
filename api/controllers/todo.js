@@ -16,9 +16,10 @@ exports.findAll = function(request, response) {
 exports.findById = function(request, response){
     db.loadDatabase({}, function(){
         try{
-            var items = db.getCollection('todo');
             //request params is a string, must be int to lookup properly
-            var item = items.findOne({'$loki': request.params.id * 1});
+            var item = db.getCollection('todo')
+                         .findOne({'$loki': request.params.id * 1});
+
             if (!item) {
                 response.sendStatus(404);
                 return;
@@ -34,8 +35,8 @@ exports.findById = function(request, response){
 exports.insert = function(request, response){
     db.loadDatabase({}, function(){
         try{
-            var items = db.getCollection('todo');
-            var doc = items.insert(request.body);
+            var doc = db.getCollection('todo')
+                        .insert(request.body);
             db.save();
             
             response.status(201)
