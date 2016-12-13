@@ -6,7 +6,10 @@ var mocha = require('mocha'),
 
 var todo = require('../controllers/todo');
 
-var lokiStub, saveSpy;
+var lokiStub,
+    //We overwrite the stub later, specify the type so we get intellisense.
+    saveSpy = sinon.stub(),
+    getCollectionStub = sinon.stub();
 
 describe('TodoController', function(){
 
@@ -45,15 +48,18 @@ describe('TodoController', function(){
         };
 
         //todo: move loki mock to it's own module
-        saveSpy = sinon.spy();
+        saveSpy = sinon.stub();
+        getCollectionStub = sinon.stub().returns(collectionStub);
         lokiStub = function loki(filename){
             this.loadDatabase = function(options, callback){
                 callback();
             };
             
-            this.getCollection = function(collectionName){
-                 return collectionStub;
-            };
+            this.getCollection = getCollectionStub;
+
+            //this.getCollection = function(collectionName){
+            //     return collectionStub;
+            //};
 
             this.save = saveSpy;
         }
@@ -106,6 +112,16 @@ describe('TodoController', function(){
                 expect(res.statusCode).to.equal(404);
             });
         });
+
+        describe('when database fails', function(){
+            it('should return 500 internal error', function(){
+
+                getCollectionStub.throws('Failed to connect to database');
+
+                todo.findById(req, res);
+                expect(res.statusCode).to.equal(500);
+            })
+        });
     });
 
     describe('insert', function(){
@@ -149,7 +165,11 @@ describe('TodoController', function(){
         });
 
         describe('when failed', function(){
-            it('returns a 500 server error');
+            it('returns a 500 server error', function(){
+                saveSpy.throws('Failed to save to database.');
+                todo.insert(req, res);
+                expect(res.statusCode).to.equal(500);
+            });
         });
     });
 

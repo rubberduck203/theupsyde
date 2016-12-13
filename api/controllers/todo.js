@@ -15,26 +15,35 @@ exports.findAll = function(request, response) {
 
 exports.findById = function(request, response){
     db.loadDatabase({}, function(){
-        var items = db.getCollection('todo');
-         //request params is a string, must be int to lookup properly
-        var item = items.findOne({'$loki': request.params.id * 1});
-        if (!item) {
-            response.sendStatus(404);
-            return;
+        try{
+            var items = db.getCollection('todo');
+            //request params is a string, must be int to lookup properly
+            var item = items.findOne({'$loki': request.params.id * 1});
+            if (!item) {
+                response.sendStatus(404);
+                return;
+            }
+            response.send(item);
         }
-        response.send(item);
+        catch(err){
+            response.status(500).send(err);
+        }
     });
 }
 
 exports.insert = function(request, response){
     db.loadDatabase({}, function(){
-        var items = db.getCollection('todo');
-
-        var doc = items.insert(request.body);
-        db.save();
-        
-        response.status(201)
-                .send(doc);
-
+        try{
+            var items = db.getCollection('todo');
+            var doc = items.insert(request.body);
+            db.save();
+            
+            response.status(201)
+                    .send(doc);
+        }
+        catch(err) {
+            response.status(500)
+                    .send(err);
+        }
     });
 }
