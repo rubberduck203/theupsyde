@@ -8,8 +8,14 @@ var loki = require('lokijs'),
 exports.findAll = function(request, response) {
 
     db.loadDatabase({}, function(){
-        var data = db.getCollection('todo').data;
-        response.send(data);
+        try{
+            var data = db.getCollection('todo').data;
+            response.send(data);
+        }
+        catch(err){
+            response.status(500)
+                    .send(err);
+        }
     });
 }
 
@@ -27,7 +33,8 @@ exports.findById = function(request, response){
             response.send(item);
         }
         catch(err){
-            response.status(500).send(err);
+            response.status(500)
+                    .send(err);
         }
     });
 }

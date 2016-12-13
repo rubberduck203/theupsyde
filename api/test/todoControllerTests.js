@@ -50,17 +50,13 @@ describe('TodoController', function(){
         //todo: move loki mock to it's own module
         saveSpy = sinon.stub();
         getCollectionStub = sinon.stub().returns(collectionStub);
+
         lokiStub = function loki(filename){
             this.loadDatabase = function(options, callback){
                 callback();
             };
             
             this.getCollection = getCollectionStub;
-
-            //this.getCollection = function(collectionName){
-            //     return collectionStub;
-            //};
-
             this.save = saveSpy;
         }
 
@@ -68,17 +64,28 @@ describe('TodoController', function(){
     })
 
     describe('findAll', function(){
-        it('should return all items', function(){
+        describe('when successful', function(){
+            it('should return all items', function(){
 
-            todo.findAll(req, res);
-            var actual = res._getData();
-            expect(actual).to.deep.equal(testData);
+                todo.findAll(req, res);
+                var actual = res._getData();
+                expect(actual).to.deep.equal(testData);
+            });
+
+            it('should return a 200 ok', function(){
+                
+                todo.findAll(req, res);
+                expect(res.statusCode).to.equal(200);
+            });
         });
+        describe('when database fails', function(){
+            it('should return 500 internal error', function(){
 
-        it('should return a 200 ok', function(){
-            
-            todo.findAll(req, res);
-            expect(res.statusCode).to.equal(200);
+                getCollectionStub.throws('Failed to connect to database');
+
+                todo.findAll(req, res);
+                expect(res.statusCode).to.equal(500);
+            })
         });
     });
 
