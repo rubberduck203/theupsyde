@@ -120,8 +120,6 @@ describe('TodoController', function(){
                 insertSpy = sinon.stub(collectionStub, 'insert', function(){
                     return body;
                 });
-                
-            
             });
 
             it('inserts to the database', function(){
