@@ -5,21 +5,22 @@ var loki = require('lokijs'),
     todo: pass back html when requested via response.render()
 */ 
 
-exports.findAll = function(request, response) {
+exports.findAll = function(request, response, next) {
 
     db.loadDatabase({}, function(){
+
         try{
             var data = db.getCollection('todo').data;
             response.send(data);
         }
         catch(err){
-            response.status(500)
-                    .send(err);
+            next(err);
         }
     });
+
 }
 
-exports.findById = function(request, response){
+exports.findById = function(request, response, next){
     db.loadDatabase({}, function(){
         try{
             //request params is a string, must be int to lookup properly
@@ -33,13 +34,12 @@ exports.findById = function(request, response){
             response.send(item);
         }
         catch(err){
-            response.status(500)
-                    .send(err);
+            next(err);
         }
     });
 }
 
-exports.insert = function(request, response){
+exports.insert = function(request, response, next){
     db.loadDatabase({}, function(){
         try{
             var doc = db.getCollection('todo')
@@ -49,9 +49,8 @@ exports.insert = function(request, response){
             response.status(201)
                     .send(doc);
         }
-        catch(err) {
-            response.status(500)
-                    .send(err);
+        catch(err){
+            next(err);
         }
     });
 }

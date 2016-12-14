@@ -79,12 +79,16 @@ describe('TodoController', function(){
             });
         });
         describe('when database fails', function(){
-            it('should return 500 internal error', function(){
+            it('calls next', function(){
 
-                getCollectionStub.throws('Failed to connect to database');
+                var expectedError = new Error('Failed to connect to database');
+                getCollectionStub.throws(expectedError);
 
-                todo.findAll(req, res);
-                expect(res.statusCode).to.equal(500);
+                var next = sinon.spy();
+                todo.findAll(req, res, next);
+                
+                expect(next.calledOnce).to.be.true;
+                expect(next.calledWith(expectedError)).to.be.true;
             })
         });
     });
@@ -121,12 +125,16 @@ describe('TodoController', function(){
         });
 
         describe('when database fails', function(){
-            it('should return 500 internal error', function(){
+            it('should call next', function(){
 
-                getCollectionStub.throws('Failed to connect to database');
+                var expectedError = new Error('Failed to connect to database');
+                getCollectionStub.throws(expectedError);
 
-                todo.findById(req, res);
-                expect(res.statusCode).to.equal(500);
+                var next = sinon.spy();
+                todo.findById(req, res, next);
+
+                expect(next.calledOnce).to.be.true;
+                expect(next.calledWith(expectedError)).to.be.true;
             })
         });
     });
@@ -172,10 +180,15 @@ describe('TodoController', function(){
         });
 
         describe('when failed', function(){
-            it('returns a 500 server error', function(){
-                saveSpy.throws('Failed to save to database.');
-                todo.insert(req, res);
-                expect(res.statusCode).to.equal(500);
+            it('calls next', function(){
+                var expectedError = new Error('Failed to save to database.');
+                saveSpy.throws(expectedError);
+                
+                var next = sinon.spy();
+                todo.insert(req, res, next);
+                
+                expect(next.calledOnce).to.be.true;
+                expect(next.calledWith(expectedError)).to.be.true;
             });
         });
     });
