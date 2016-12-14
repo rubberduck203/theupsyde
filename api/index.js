@@ -12,6 +12,7 @@ app.get('/', root.index);
 app.get('/todo', todo.findAll);
 app.get('/todo/:id', todo.findById);
 
+// Order is important here, the error handler needs to be after all the routes for it to fire correctly.
 var errorHandler = require('./middleware/errorHandler');
 app.use(errorHandler.handle);
 
