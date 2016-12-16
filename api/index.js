@@ -11,6 +11,8 @@ var root = require('./controllers/root'),
 app.get('/', root.index);
 app.get('/todo', todo.findAll);
 app.get('/todo/:id', todo.findById);
+app.post('/todo', todo.insert);
+app.post('/todo/:id', todo.update);
 
 // Order is important here, the error handler needs to be after all the routes for it to fire correctly.
 var errorHandler = require('./middleware/errorHandler');
