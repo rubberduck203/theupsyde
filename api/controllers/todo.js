@@ -59,20 +59,20 @@ exports.update = function (request, response, next) {
     db.loadDatabase({}, function () {
         try {
             var items = db.getCollection('todo');
-            var todoItem = items.findOne({ '$loki': request.params.id * 1 });
+            var doc = items.findOne({ '$loki': request.params.id * 1 });
 
-            if (!todoItem) {
+            if (!doc) {
                 response.sendStatus(404);
                 return;
             }
 
-            todoItem.title = request.body.title;
-            todoItem.done = request.body.done;
+            doc.title = request.body.title;
+            doc.done = request.body.done;
 
-            items.update(todoItem);
+            items.update(doc);
             db.save();
 
-            response.send({ title: todoItem.title, done: todoItem.done });
+            response.send({ title: doc.title, done: doc.done });
         }
         catch (err) {
             next(err);
