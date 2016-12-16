@@ -2,7 +2,8 @@ var mocha = require('mocha'),
     expect = require('chai').expect,
     httpMocks = require('node-mocks-http'),
     proxy = require('proxyquire'),
-    sinon = require('sinon');
+    sinon = require('sinon'),
+    sinonAsPromised = require('sinon-as-promised');
 
 var todo = require('../controllers/todo');
 
@@ -13,6 +14,7 @@ var lokiStub,
 
 describe('TodoController', function () {
 
+    var repoStub;
     var request, response, testData;
     beforeEach(function () {
 
@@ -61,16 +63,23 @@ describe('TodoController', function () {
             this.save = saveSpy;
         }
 
-        todo = proxy('../controllers/todo', { 'lokijs': lokiStub });
+        var stub = sinon.stub().resolves(testData);
+        repoStub = {
+            findAll: stub
+        }
+
+        todo = proxy('../controllers/todo', { 'lokijs': lokiStub, '../repositories/todoRepository': repoStub });
     })
 
     describe('findAll', function () {
         describe('when successful', function () {
             it('should return all items', function () {
 
-                todo.findAll(request, response);
-                var actual = response._getData();
-                expect(actual).to.deep.equal(testData);
+                todo.findAll(request, response)
+                    .then(function () {
+                        var actual = response._getData();
+                        expect(actual).to.deep.equal(testData);
+                    });
             });
 
             it('should return a 200 ok', function () {
@@ -81,15 +90,15 @@ describe('TodoController', function () {
         });
         describe('when database fails', function () {
             it('calls next', function () {
-
                 var expectedError = new Error('Failed to connect to database');
-                getCollectionStub.throws(expectedError);
-
+                repoStub.findAll.rejects(expectedError);
+                
                 var next = sinon.spy();
-                todo.findAll(request, response, next);
-
-                expect(next.calledOnce).to.be.true;
-                expect(next.calledWith(expectedError)).to.be.true;
+                todo.findAll(request, response, next)
+                    .then(function () {
+                        expect(next.calledOnce).to.be.true;
+                        expect(next.calledWith(expectedError)).to.be.true;
+                    });
             })
         });
     });

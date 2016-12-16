@@ -6,3 +6,5 @@
 /// <reference path="globals/proxyquire/index.d.ts" />
 /// <reference path="globals/sinon/index.d.ts" />
 /// <reference path="modules/proxyquire/index.d.ts" />
+/// <reference path="modules/q/index.d.ts" />
+/// <reference path="modules/sinon-as-promised/index.d.ts" />

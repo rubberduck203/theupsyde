@@ -1,23 +1,20 @@
 var loki = require('lokijs'),
     db = new loki('todo.json');
 
+var q = require('q');
+var todoDb = require('../repositories/todoRepository');
+
 /*
     todo: pass back html when requested via response.render()
 */
 
 exports.findAll = function (request, response, next) {
-
-    db.loadDatabase({}, function () {
-
-        try {
-            var data = db.getCollection('todo').data;
+    return todoDb.findAll()
+        .then(function(data){
             response.send(data);
-        }
-        catch (err) {
+        }).catch(function(err){
             next(err);
-        }
-    });
-
+        });
 }
 
 exports.findById = function (request, response, next) {
