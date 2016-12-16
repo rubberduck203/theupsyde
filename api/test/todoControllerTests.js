@@ -63,11 +63,11 @@ describe('TodoController', ()=> {
             this.save = saveSpy;
         }
 
-        var stub = sinon.stub().resolves(testData);
+        var findAll = sinon.stub().resolves(testData);
         var findById = sinon.stub().resolves(testData[0]);
 
         repoStub = {
-            findAll: stub,
+            findAll: findAll,
             findById: findById
         }
 
