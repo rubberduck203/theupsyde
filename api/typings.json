@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "express": "registry:dt/express#4.0.0+20160708185218",
+    "sinon": "registry:dt/sinon#1.16.1+20161208163514"
+  }
+}

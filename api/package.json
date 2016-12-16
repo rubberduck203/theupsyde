@@ -1,0 +1,26 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "npm-intellisense.scanDevDependencies": true,
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Christopher J. McClellan",
+  "license": "",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "node-mocks-http": "^1.5.4",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.6"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "handlebars": "^4.0.6",
+    "hbs": "^4.0.1",
+    "lokijs": "^1.4.1"
+  }
+}
