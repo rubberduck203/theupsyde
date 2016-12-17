@@ -8,3 +8,4 @@
 /// <reference path="modules/proxyquire/index.d.ts" />
 /// <reference path="modules/q/index.d.ts" />
 /// <reference path="modules/sinon-as-promised/index.d.ts" />
+/// <reference path="modules/sinon-chai/index.d.ts" />

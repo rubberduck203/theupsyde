@@ -15,7 +15,8 @@
     "node-mocks-http": "^1.5.4",
     "proxyquire": "^1.7.10",
     "sinon": "^1.17.6",
-    "sinon-as-promised": "^4.0.2"
+    "sinon-as-promised": "^4.0.2",
+    "sinon-chai": "^2.8.0"
   },
   "dependencies": {
     "body-parser": "^1.15.2",

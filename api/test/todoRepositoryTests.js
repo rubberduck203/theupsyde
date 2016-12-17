@@ -1,8 +1,11 @@
 var mocha = require('mocha'),
-    expect = require('chai').expect,
     proxy = require('proxyquire'),
     sinon = require('sinon'),
+    sinonChai = require('sinon-chai'),
+    expect = require('chai').use(sinonChai).expect,
     sinonAsPromised = require('sinon-as-promised');
+
+
 
 var todo = require('../repositories/todoRepository');
 
@@ -37,9 +40,12 @@ describe('TodoRepository', () => {
     var saveSpy = sinon.spy(),
         getCollectionStub = sinon.stub().returns(collectionStub);
 
-    beforeEach(() => {
-        saveSpy = sinon.spy();
+    var postData;
 
+    beforeEach(() => {
+        postData = { title: 'foo', done: true };
+
+        saveSpy = sinon.spy();
         var lokiStub = function loki(filename) {
             this.loadDatabase = function (options, callback) {
                 callback();
@@ -53,19 +59,16 @@ describe('TodoRepository', () => {
     });
 
     describe('update', () => {
-
-        var postData;
         var updateSpy = sinon.spy();
 
         before(() => {
             updateSpy = sinon.spy(collectionStub, 'update');
-            postData = { title: 'foo', done: true };
         })
 
         it('calls update', () => {
             return todo.update(1, postData)
                 .then(() => {
-                    expect(updateSpy.calledOnce).to.be.true;
+                    expect(updateSpy).to.have.been.calledOnce;
                 }).catch((err) => {
                     throw err;
                 });
@@ -75,10 +78,48 @@ describe('TodoRepository', () => {
 
             return todo.update(1, postData)
                 .then(() => {
-                    expect(saveSpy.calledOnce).to.be.true;
+                    expect(saveSpy).to.have.been.calledOnce;
                 }).catch((err) => {
                     throw err;
                 });
+        });
+    });
+
+    describe('insert', () => {
+        var insertSpy = sinon.stub();
+
+        before(() => {
+            insertSpy = sinon.stub(collectionStub, 'insert', () => {
+                return postData;
+            });
+        })
+
+        it('inserts the item', () => {
+            return todo.insert(postData)
+                .then(() => {
+                    expect(insertSpy).to.have.been.calledOnce;
+                    expect(insertSpy).to.have.been.calledWith(postData);
+                }).catch((err) => {
+                    throw err;
+                });
+        });
+
+        it('saves to the database', () => {
+            return todo.insert(postData)
+                .then(() => {
+                    expect(saveSpy).to.have.been.calledOnce;
+                }).catch((err) => {
+                    throw err;
+                });
+        });
+
+        it('returns the new document', () => {
+            return todo.insert(postData)
+                .then((result) => {
+                    expect(result).to.deep.equal(postData);
+                }).catch((err) => {
+                    throw err;
+                })
         });
     });
 });
