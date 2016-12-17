@@ -49,25 +49,67 @@ describe('TodoController', () => {
     })
 
     describe('findAll', () => {
-        describe('when successful', () => {
-            it('should return all items', () => {
-                return todo.findAll(request, response)
-                    .then(() => {
-                        var actual = response._getData();
-                        expect(actual).to.deep.equal(testData);
-                    }).catch((err) => {
-                        throw err
-                    });
+        describe('html requested', () => {
+            beforeEach(() => {
+                request = httpMocks.createRequest({
+                    headers: {
+                        Accept: 'text/html'
+                    }
+                });
+                var responseOptions = { req: request };
+                response = httpMocks.createResponse(responseOptions);
             });
 
-            it('should return a 200 ok', () => {
-
+            it('should return todo view', () => {
                 return todo.findAll(request, response)
                     .then(() => {
-                        expect(response.statusCode).to.equal(200);
+                        expect(response._getRenderView()).to.equal('todo');
+                    }).catch((err) => {
+                        throw err;
+                    })
+            });
+
+            it('should return todo items', () => {
+                return todo.findAll(request, response)
+                    .then(() => {
+                        expect(response._getRenderData()).to.deep.equal(testData);
                     }).catch((err) => {
                         throw err;
                     });
+            });
+        });
+
+        describe('json requested', () => {
+            beforeEach(() => {
+                request = httpMocks.createRequest({
+                    headers: {
+                        Accept: 'application/json'
+                    }
+                });
+                var responseOptions = { req: request };
+                response = httpMocks.createResponse(responseOptions);
+            });
+
+            describe('when successful', () => {
+                it('should return all items', () => {
+                    return todo.findAll(request, response)
+                        .then(() => {
+                            var actual = response._getData();
+                            expect(actual).to.deep.equal(testData);
+                        }).catch((err) => {
+                            throw err
+                        });
+                });
+
+                it('should return a 200 ok', () => {
+
+                    return todo.findAll(request, response)
+                        .then(() => {
+                            expect(response.statusCode).to.equal(200);
+                        }).catch((err) => {
+                            throw err;
+                        });
+                });
             });
         });
         describe('when database fails', () => {

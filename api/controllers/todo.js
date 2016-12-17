@@ -8,7 +8,10 @@ var todoDb = require('../repositories/todoRepository');
 exports.findAll = function (request, response, next) {
     return todoDb.findAll()
         .then(function (data) {
-            response.send(data);
+            response.format({
+                json: () => response.send(data),
+                html: () => response.render('todo', data)
+            });
         }).catch(function (err) {
             next(err);
         });
@@ -32,11 +35,11 @@ exports.findById = function (request, response, next) {
 exports.insert = function (request, response, next) {
 
     return todoDb.insert(request.body)
-            .then((result)=>{
-                response.status(201).send(result);
-            }).catch((err)=>{
-               next(err);
-            });
+        .then((result) => {
+            response.status(201).send(result);
+        }).catch((err) => {
+            next(err);
+        });
 }
 
 exports.update = function (request, response, next) {
@@ -51,7 +54,7 @@ exports.update = function (request, response, next) {
 
             response.send(item);
 
-        }).catch(function(err) {
+        }).catch(function (err) {
             next(err);
         });
 }
