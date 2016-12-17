@@ -7,11 +7,6 @@ var mocha = require('mocha'),
 
 var todo = require('../controllers/todo');
 
-var lokiStub,
-    //We overwrite the stub later, specify the type so we get intellisense.
-    saveSpy = sinon.stub(),
-    getCollectionStub = sinon.stub();
-
 describe('TodoController', () => {
 
     var repoStub;
@@ -36,33 +31,6 @@ describe('TodoController', () => {
                 "$loki": 2
             }];
 
-        collectionStub =
-            {
-                data: testData,
-                findOne: function (query) {
-                    for (var i = 0; i < testData.length; i++) {
-                        if (query.$loki === testData[i].$loki) {
-                            return testData[i];
-                        }
-                    }
-                },
-                insert: () => { },
-                update: () => { }
-            };
-
-        //todo: move loki mock to it's own module
-        saveSpy = sinon.stub();
-        getCollectionStub = sinon.stub().returns(collectionStub);
-
-        lokiStub = function loki(filename) {
-            this.loadDatabase = function (options, callback) {
-                callback();
-            };
-
-            this.getCollection = getCollectionStub;
-            this.save = saveSpy;
-        }
-
         var findAll = sinon.stub().resolves(testData);
         var findById = sinon.stub().resolves(testData[0]);
         var update = sinon.stub();
@@ -75,7 +43,7 @@ describe('TodoController', () => {
             insert: insert
         }
 
-        todo = proxy('../controllers/todo', { 'lokijs': lokiStub, '../repositories/todoRepository': repoStub });
+        todo = proxy('../controllers/todo', { '../repositories/todoRepository': repoStub });
     })
 
     describe('findAll', () => {
@@ -243,13 +211,11 @@ describe('TodoController', () => {
     describe('update', () => {
         describe('when item is found', () => {
 
-            var updateSpy = sinon.spy();
             var postData = { title: 'Foo', done: 'true' };
 
             beforeEach(() => {
 
                 request = httpMocks.createRequest({ body: postData });
-                request._setParameter('id', 1);
                 response = httpMocks.createResponse({ req: request });
 
                 repoStub.update.resolves(postData);
