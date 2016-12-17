@@ -35,7 +35,7 @@ exports.insert = function (request, response, next) {
             .then((result)=>{
                 response.status(201).send(result);
             }).catch((err)=>{
-                next(err);
+               next(err);
             });
 }
 

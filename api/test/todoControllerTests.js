@@ -3,7 +3,9 @@ var mocha = require('mocha'),
     httpMocks = require('node-mocks-http'),
     proxy = require('proxyquire'),
     sinon = require('sinon'),
-    sinonAsPromised = require('sinon-as-promised');
+    sinonAsPromised = require('sinon-as-promised'),
+    sinonChai = require('sinon-chai'),
+    expect = require('chai').use(sinonChai).expect;
 
 var todo = require('../controllers/todo');
 
@@ -76,8 +78,8 @@ describe('TodoController', () => {
                 var next = sinon.spy();
                 return todo.findAll(request, response, next)
                     .then(() => {
-                        expect(next.calledOnce).to.be.true;
-                        expect(next.calledWith(expectedError)).to.be.true;
+                        expect(next).to.have.been.calledOnce;
+                        expect(next).to.have.been.calledWith(expectedError);
                     }).catch((err) => {
                         throw err;
                     });
@@ -139,8 +141,8 @@ describe('TodoController', () => {
                 var next = sinon.spy();
                 return todo.findById(request, response, next)
                     .then(() => {
-                        expect(next.calledOnce).to.be.true;
-                        expect(next.calledWith(expectedError)).to.be.true;
+                        expect(next).to.have.been.calledOnce;
+                        expect(next).to.have.been.calledWith(expectedError);
                     }).catch((err) => {
                         throw err;
                     });
@@ -198,9 +200,8 @@ describe('TodoController', () => {
                 var next = sinon.spy();
                 return todo.insert(request, response, next)
                     .then(() => {
-                        expect(next.calledOnce).to.be.true;
-                        expect(next.calledWith(expectedError)).to.be.true;
-
+                        expect(next).to.have.been.calledOnce;
+                        expect(next).to.have.been.calledWith(expectedError);
                     }).catch((err) => {
                         throw err;
                     });
@@ -250,8 +251,8 @@ describe('TodoController', () => {
                     var next = sinon.spy();
                     return todo.update(request, response, next)
                         .then(() => {
-                            expect(next.calledOnce).to.be.true;
-                            expect(next.calledWith(expectedError)).to.be.true;
+                            expect(next).to.have.been.calledOnce;
+                            expect(next).to.have.been.calledWith(expectedError);
                         }).catch((err) => {
                             throw err;
                         });
