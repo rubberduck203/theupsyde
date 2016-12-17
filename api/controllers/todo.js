@@ -1,8 +1,3 @@
-var loki = require('lokijs'),
-    db = new loki('todo.json');
-
-//todo: finish removeing loki from this module
-
 var q = require('q');
 var todoDb = require('../repositories/todoRepository');
 
@@ -35,19 +30,13 @@ exports.findById = function (request, response, next) {
 }
 
 exports.insert = function (request, response, next) {
-    db.loadDatabase({}, function () {
-        try {
-            var doc = db.getCollection('todo')
-                .insert(request.body);
-            db.save();
 
-            response.status(201)
-                .send(doc);
-        }
-        catch (err) {
-            next(err);
-        }
-    });
+    return todoDb.insert(request.body)
+            .then((result)=>{
+                response.status(201).send(result);
+            }).catch((err)=>{
+                next(err);
+            });
 }
 
 exports.update = function (request, response, next) {

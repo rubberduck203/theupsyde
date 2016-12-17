@@ -66,11 +66,13 @@ describe('TodoController', () => {
         var findAll = sinon.stub().resolves(testData);
         var findById = sinon.stub().resolves(testData[0]);
         var update = sinon.stub();
+        var insert = sinon.stub();
 
         repoStub = {
             findAll: findAll,
             findById: findById,
-            update: update
+            update: update,
+            insert: insert
         }
 
         todo = proxy('../controllers/todo', { 'lokijs': lokiStub, '../repositories/todoRepository': repoStub });
@@ -181,38 +183,40 @@ describe('TodoController', () => {
     describe('insert', () => {
         describe('when successful', () => {
 
-            var insertSpy;
             var body = { name: 'spy on the insert' };
 
             beforeEach(() => {
-
                 request = httpMocks.createRequest({ body: body });
-                insertSpy = sinon.stub(collectionStub, 'insert', () => {
-                    return body;
-                });
+                repoStub.insert.resolves(body);
             });
 
             it('inserts to the database', () => {
-
-                todo.insert(request, response);
-
-                expect(insertSpy.calledWithExactly(body)).to.be.true;
-                expect(insertSpy.calledOnce).to.be.true;
-            });
-
-            it('saves to the database', () => {
-                todo.insert(request, response);
-                expect(saveSpy.calledOnce).to.be.true;
+                return todo.insert(request, response)
+                    .then(() => {
+                        expect(repoStub.insert).to.have.been.calledOnce;
+                        expect(repoStub.insert).to.have.been.calledWith(body);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
 
             it('returns the new todo item in the response body', () => {
-                todo.insert(request, response);
-                expect(response._getData()).to.deep.equal({ name: 'spy on the insert' });
+
+                return todo.insert(request, response)
+                    .then(() => {
+                        expect(response._getData()).to.deep.equal(body);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
 
             it('returns 201 created', () => {
-                todo.insert(request, response);
-                expect(response.statusCode).to.equal(201);
+                return todo.insert(request, response)
+                    .then(() => {
+                        expect(response.statusCode).to.equal(201);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
 
             it('includes a uri pointing to the new resource');
@@ -221,13 +225,17 @@ describe('TodoController', () => {
         describe('when failed', () => {
             it('calls next', () => {
                 var expectedError = new Error('Failed to save to database.');
-                saveSpy.throws(expectedError);
+                repoStub.insert.rejects(expectedError);
 
                 var next = sinon.spy();
-                todo.insert(request, response, next);
+                return todo.insert(request, response, next)
+                    .then(() => {
+                        expect(next.calledOnce).to.be.true;
+                        expect(next.calledWith(expectedError)).to.be.true;
 
-                expect(next.calledOnce).to.be.true;
-                expect(next.calledWith(expectedError)).to.be.true;
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
         });
     });
@@ -293,10 +301,10 @@ describe('TodoController', () => {
 
             it('should return 404 not found', () => {
 
-                return todo.update(request, response, ()=>{})
+                return todo.update(request, response, () => { })
                     .then(() => {
                         expect(response.statusCode).to.equal(404);
-                    }).catch((err)=>{
+                    }).catch((err) => {
                         throw err;
                     });
             });
