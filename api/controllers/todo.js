@@ -1,10 +1,6 @@
 var q = require('q');
 var todoDb = require('../repositories/todoRepository');
 
-/*
-    todo: pass back html when requested via response.render()
-*/
-
 exports.findAll = function (request, response, next) {
     return todoDb.findAll()
         .then(function (data) {
@@ -18,7 +14,9 @@ exports.findAll = function (request, response, next) {
 }
 
 exports.findById = function (request, response, next) {
-
+/*
+    todo: pass back html when requested via response.render()
+*/
     return todoDb.findById(request.params.id)
         .then(function (data) {
             if (!data) {
