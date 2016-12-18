@@ -1,5 +1,5 @@
 var loki = require('lokijs'),
-    db = new loki('todo.json');
+    db = new loki('data/todo.json');
 
 var Q = require('q');
 
