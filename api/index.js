@@ -5,6 +5,17 @@ var app = express();
 app.use(bodyParser.json());
 app.set('view engine', 'hbs');
 
+var auth = require('http-auth');
+var basic = auth.basic({file: __dirname + "/data/users.htpasswd"});
+// uncomment to password protect the whole api
+// app.use(auth.connect(basic));
+
+// use this as middleware just for routes we want
+var requireAuth = auth.connect(basic);
+
+// require authentication for all post requests
+app.post('*', requireAuth);
+
 var root = require('./controllers/root'),
     todo = require('./controllers/todo');    
 
