@@ -47,6 +47,6 @@ To add a new user
 
 ```bash
 htpasswd -Bb users.htpasswd username password
-````
+```
 
 *The data directory is ignored by git, but it would probably be better to setup an environment variable.*
