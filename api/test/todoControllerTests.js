@@ -2,19 +2,18 @@ var mocha = require('mocha'),
     expect = require('chai').expect,
     httpMocks = require('node-mocks-http'),
     proxy = require('proxyquire'),
-    sinon = require('sinon');
+    sinon = require('sinon'),
+    sinonAsPromised = require('sinon-as-promised'),
+    sinonChai = require('sinon-chai'),
+    expect = require('chai').use(sinonChai).expect;
 
 var todo = require('../controllers/todo');
 
-var lokiStub,
-    //We overwrite the stub later, specify the type so we get intellisense.
-    saveSpy = sinon.stub(),
-    getCollectionStub = sinon.stub();
+describe('TodoController', () => {
 
-describe('TodoController', function () {
-
+    var repoStub;
     var request, response, testData;
-    beforeEach(function () {
+    beforeEach(() => {
 
         // mock http request & response
         request = httpMocks.createRequest();
@@ -34,225 +33,289 @@ describe('TodoController', function () {
                 "$loki": 2
             }];
 
-        collectionStub =
-            {
-                data: testData,
-                findOne: function (query) {
-                    for (var i = 0; i < testData.length; i++) {
-                        if (query.$loki === testData[i].$loki) {
-                            return testData[i];
-                        }
-                    }
-                },
-                insert: function () { },
-                update: function () { }
-            };
+        var findAll = sinon.stub().resolves(testData);
+        var findById = sinon.stub().resolves(testData[0]);
+        var update = sinon.stub();
+        var insert = sinon.stub();
 
-        //todo: move loki mock to it's own module
-        saveSpy = sinon.stub();
-        getCollectionStub = sinon.stub().returns(collectionStub);
-
-        lokiStub = function loki(filename) {
-            this.loadDatabase = function (options, callback) {
-                callback();
-            };
-
-            this.getCollection = getCollectionStub;
-            this.save = saveSpy;
+        repoStub = {
+            findAll: findAll,
+            findById: findById,
+            update: update,
+            insert: insert
         }
 
-        todo = proxy('../controllers/todo', { 'lokijs': lokiStub });
+        todo = proxy('../controllers/todo', { '../repositories/todoRepository': repoStub });
     })
 
-    describe('findAll', function () {
-        describe('when successful', function () {
-            it('should return all items', function () {
-
-                todo.findAll(request, response);
-                var actual = response._getData();
-                expect(actual).to.deep.equal(testData);
+    describe('findAll', () => {
+        describe('html requested', () => {
+            beforeEach(() => {
+                request = httpMocks.createRequest({
+                    headers: {
+                        Accept: 'text/html'
+                    }
+                });
+                var responseOptions = { req: request };
+                response = httpMocks.createResponse(responseOptions);
             });
 
-            it('should return a 200 ok', function () {
+            it('should return todo view', () => {
+                return todo.findAll(request, response)
+                    .then(() => {
+                        expect(response._getRenderView()).to.equal('todo');
+                    }).catch((err) => {
+                        throw err;
+                    })
+            });
 
-                todo.findAll(request, response);
-                expect(response.statusCode).to.equal(200);
+            it('should return todo items', () => {
+                return todo.findAll(request, response)
+                    .then(() => {
+                        expect(response._getRenderData()).to.deep.equal(testData);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
         });
-        describe('when database fails', function () {
-            it('calls next', function () {
 
+        describe('json requested', () => {
+            beforeEach(() => {
+                request = httpMocks.createRequest({
+                    headers: {
+                        Accept: 'application/json'
+                    }
+                });
+                var responseOptions = { req: request };
+                response = httpMocks.createResponse(responseOptions);
+            });
+
+            describe('when successful', () => {
+                it('should return all items', () => {
+                    return todo.findAll(request, response)
+                        .then(() => {
+                            var actual = response._getData();
+                            expect(actual).to.deep.equal(testData);
+                        }).catch((err) => {
+                            throw err
+                        });
+                });
+
+                it('should return a 200 ok', () => {
+
+                    return todo.findAll(request, response)
+                        .then(() => {
+                            expect(response.statusCode).to.equal(200);
+                        }).catch((err) => {
+                            throw err;
+                        });
+                });
+            });
+        });
+        describe('when database fails', () => {
+            it('calls next', () => {
                 var expectedError = new Error('Failed to connect to database');
-                getCollectionStub.throws(expectedError);
+                repoStub.findAll.rejects(expectedError);
 
                 var next = sinon.spy();
-                todo.findAll(request, response, next);
-
-                expect(next.calledOnce).to.be.true;
-                expect(next.calledWith(expectedError)).to.be.true;
+                return todo.findAll(request, response, next)
+                    .then(() => {
+                        expect(next).to.have.been.calledOnce;
+                        expect(next).to.have.been.calledWith(expectedError);
+                    }).catch((err) => {
+                        throw err;
+                    });
             })
         });
     });
 
-    describe('findById', function () {
+    describe('findById', () => {
 
-        describe('when item is found', function () {
+        describe('when item is found', () => {
 
-            beforeEach(function () {
+            beforeEach(() => {
                 request._setParameter('id', 1);
             });
 
-            it('should return 200 ok', function () {
-                todo.findById(request, response);
-                expect(response.statusCode).to.equal(200);
+            it('should return 200 ok', () => {
+                return todo.findById(request, response)
+                    .then(() => {
+                        expect(response.statusCode).to.equal(200);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
 
-            it('should only return the expected item', function () {
-                todo.findById(request, response);
-                var actual = response._getData();
-                expect(actual).to.deep.equal(testData[0]);
+            it('should only return the expected item', () => {
+                return todo.findById(request, response)
+                    .then(() => {
+                        var actual = response._getData();
+                        expect(actual).to.deep.equal(testData[0]);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
         });
 
-        describe('when item is not found', function () {
-            beforeEach(function () {
+        describe('when item is not found', () => {
+            beforeEach(() => {
                 request._setParameter('id', 0);
             });
 
-            it('should return 404 not found', function () {
-                todo.findById(request, response);
-                expect(response.statusCode).to.equal(404);
+            it('should return 404 not found', () => {
+                repoStub.findById.resolves(null);
+
+                return todo.findById(request, response)
+                    .then(() => {
+                        expect(response.statusCode).to.equal(404);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
         });
 
-        describe('when database fails', function () {
-            it('should call next', function () {
+        describe('when database fails', () => {
+            it('should call next', () => {
 
                 var expectedError = new Error('Failed to connect to database');
-                getCollectionStub.throws(expectedError);
+                repoStub.findById.rejects(expectedError);
 
                 var next = sinon.spy();
-                todo.findById(request, response, next);
-
-                expect(next.calledOnce).to.be.true;
-                expect(next.calledWith(expectedError)).to.be.true;
-            })
+                return todo.findById(request, response, next)
+                    .then(() => {
+                        expect(next).to.have.been.calledOnce;
+                        expect(next).to.have.been.calledWith(expectedError);
+                    }).catch((err) => {
+                        throw err;
+                    });
+            });
         });
     });
 
-    describe('insert', function () {
-        describe('when successful', function () {
+    describe('insert', () => {
+        describe('when successful', () => {
 
-            var insertSpy;
             var body = { name: 'spy on the insert' };
 
-            beforeEach(function () {
-
+            beforeEach(() => {
                 request = httpMocks.createRequest({ body: body });
-                insertSpy = sinon.stub(collectionStub, 'insert', function () {
-                    return body;
-                });
+                repoStub.insert.resolves(body);
             });
 
-            it('inserts to the database', function () {
-
-                todo.insert(request, response);
-
-                expect(insertSpy.calledWithExactly(body)).to.be.true;
-                expect(insertSpy.calledOnce).to.be.true;
+            it('inserts to the database', () => {
+                return todo.insert(request, response)
+                    .then(() => {
+                        expect(repoStub.insert).to.have.been.calledOnce;
+                        expect(repoStub.insert).to.have.been.calledWith(body);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
 
-            it('saves to the database', function () {
-                todo.insert(request, response);
-                expect(saveSpy.calledOnce).to.be.true;
+            it('returns the new todo item in the response body', () => {
+
+                return todo.insert(request, response)
+                    .then(() => {
+                        expect(response._getData()).to.deep.equal(body);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
 
-            it('returns the new todo item in the response body', function () {
-                todo.insert(request, response);
-                expect(response._getData()).to.deep.equal({ name: 'spy on the insert' });
-            });
-
-            it('returns 201 created', function () {
-                todo.insert(request, response);
-                expect(response.statusCode).to.equal(201);
+            it('returns 201 created', () => {
+                return todo.insert(request, response)
+                    .then(() => {
+                        expect(response.statusCode).to.equal(201);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
 
             it('includes a uri pointing to the new resource');
         });
 
-        describe('when failed', function () {
-            it('calls next', function () {
+        describe('when failed', () => {
+            it('calls next', () => {
                 var expectedError = new Error('Failed to save to database.');
-                saveSpy.throws(expectedError);
+                repoStub.insert.rejects(expectedError);
 
                 var next = sinon.spy();
-                todo.insert(request, response, next);
-
-                expect(next.calledOnce).to.be.true;
-                expect(next.calledWith(expectedError)).to.be.true;
+                return todo.insert(request, response, next)
+                    .then(() => {
+                        expect(next).to.have.been.calledOnce;
+                        expect(next).to.have.been.calledWith(expectedError);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
         });
     });
 
-    describe('update', function () {
-        describe('when item is found', function () {
+    describe('update', () => {
+        describe('when item is found', () => {
 
-            var updateSpy = sinon.spy();
             var postData = { title: 'Foo', done: 'true' };
 
-            beforeEach(function () {
+            beforeEach(() => {
 
                 request = httpMocks.createRequest({ body: postData });
-                request._setParameter('id', 1);
                 response = httpMocks.createResponse({ req: request });
 
-                updateSpy = sinon.spy(collectionStub, 'update');
+                repoStub.update.resolves(postData);
             });
 
-            describe('when successful', function () {
-                it('calls update', function () {
-                    todo.update(request, response);
-                    expect(updateSpy.calledOnce).to.be.true;
+            describe('when successful', () => {
+
+                it('includes updated todo item in response body', () => {
+                    return todo.update(request, response)
+                        .then(() => {
+                            expect(response._getData()).to.deep.equal(postData);
+                        }).catch((err) => {
+                            throw err;
+                        });
                 });
 
-                it('saves to the database', function () {
-                    todo.update(request, response);
-                    expect(saveSpy.calledOnce).to.be.true;
-                });
-
-                it('includes updated todo item in response body', function () {
-                    todo.update(request, response);
-                    expect(response._getData()).to.deep.equal(postData);
-                });
-
-                it('returns 200 ok', function () {
-                    todo.update(request, response);
-                    expect(response.statusCode).to.equal(200);
+                it('returns 200 ok', () => {
+                    return todo.update(request, response)
+                        .then(() => {
+                            expect(response.statusCode).to.equal(200);
+                        }).catch((err) => {
+                            throw err;
+                        });
                 });
             });
 
-            describe('when failure', function () {
-                it('calls next', function () {
+            describe('when failure', () => {
+                it('calls next', () => {
                     var expectedError = new Error('Failed to save to database.');
-                    saveSpy.throws(expectedError);
+                    repoStub.update.rejects(expectedError);
 
                     var next = sinon.spy();
-                    todo.update(request, response, next);
-
-                    expect(next.calledOnce).to.be.true;
-                    expect(next.calledWith(expectedError)).to.be.true;
+                    return todo.update(request, response, next)
+                        .then(() => {
+                            expect(next).to.have.been.calledOnce;
+                            expect(next).to.have.been.calledWith(expectedError);
+                        }).catch((err) => {
+                            throw err;
+                        });
                 });
             });
         });
 
-        describe('when item is not found', function () {
-            beforeEach(function () {
+        describe('when item is not found', () => {
+            beforeEach(() => {
                 request._setParameter('id', 0);
+                repoStub.update.resolves(null);
             });
 
-            it('should return 404 not found', function () {
-                todo.update(request, response);
-                expect(response.statusCode).to.equal(404);
+            it('should return 404 not found', () => {
+
+                return todo.update(request, response, () => { })
+                    .then(() => {
+                        expect(response.statusCode).to.equal(404);
+                    }).catch((err) => {
+                        throw err;
+                    });
             });
         });
     });

@@ -10,4 +10,6 @@ exports.handle = function (error, request, response, next) {
             response.render('error');
         }
     });
+
+    next(error);
 }

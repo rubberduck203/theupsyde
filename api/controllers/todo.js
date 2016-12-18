@@ -1,81 +1,58 @@
-var loki = require('lokijs'),
-    db = new loki('todo.json');
-
-/*
-    todo: pass back html when requested via response.render()
-*/
+var q = require('q');
+var todoDb = require('../repositories/todoRepository');
 
 exports.findAll = function (request, response, next) {
-
-    db.loadDatabase({}, function () {
-
-        try {
-            var data = db.getCollection('todo').data;
-            response.send(data);
-        }
-        catch (err) {
+    return todoDb.findAll()
+        .then(function (data) {
+            response.format({
+                json: () => response.send(data),
+                html: () => response.render('todo', data)
+            });
+        }).catch(function (err) {
             next(err);
-        }
-    });
-
+        });
 }
 
 exports.findById = function (request, response, next) {
-    db.loadDatabase({}, function () {
-        try {
-            //request params is a string, must be int to lookup properly
-            var item = db.getCollection('todo')
-                .findOne({ '$loki': request.params.id * 1 });
+/*
+    todo: pass back html when requested via response.render()
+*/
+    return todoDb.findById(request.params.id)
+        .then(function (data) {
+            if (!data) {
+                response.sendStatus(404);
+                return;
+            }
+
+            response.send(data);
+        }).catch(function (err) {
+            next(err);
+        });
+}
+
+exports.insert = function (request, response, next) {
+
+    return todoDb.insert(request.body)
+        .then((result) => {
+            response.status(201).send(result);
+        }).catch((err) => {
+            next(err);
+        });
+}
+
+exports.update = function (request, response, next) {
+
+    return todoDb.update(request.params.id, request.body)
+        .then((item) => {
 
             if (!item) {
                 response.sendStatus(404);
                 return;
             }
+
             response.send(item);
-        }
-        catch (err) {
+
+        }).catch(function (err) {
             next(err);
-        }
-    });
-}
-
-exports.insert = function (request, response, next) {
-    db.loadDatabase({}, function () {
-        try {
-            var doc = db.getCollection('todo')
-                .insert(request.body);
-            db.save();
-
-            response.status(201)
-                .send(doc);
-        }
-        catch (err) {
-            next(err);
-        }
-    });
-}
-
-exports.update = function (request, response, next) {
-    db.loadDatabase({}, function () {
-        try {
-            var items = db.getCollection('todo');
-            var doc = items.findOne({ '$loki': request.params.id * 1 });
-
-            if (!doc) {
-                response.sendStatus(404);
-                return;
-            }
-
-            doc.title = request.body.title;
-            doc.done = request.body.done;
-
-            items.update(doc);
-            db.save();
-
-            response.send({ title: doc.title, done: doc.done });
-        }
-        catch (err) {
-            next(err);
-        }
-    });
+        });
 }

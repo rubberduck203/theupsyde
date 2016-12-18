@@ -1,0 +1,10 @@
+<h2>Backlog</h2>
+<ul>
+    {{#each this}}
+    {{#if done}}
+    <li><strike>{{title}}</strike></li>
+    {{else}}
+    <li>{{title}}</li>
+    {{/if}}
+    {{/each}}
+</ul>
