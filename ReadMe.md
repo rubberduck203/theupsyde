@@ -20,8 +20,6 @@ To promote from test to prod
 sudo cp -R /var/www/htdocs/test/www.theupsyde.net /var/www/htdocs/prod
 ```
 
-
-
 ## Adding Api Users
 
 If htpasswd isnt' installed already, install it.
@@ -50,3 +48,22 @@ htpasswd -Bb users.htpasswd username password
 ```
 
 *The data directory is ignored by git, but it would probably be better to setup an environment variable.*
+
+## Seeding the database
+
+The application will throw an exception if you try to query a database that doesn't exist.
+You need to seed the database by running the following commands from the node terminal.
+
+Fisrt, start the node terminal by executing the `node` command in the data directory.
+
+```bash
+$ cd api/data/
+$ node
+
+> var loki = require('lokijs');
+> var db = new loki('todo.json');
+> db.addCollection('todo');
+> var items = db.getCollection('todo');
+> items.insert({"title":"fix up the readme"});
+> db.save();
+```
