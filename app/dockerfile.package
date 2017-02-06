@@ -1,0 +1,4 @@
+FROM microsoft/aspnetcore
+WORKDIR /app
+COPY bin/Release/netcoreapp1.1/publish/ .
+ENTRYPOINT ["dotnet", "app.dll"]
