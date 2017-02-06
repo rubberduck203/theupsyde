@@ -1,6 +1,16 @@
 #!/bin/bash
+
+# Create an image that has already restored dependencies and published code
 docker build -t rubberduck/upsyde:build -f dockerfile.build .
-#todo: create build container and cp its output from bin/Release/netcoreapp1.1/publish/ 
-# to someplace convenient for package to pick it up.
-# This only worked the first time because I mounted the :build image
+docker create --name upsyde-build rubberduck/upsyde:build
+
+# Copy build artifacts to local file system
+mkdir -pv bin/Publish
+docker cp upsyde-build:/out/. ./bin/Publish/
+
+# Build lightweight version of container to deploy (no dotnet sdk)
+# The package knows to get the file from ./bin/Publish
 docker build -t rubberduck/upsyde -f dockerfile.package .
+
+# Clean up container so we can cleanly run again.
+docker rm upsyde-build

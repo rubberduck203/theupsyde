@@ -3,4 +3,4 @@ WORKDIR /app
 COPY project.json .
 RUN dotnet restore
 COPY . .
-RUN dotnet publish -c Release
+RUN dotnet publish -c Release -o /out/
