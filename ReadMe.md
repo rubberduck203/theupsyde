@@ -1,16 +1,12 @@
 Main site runs directly on port 80.
-Test version runs on 81.
 
-Lighttpd config is in /etc/lighttpd/lighttpd.conf
+Nginx config is in /etc/nginx/conf.d/default.conf
 
 After changing the server config, run the following command.
 
 ```bash
-/etc/init.d/lighttpd restart
+nginx -s reload
 ```
-
-http://www.cyberciti.biz/faq/stop-lighttpd-server/
-
 
 ---
 
@@ -18,6 +14,19 @@ To promote from test to prod
 
 ```bash
 sudo cp -R /var/www/htdocs/test/www.theupsyde.net /var/www/htdocs/prod
+```
+
+## Starting asp.net core docker
+
+Nginx proxies the /test/ directory to the docker container.
+In order for this to work properly, the ASPNETCORE_URLS environment variable must be setup to use the same directory structure.
+Otherwise, framework resolved URLs won't generate properly.
+
+https://github.com/aspnet/Hosting/issues/815
+
+
+```bash
+docker run --name aspcoretest -p 8080:80 -d -e "ASPNETCORE_URLS=http://+:80/test" rubberduck/upsyde
 ```
 
 ## Adding Api Users
