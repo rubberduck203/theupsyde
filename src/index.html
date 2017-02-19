@@ -2,70 +2,47 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Upsyde - Home</title>
-  <link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+	<title>Upsyde - Home</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <h1>The Upsyde</h1>
-    <p>
-      The simplest website that could possibly work. 
-    </p>
-  </header>
-  <section id="main">
-	  <article id="mission">
-		<h2>Mission Statement</h2>
+	<header>
+		<h1>The Upsyde</h1>
 		<p>
-		  This my personal sketchbook, a place to organize all the half finished projects that we developers all seem to have. 
+			The simplest website that could possibly work.
 		</p>
-		<p>
-		  This site is also a place for me to play with tech that I don't necessarily get an opportunity to work with at my 9-5, an opportunity to learn non-Microsoft stacks and .Net Core. 
-		</p>
-	  </article>
-
-	  <article id="todo">
-		<h2>The Backlog</h2>
-		<ul>
-		  <li><strike>Setup test site on different port.</strike></li>
-		  <li>
-			Decide on a method to transform markdown into html. 
+	</header>
+	<section id="main">
+		<article id="mission">
+			<h2>Mission Statement</h2>
+			<p>
+				This my personal sketchbook, a place to organize all the half finished projects that we developers all seem to have.
+			</p>
+			<p>
+				This site is also a place for me to play with tech that I don't necessarily get an opportunity to work with at my 9-5, an
+				opportunity to learn non-Microsoft stacks and .Net Core.
+			</p>
+		</article>
+		<nav>
+			<h2>Command Center</h2>
 			<ul>
-				<li>Use a pre-compiled method. There's surely a performance hit for transpiling markdown to html on the fly.</li>
-				<li>Options to evaluate.
-					<ul>
-						<li><a href="http://pandoc.org/">Pandoc</a></li>
-						<li><a href="https://ikiwiki.info/">Ikiwiki</a></li>
-					</ul>
-				</li>
+				<li><a href="https://theupsyde.net:8081/b/wDNbFPvwNattng7b7/theupsyde-net">Kanban</a></li>
+				<li><a href="https://christopherjmcclellan.wordpress.com/">Blog</a></li>
+				<li><a href="https://github.com/ckuhn203">GitHub</a></li>
+				<li><a href="https://bitbucket.org">BitBucket</a></li>
+				<li><a href="http://codereview.stackexchange.com/">Code Review Stack Exchange</a></li>
+			  <li><a href="https://help.ubuntu.com/community/IptablesHowTo">iptables</a>, because I always forget.</li>
 			</ul>
-		  </li>
-                  <strike>
-										<li>Migrate to nginx due to <a href="https://redmine.lighttpd.net/issues/164#note-9">Lighttpd issue with reverse proxy</a></li>
-                  </strike>
-									<li>Spin up WeKan on different port and proxy a subdir.</li>
-		  <li>Add Rss feed from blog.</li>
-		  <li>Add subdomain and migrate blog here.</li>
-	  	  <li>
-		    <ul>
-                      <li><strike>Come up with an excuse to deploy an Asp.Net Core app.</strike> .Net Core doesn't support my version of CentOS.</li>
-                      <li>But I can run a CentOS7 Docker container that does!!</li>
-                    </ul>
-                  </li>
-		  <li>Add resume here.</li>
-		  <li><strike>Learn js promises (q) and chai-as-promised.</strike></li>
-		  <li><strike>https</strike></li>
-		  <li><strike>Pretty it up.</strike></li>
-		 </ul>
-	  </article>
-  </section>
-  <footer>
-	<p>Powerd by Nginx and CentOS</p>
-	<img src="nginx-logo.png"/>
-	<img src="poweredby.png"/>
-  </footer>
-  
+		</nav>
+	</section>
+	<footer>
+		<p>Powerd by Nginx and CentOS</p>
+		<img src="nginx-logo.png" />
+		<img src="poweredby.png" />
+	</footer>
+
 </body>
 
 </html>

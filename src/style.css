@@ -33,3 +33,14 @@ header, footer {
 section#main {
 	padding: 0 2%;
 }
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+    list-style-position: hanging;
+}
+
+nav ul li {
+    margin-top: inherit;
+    margin-bottom: inherit;
+}
