@@ -16,7 +16,45 @@ To promote from test to prod
 sudo cp -R /var/www/htdocs/test/www.theupsyde.net /var/www/htdocs/prod
 ```
 
+## Wekan
+### Bringing up wekan
+
+We can't run wekan in a virtual directory because of an issue in FlowRouter, a lib that wekan uses.
+https://github.com/wekan/wekan/issues/785
+
+We publish the docker port only on local host, and then proxy to it through nginx & https.
+
+Mac/CentOS 7
+
+```bash
+docker network create --driver bridge wekan
+docker run --name wekandb -itd --network wekan -v /Users/rubberduck/wekan/data:/data/db mongo
+docker run --name wekan -itd --network wekan -p 127.0.0.1:18081:80 -e "MONGO_URL=mongodb://wekandb/wekan" -e "ROOT_URL=https://theupsyde.net:8081" mquandalle/wekan
+```
+
+CentOS 6
+
+Uses docker-io instead of docker-engine, so we need to use the old --link networks
+
+```bash
+docker run --name wekandb -d -v /var/lib/wekan:/data/db mongo
+docker run --name wekan -d --link wekandb -p 127.0.0.1:18081:80 -e "MONGO_URL=mongodb://wekandb/wekan" -e "ROOT_URL=https://theupsyde.net:8081" mquandalle/wekan
+```
+
+*Nginx proxies the wekan/ directory to the dockerized app. 
+
+### mongodb
+
+Wekan is backed by a mongodb instance running in the wekandb container.
+To access the mongo shell: 
+
+```bash
+docker exec -it wekandb mongo
+```
+
 ## Starting asp.net core docker
+
+*TODO: Hide this behind our firewall like we did for wekan.*
 
 Nginx proxies the /test/ directory to the docker container.
 In order for this to work properly, the ASPNETCORE_URLS environment variable must be setup to use the same directory structure.
