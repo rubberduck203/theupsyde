@@ -1,6 +1,7 @@
 The presentations use Remark.js to render markdown files as slides.
-
 I'm using external markdown, so you'll need a local webserver to serve the markdown files to Remark.
+
+[RemarkJs Wiki](https://github.com/gnab/remark/wiki)
 
 IIS Express Example: 
 
