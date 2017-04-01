@@ -37,7 +37,9 @@ Tired of bickering over story points and want to make your planning meetings pro
 # #NoEstimates
 ## What is #NoEstimates?
 
-[//]: #(Insert Woody Zuil Quote)
+> \#NoEstimates is a hashtag for the topic of exploring alternatives to estimates [of time, effort, cost] for making decisions in software development.  That is, ways to make decisions with “No Estimates”. 
+> 
+> ~ [Woody Zuill](http://zuill.us/WoodyZuill/2013/05/17/the-noestimates-hashtag/)
 
 ???
 
