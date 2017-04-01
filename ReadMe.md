@@ -21,3 +21,5 @@ docker start presentations
 ```
 
 Once running, you can view the presentation by going to `http://localhost:8080/` in the browser.
+
+Press `C` to clone the window and `P` to enter presentation mode.
