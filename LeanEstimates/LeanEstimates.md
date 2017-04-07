@@ -52,9 +52,16 @@ class: center, middle
 
 Well, that's not very helpful is it...
 
-## So what is it *really*?
+---
 
-[//]: #(People are talking about forecasting, very few are actually recommending not estimating.)
+## So what is \#NoEstimates *really*?
+
+- A handful of people actually are actually working without estimates
+--
+
+- But most people are talking about *forecasting*.
+
+---
 
 ## What's Wrong with Story Points?
 ## What's Wrong with #NoEstimates?
