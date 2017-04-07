@@ -68,8 +68,13 @@ Well, that's not very helpful is it...
 
 ---
 
+class: center, middle
+
 # Lean Estimates
---
+
+---
+
+# Lean Estimates
 
 Good enough estimates as inexpensively as possible.
 
