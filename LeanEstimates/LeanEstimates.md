@@ -36,7 +36,12 @@ Tired of bickering over story points and want to make your planning meetings pro
 
 ---
 
+class: center, middle
+
 # #NoEstimates
+
+---
+
 ## What is #NoEstimates?
 
 > \#NoEstimates is a hashtag for the topic of exploring alternatives to estimates [of time, effort, cost] for making decisions in software development.  That is, ways to make decisions with “No Estimates”. 
@@ -57,6 +62,18 @@ Well, that's not very helpful is it...
 ---
 
 # Lean Estimates
+--
+
+Good enough estimates as inexpensively as possible.
+
+---
+
+# Lean Estimates
+
+In other words, eliminate the waste in your estimation process.
+
+---
+
 ## Lean Terminology
 ## Techniques
 ### Short Term Estimation
