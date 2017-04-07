@@ -60,6 +60,10 @@ layout:true
 
 Well, that's not very helpful is it...
 
+More seriously though, NE isn't a methodology, or a practice.
+It's a hashtag on twitter. 
+It's meant to get us thinking about and questioning how we estimate.
+
 ---
 
 ## So what is it *really*?
