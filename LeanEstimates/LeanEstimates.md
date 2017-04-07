@@ -17,7 +17,7 @@ Tired of bickering over story points and want to make your planning meetings pro
 
 # Agenda
 
-[//]: #(TODO)
+[//]: # (TODO)
 
 1. Introduction
 2. ...
@@ -31,6 +31,8 @@ Tired of bickering over story points and want to make your planning meetings pro
 ### Credentials/Context
 #### Manufacturing
 #### Research & Development
+
+[//]: # (TODO Evaluate if this should move to end or even be a thing at all)
 
 ---
 
@@ -63,4 +65,4 @@ Well, that's not very helpful is it...
 ## Assumptions
 ## References & Resources
 
-[//]: #(Link to this slide deck online)
+[//]: # (Link to this slide deck online)
