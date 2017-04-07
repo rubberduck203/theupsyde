@@ -86,7 +86,28 @@ In other words, eliminate the waste in your estimation process.
 ### Short Term Estimation
 ### Long Term Estimation
 
+---
+
 ## Assumptions
+
+- Deliver as soon as it's done, not on a sprint boundary.
+- Work is sliced thinly and reasonably consistently. (Stories are small enough to finish in < 1 wk, preferably < 3 days)
+- It's safe to be wrong.
+- Work is sliced vertically.
+
+---
+
+## Benefits
+
+- Nearly zero time spent estimating. 
+  - One time investment into a worksheet.
+  - Minimal tracking overhead, none if using a work tracker like Jira or VSTS.
+- Less friction. 
+  - No arguing or negotiating estimates.
+- Business people think in numbers. Giving them estimates based on data builds trust.
+
+---
+
 ## References & Resources
 
 [//]: # (Link to this slide deck online)
