@@ -39,11 +39,18 @@ Tired of bickering over story points and want to make your planning meetings pro
 
 class: center, middle
 
-# #NoEstimates
+# \#NoEstimates
 
 ---
 
-## What is #NoEstimates?
+layout:true
+
+# \#NoEstimates
+
+---
+
+## What is it?
+--
 
 > \#NoEstimates is a hashtag for the topic of exploring alternatives to estimates [of time, effort, cost] for making decisions in software development.  That is, ways to make decisions with “No Estimates”. 
 > 
@@ -55,7 +62,7 @@ Well, that's not very helpful is it...
 
 ---
 
-## So what is \#NoEstimates *really*?
+## So what is it *really*?
 
 - A handful of people actually are actually working without estimates
 --
@@ -69,19 +76,22 @@ Well, that's not very helpful is it...
 
 ---
 
+layout:false
 class: center, middle
 
 # Lean Estimates
 
 ---
 
+layout:true
+
 # Lean Estimates
+
+---
 
 Good enough estimates as inexpensively as possible.
 
 ---
-
-# Lean Estimates
 
 In other words, eliminate the waste in your estimation process.
 
@@ -100,6 +110,8 @@ In other words, eliminate the waste in your estimation process.
 - Work is sliced thinly and reasonably consistently. (Stories are small enough to finish in < 1 wk, preferably < 3 days)
 - It's safe to be wrong.
 - Work is sliced vertically.
+
+[//]: # (Maybe moved assumptions & benefits up a bit.)
 
 ---
 
