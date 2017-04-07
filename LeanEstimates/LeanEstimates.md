@@ -1,6 +1,7 @@
 class: center, middle
 
-# Lean Estimates
+# \#NoEstimates or \#LeanEstimates
+## That is the Question
 
 ---
 
