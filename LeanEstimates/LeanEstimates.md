@@ -1,10 +1,3 @@
-class: center, middle
-
-# \#NoEstimates or \#LeanEstimates
-## That is the Question
-
----
-
 name: abstract
 exclude: true
 
@@ -16,24 +9,37 @@ Tired of bickering over story points and want to make your planning meetings pro
 
 ---
 
-# Agenda
+class: center, middle
 
-[//]: # (TODO)
+# \#NoEstimates or \#LeanEstimates
+## That is the Question
 
-1. Introduction
-2. ...
-3. ...
+???
+- This is my first time presenting like this, so let's talk about something really controversial.
+- Todd Little has a talk called "To Estimate or #NoEstimates, that is the question".
+I had seen the talk before coming up with this title, but it was unintentional.
+Maybe a Freudian slip but not a concious decision.
+- I originally was going to call this Refactor.Rename(NE -> LE).
+---
+
+class: center, middle
+
+# Who is this idiot?
+
+???
+- Nobody. 
+  - Just a software developer here in central OH.
+  - Unlike a lot of folks talking about NE, I've nothing to sell.
+- Worked on a (nearly) no estimates project.
+- Worked on a team who used the Lean Estimation techniques we'll talk about. 
 
 ---
 
-# Introduction
-## Me
-### Contact Info
-### Credentials/Context
-#### Manufacturing
-#### Research & Development
+# Agenda
 
-[//]: # (TODO Evaluate if this should move to end or even be a thing at all)
+1. \#NoEstimates
+2. Lean Estimates
+3. Techniques
 
 ---
 
@@ -57,7 +63,6 @@ layout:true
 > ~ [Woody Zuill](http://zuill.us/WoodyZuill/2013/05/17/the-noestimates-hashtag/)
 
 ???
-
 Well, that's not very helpful is it...
 
 More seriously though, NE isn't a methodology, or a practice.
