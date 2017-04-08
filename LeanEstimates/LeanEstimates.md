@@ -83,6 +83,8 @@ It's meant to get us thinking about and questioning how we estimate.
   - Continuous flow
   - In some ways it was good, but in other ways stressful. 
     - We had a variable scope, but a hard deadline.
+- A common NE model for contractors is to have a client that pays by the iteration.
+  - CorgiBytes/Woody Zuill
 --
 
 - But most people are talking about *forecasting*.
@@ -99,6 +101,12 @@ It's meant to get us thinking about and questioning how we estimate.
 ???
 - We'll skip over hourly estimations, Agile practioners can generally agree they're unreliable and a source of dysfunction.
 --
+
+.center[![Picture of Drew Carey. Welcome to Agile, where the rules are made up and the points don't matter.](img/WelcomeToAgile.jpg)]
+
+---
+
+## What's Wrong with Story Points?
 
 - Inevitably tied back to time.
 ???
