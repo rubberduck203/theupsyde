@@ -9,9 +9,10 @@ Tired of bickering over story points and want to make your planning meetings pro
 
 ---
 
+name: title
 class: center, middle
 
-# \#NoEstimates or \#LeanEstimates
+# \#NoEstimates or \#LeanEstimates?
 ## That is the Question
 
 ???
@@ -24,7 +25,7 @@ Maybe a Freudian slip but not a concious decision.
 
 class: center, middle
 
-# Who is this idiot?
+# Who am I?
 
 ???
 - Nobody. 
@@ -36,6 +37,8 @@ software by doing it and *helping others do it*."
 - Worked on a team who used the Lean Estimation techniques we'll talk about. 
 
 ---
+
+name: agenda
 
 # Agenda
 
