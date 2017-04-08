@@ -110,10 +110,29 @@ In other words, eliminate the waste in your estimation process.
 
 ## Assumptions
 
-- Deliver as soon as it's done, not on a sprint boundary.
-- Work is sliced thinly and reasonably consistently. (Stories are small enough to finish in < 1 wk, preferably < 3 days)
 - It's safe to be wrong.
-- Work is sliced vertically.
+???
+- Because you will be... but you'll be good enough on average.
+  - "All estimates are wrong. Some are useful."
+--
+
+- Work is sliced vertically, thinly, and reasonably consistently. 
+???
+- Stories are small enough to finish in < 1 wk, preferably < 3 days
+- Big lumps of work will throw your estimates off.
+- "Mixed nuts are fine, but look out for coconuts"
+TODO: find the reference for that quote.
+--
+
+- Deliver as soon as it's done, not on a sprint boundary.
+???
+- Waiting to deliver drags your cycle times down.
+- If you *must* deliver on a boundry, adjust your cycle time to "ready", but really just deliver when it's ready.
+--
+
+- You have control over your process.
+???
+- This will be hard to do if you're forced into working with Scrumfall or even inside a larger system like SAFe.
 
 [//]: # (Maybe moved assumptions & benefits up a bit.)
 
@@ -122,11 +141,24 @@ In other words, eliminate the waste in your estimation process.
 ## Benefits
 
 - Nearly zero time spent estimating. 
+--
+
   - One time investment into a worksheet.
+--
+
   - Minimal tracking overhead, none if using a work tracker like Jira or VSTS.
-- Less friction. 
+--
+
+- Less friction.
+--
+
   - No arguing or negotiating estimates.
-- Business people think in numbers. Giving them estimates based on data builds trust.
+--
+
+- Business people think in numbers. 
+--
+
+  - Giving them estimates based on data builds trust.
 
 ---
 
