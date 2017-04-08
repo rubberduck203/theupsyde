@@ -155,7 +155,10 @@ That was a decade ago.
 
 ## What's Wrong with #NoEstimates?
 
-### Say what you mean and mean what you say.
+- Should we do this project?
+  - How do you know without an estimate? (Both cost & value)
+- Business people will laugh at you if you tell them you're not going to estimate.
+- Say what you mean and mean what you say.
 
 ---
 
@@ -188,6 +191,10 @@ layout:true
 ### Short Term Estimation
 ### Long Term Estimation
 
+???
+Caveat & Warning
+I've never been able to compare the long term technique to actuals. Once people saw how expensive it would be, they decided to either buy something off the shelf or simply spend their money elsewhere.
+
 ---
 
 ## Assumptions
@@ -202,8 +209,7 @@ layout:true
 ???
 - Stories are small enough to finish in < 1 wk, preferably < 3 days
 - Big lumps of work will throw your estimates off.
-- "Mixed nuts are fine, but look out for coconuts"
-TODO: find the reference for that quote.
+- ["Mixed nuts are fine, but look out for coconuts"](http://toddlittleweb.com/wordpress/2016/03/14/to-estimate-or-noestimates-that-is-the-question-2/)
 --
 
 - Deliver as soon as it's done, not on a sprint boundary.
@@ -215,6 +221,11 @@ TODO: find the reference for that quote.
 - You have control over your process.
 ???
 - This will be hard to do if you're forced into working with Scrumfall or even inside a larger system like SAFe.
+--
+
+- You have *good* and *tested* code.
+???
+If you have crap code, you'll have crap predictability.
 
 [//]: # (Maybe moved assumptions & benefits up a bit.)
 
