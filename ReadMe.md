@@ -1,26 +1,38 @@
-Main site runs directly on port 80.
+# TheUpsyde.Net
 
-Nginx config is in /etc/nginx/conf.d/default.conf
+The simplest website that could possibly work.
 
-After changing the server config, run the following command.
+## Building
 
-```bash
-nginx -s reload
-```
+The website includes presentations from https://github.com/rubberduck203/Presentations.
+This was a pre-existing repository, so it's been included as a submodule.
 
----
+The site is now build by running `npm run build`, which will drop the prepared website into the `dist/` directory.
 
-To promote from test to prod
+## Deployment
 
-```bash
-sudo cp -R /var/www/htdocs/test/www.theupsyde.net /var/www/htdocs/prod
-```
+- Copy the contents of `dist/` to `//webserver/var/www/htdocs/prod/www.theupsyde.net`
+- See below for how to start the wekan docker.
+
+## Server
+
+- The main site runs directly on port 80.
+- Nginx config is in `/etc/nginx/conf.d/default.conf`
+
+- After changing the server config, run the following command.
+
+    ```bash
+    nginx -s reload
+    ```
+
+- Wekan runs off of it's own docker container behind a proxy.
 
 ## Wekan
 ### Bringing up wekan
 
 We can't run wekan in a virtual directory because of an issue in FlowRouter, a lib that wekan uses.
 https://github.com/wekan/wekan/issues/785
+(TODO: Fix the wekan proxy. Issue 785 has been corrected.)
 
 We publish the docker port only on local host, and then proxy to it through nginx & https.
 
@@ -52,7 +64,19 @@ To access the mongo shell:
 docker exec -it wekandb mongo
 ```
 
-## Starting asp.net core docker
+---
+
+# Other Stuff
+
+The following things were experiments that aren't actively being used.
+
+## Asp.Net Core Demo Site
+
+Located in the `app/` directory is a boilerplate asp.net core site.
+It is currently running on the webserver, but isn't really being used.
+More of a proof of concept for a possible future state of the site.
+
+### Asp.Net Core Docker 
 
 *TODO: Hide this behind our firewall like we did for wekan.*
 
@@ -67,7 +91,14 @@ https://github.com/aspnet/Hosting/issues/815
 docker run --name aspcoretest -p 8080:80 -d -e "ASPNETCORE_URLS=http://+:80/test" rubberduck/upsyde
 ```
 
-## Adding Api Users
+## NodeJs Todo Webservice
+
+I was originally building this as a way to keep track of things, but it was way simpler to just spin up a Wekan image.
+Still, the project in the `api/` directory has been useful as a reference while working on other projects.
+
+TODO: Move the Todo Webservice to it's own repo so it's not cluttering up this one.
+
+### Adding Api Users
 
 If htpasswd isnt' installed already, install it.
 
@@ -96,7 +127,7 @@ htpasswd -Bb users.htpasswd username password
 
 *The data directory is ignored by git, but it would probably be better to setup an environment variable.*
 
-## Seeding the database
+### Seeding the LokiJs database
 
 The application will throw an exception if you try to query a database that doesn't exist.
 You need to seed the database by running the following commands from the node terminal.
