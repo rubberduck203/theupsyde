@@ -96,7 +96,34 @@ It's meant to get us thinking about and questioning how we estimate.
 ---
 
 ## What's Wrong with Story Points?
+???
+- We'll skip over hourly estimations, Agile practioners can generally agree they're unreliable and a source of dysfunction.
+--
+
+- Inevitably tied back to time.
+???
+How many folks in the room have had an extremely hard time getting someone in management or another developer to stop mapping a certain number of points to a certain amount of time?
+- 1pt = 1/2 day
+- 3pts = 3 days
+- etc.
+--
+
+- Unreliable
+???
+- It's only anecdotal, but my team found they were a completely unreliable way of gauging how much work we could do in an iteration.
+- Some teams may have success with them, but my team certainly didn't.
+--
+
+- Cause of developer friction
+???
+- How many times have you heard people arguing over whether something was a 3 or 5?
+  - Does it really matter?
+- See: Inevitably tied back to time.
+---
+
 ## What's Wrong with #NoEstimates?
+
+### Say what you mean and mean what you say.
 
 ---
 
@@ -113,11 +140,15 @@ layout:true
 
 ---
 
-Good enough estimates as inexpensively as possible.
+## Good enough estimates as inexpensively as possible.
 
 ---
 
-In other words, eliminate the waste in your estimation process.
+## In other words, eliminate the waste in your estimation process.
+
+---
+
+### Okay, *maybe* so we're talking about Forecasting...
 
 ---
 
