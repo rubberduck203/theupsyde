@@ -72,12 +72,27 @@ It's meant to get us thinking about and questioning how we estimate.
 ---
 
 ## So what is it *really*?
+--
 
 - A handful of people actually are actually working without estimates
+???
+- Woody Zuill, Tim Ottinger
+- Nearly No Estimates Research Project
+  - Prioritized backlog
+  - Just do the next most important thing
+  - Continuous flow
+  - In some ways it was good, but in other ways stressful. 
+    - We had a variable scope, but a hard deadline.
 --
 
 - But most people are talking about *forecasting*.
-
+???
+- Todd Little, Troy Magennis, Vasco Duarte
+- I've done this too.
+  - Prioritized backlog
+  - Continuous flow
+  - Bi-weekly cadance to replenish backlog
+  - Probably didn't need to, but the team like setting (and accomplishing) goals.
 ---
 
 ## What's Wrong with Story Points?
