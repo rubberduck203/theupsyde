@@ -131,6 +131,26 @@ How many folks in the room have had an extremely hard time getting someone in ma
 - How many times have you heard people arguing over whether something was a 3 or 5?
   - Does it really matter?
 - See: Inevitably tied back to time.
+--
+
+### More often than not, they're *guesses*.
+
+???
+Educated guesses maybe, but guesses none the less.
+People are *really* bad at estimation.
+---
+
+> Count if at all possible.
+> 
+> Compute when you can’t count.   
+>
+> ***Use judgment alone only as a last resort.***
+> 
+> ~ [Steve McConnell - *Software Estimation: Demystifying the Black Art*](http://www.stevemcconnell.com/est.htm)
+
+???
+McConnell wrote this book in 2006. 
+That was a decade ago.
 ---
 
 ## What's Wrong with #NoEstimates?
