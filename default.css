@@ -6,3 +6,9 @@ img {
 .shock {
     font-size: 40px;
 }
+
+blockquote {
+    background-color: aliceblue;
+    padding: 1.5em;
+    border-radius: 2em;
+}
