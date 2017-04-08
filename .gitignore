@@ -1,3 +1,5 @@
+dist/
+
 # Mac likes to create ds_store files. Be sure to keep them out of the report
 .DS_Store
 
