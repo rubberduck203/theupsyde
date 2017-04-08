@@ -187,6 +187,11 @@ layout:true
 ---
 
 ## Lean Terminology
+
+- Waste
+- Cycle Time
+- Lead Time
+
 ## Techniques
 ### Short Term Estimation
 ### Long Term Estimation
