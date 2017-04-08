@@ -30,6 +30,8 @@ class: center, middle
 - Nobody. 
   - Just a software developer here in central OH.
   - Unlike a lot of folks talking about NE, I've nothing to sell.
+  - "We are uncovering better ways of developing
+software by doing it and *helping others do it*."
 - Worked on a (nearly) no estimates project.
 - Worked on a team who used the Lean Estimation techniques we'll talk about. 
 
