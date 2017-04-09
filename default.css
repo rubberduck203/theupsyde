@@ -12,3 +12,7 @@ blockquote {
     padding: 1.5em;
     border-radius: 2em;
 }
+
+.remark-slide-content {
+    background-color: beige;
+}
