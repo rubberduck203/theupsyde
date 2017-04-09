@@ -81,7 +81,7 @@ It's meant to get us thinking about and questioning how we estimate.
 
 ### A handful of people actually are actually working without estimates
 ???
-- Woody Zuill, Tim Ottinger
+- Woody Zuill
 - Nearly No Estimates Research Project
   - Prioritized backlog
   - Just do the next most important thing
@@ -100,45 +100,60 @@ It's meant to get us thinking about and questioning how we estimate.
   - Continuous flow
   - Bi-weekly cadance to replenish backlog
   - Probably didn't need to, but the team like setting (and accomplishing) goals.
+
 ---
 
+layout: true
+# \#NoEstimates
 ## What's Wrong with Story Points?
+
+---
 
 .center[![Picture of Drew Carey. Welcome to Agile, where the rules are made up and the points don't matter.](img/WelcomeToAgile.jpg)]
 
 ???
 - We'll skip over hourly estimations, Agile practioners can generally agree they're unreliable and a source of dysfunction.
+
 ---
 
-## What's Wrong with Story Points?
+### Confusing & Inevitably tied back to time.
 
-### Inevitably tied back to time.
+> Newbies are confused and uncomfortable estimating with story points and frequently compensate by consistently translating story points back to actual time estimates.
+>
+> ~ [Joshua Kerievsky - Stop Using Story Points](https://www.industriallogic.com/blog/stop-using-story-points/)
+
 ???
 How many folks in the room have had an extremely hard time getting someone in management or another developer to stop mapping a certain number of points to a certain amount of time?
 - 1pt = 1/2 day
 - 3pts = 3 days
 - etc.
---
+
+---
+
+### Easily Abused & Gamed
+
+> I shook my head, amazed at how a mature agile team, a team that had been assessed, trained and coached by myself and two excellent Industrial Logic coaches, could so suddenly inflate their story point estimates to appear like they were going faster.
+> 
+> ~ [Joshua Kerievsky - Stop Using Story Points](https://www.industriallogic.com/blog/stop-using-story-points/)
+
+---
 
 ### Unreliable
 ???
 - It's only anecdotal, but my team found they were a completely unreliable way of gauging how much work we could do in an iteration.
 - Some teams may have success with them, but my team certainly didn't.
---
+
+---
 
 ### Cause of developer friction
 ???
 - How many times have you heard people arguing over whether something was a 3 or 5?
   - Does it really matter?
 - See: Inevitably tied back to time.
---
+
+---
 
 ### More often than not, they're *guesses*.
-
-???
-Educated guesses maybe, but guesses none the less.
-People are *really* bad at estimation.
----
 
 > Count if at all possible.
 > 
@@ -149,11 +164,21 @@ People are *really* bad at estimation.
 > ~ [Steve McConnell - *Software Estimation: Demystifying the Black Art*](http://www.stevemcconnell.com/est.htm)
 
 ???
+Educated guesses maybe, but guesses none the less.
+People are *really* bad at estimation.
+
+How many folks in the room are actually doing relative size estimation?
+How many are playing planning poker and going "ehhh... that looks like a 5"?
+
 McConnell wrote this book in 2006. 
 That was a decade ago.
+
 ---
 
-## What's Wrong with #NoEstimates?
+layout: false
+
+# \#NoEstimates
+## What's Wrong with \#NoEstimates?
 
 - Should we do this project?
   - How do you know without an estimate? (Both cost & value)
@@ -182,13 +207,14 @@ layout:true
 
 ---
 
-## Okay, *maybe* so we're talking about forecasting...
+## Okay, so *maybe* we're talking about forecasting...
 
 ---
 
 ## Lean Terminology
 
 - Waste
+- Throughput
 - Cycle Time
 - Lead Time
 
