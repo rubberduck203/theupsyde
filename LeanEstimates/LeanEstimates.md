@@ -20,31 +20,15 @@ class: center, middle
 - Todd Little has a talk called "To Estimate or #NoEstimates, that is the question".
 I had seen the talk before coming up with this title, but it was unintentional.
 Maybe a Freudian slip but not a concious decision.
-- I originally was going to call this Refactor.Rename(NE -> LE).
----
-
-class: center, middle
-
-# Who am I?
-
-???
-- Nobody. 
-  - Just a software developer here in central OH.
-  - Unlike a lot of folks talking about NE, I've nothing to sell.
-  - "We are uncovering better ways of developing
-software by doing it and *helping others do it*."
-- Worked on a (nearly) no estimates project.
-- Worked on a team who used the Lean Estimation techniques we'll talk about. 
-
----
-
-name: agenda
-
-# Agenda
-
-1. \#NoEstimates
-2. Lean Estimates
-3. Techniques
+  - I originally was going to call this Refactor.Rename(NE -> LE).
+- Who am I?
+  - Nobody. 
+    - Just a software developer here in central OH.
+    - Unlike a lot of folks talking about NE, I've nothing to sell.
+    - "We are uncovering better ways of developing
+  software by doing it and *helping others do it*."
+  - Worked on a (nearly) no estimates project.
+  - Worked on a team who used the Lean Estimation techniques we'll talk about. 
 
 ---
 
@@ -55,6 +39,7 @@ class: center, middle
 ---
 
 layout:true
+class: center
 
 # \#NoEstimates
 
@@ -82,14 +67,14 @@ It's meant to get us thinking about and questioning how we estimate.
 ### A handful of people actually are actually working without estimates
 ???
 - Woody Zuill
+- A common NE model for contractors is to have a client that pays by the iteration.
+  - CorgiBytes/Woody Zuill
 - Nearly No Estimates Research Project
   - Prioritized backlog
   - Just do the next most important thing
   - Continuous flow
   - In some ways it was good, but in other ways stressful. 
     - We had a variable scope, but a hard deadline.
-- A common NE model for contractors is to have a client that pays by the iteration.
-  - CorgiBytes/Woody Zuill
 --
 
 ### But most people are talking about *forecasting*.
@@ -104,12 +89,14 @@ It's meant to get us thinking about and questioning how we estimate.
 ---
 
 layout: true
+class: center
+
 # \#NoEstimates
 ## What's Wrong with Story Points?
 
 ---
 
-.center[![Picture of Drew Carey. Welcome to Agile, where the rules are made up and the points don't matter.](img/WelcomeToAgile.jpg)]
+![Picture of Drew Carey. Welcome to Agile, where the rules are made up and the points don't matter.](img/WelcomeToAgile.jpg)
 
 ???
 - We'll skip over hourly estimations, Agile practioners can generally agree they're unreliable and a source of dysfunction.
@@ -175,15 +162,47 @@ That was a decade ago.
 
 ---
 
-layout: false
+layout: true
+class: center
 
 # \#NoEstimates
 ## What's Wrong with \#NoEstimates?
+---
+---
 
-- Should we do this project?
-  - How do you know without an estimate? (Both cost & value)
-- Business people will laugh at you if you tell them you're not going to estimate.
-- Say what you mean and mean what you say.
+### Should we do this project?
+--
+
+### How do you know without an estimate? 
+???
+Both cost & value
+
+---
+
+### What would happen if you told your manager/client that you're not going to estimate?
+
+---
+
+![Yo Dawg, I heard you don't estimate. How long will your unemployment last?](img/yo-dawg.jpg)
+
+???
+Maybe a little dramatic, but you are likely to be laughed at.
+And if you say "We don't estimate, we *forecast*.", I *guarantee* you're going to get some strange looks.
+Forecast implements Estimate. 
+
+---
+
+### Forecasts are a kind of estimate
+--
+
+![Say what you mean and mean what you say.](img/saywhatyourmean.jpg)
+
+???
+Developers, if there was a method or a class in your codebase and it had a misleading name, what woud you do?
+You'd *rename* it, wouldn't you?
+
+It is *terribly* important that we communicate clearly with the folks who sign the checks.
+Most of the people talking about \#NoEstimates are talking about forecasting, so why are we continuing to use the word "No" when we don't mean it?
 
 ---
 
@@ -195,28 +214,40 @@ class: center, middle
 ---
 
 layout:true
+class: center
 
 # Lean Estimates
 
 ---
 
-## Good enough estimates as inexpensively as possible.
+## Terminology
+
+### Waste
+### Throughput
+### Cycle Time
+### Lead Time
+
+---
+
+## What are Lean Estimates?
 --
 
-## In other words, eliminate the waste in your estimation process.
+### Good enough estimates as inexpensively as possible.
+--
+
+### In other words, eliminate the waste in your estimation process.
 
 ---
 
-## Okay, so *maybe* we're talking about forecasting...
+### If you don't need to estimate, don't.
+--
+
+### If you must, do it as inexpensively as possible and just in time.
+--
+
+### Empiracal and data driven.
 
 ---
-
-## Lean Terminology
-
-- Waste
-- Throughput
-- Cycle Time
-- Lead Time
 
 ## Techniques
 ### Short Term Estimation
