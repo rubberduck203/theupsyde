@@ -1,7 +1,7 @@
 name: abstract
 exclude: true
 
-\#NoEstimates is one of the hottest debate in Agile right now, but what is it really? Does it really mean “don’t estimate”, or is it something else entirely? Find out why #NoEstimates is really all about Lean Estimation, as well as how you can ditch the story points, reduce waste in your process, and still generate accurate estimates for the decision makers at your company.
+\#NoEstimates is one of the hottest debate in Agile right now, but what is it really? Does it really mean “don’t estimate”, or is it something else entirely? Find out why \#NoEstimates is really all about Lean Estimation, as well as how you can ditch the story points, reduce waste in your process, and still generate accurate estimates for the decision makers at your company.
 
 In this talk we’ll discuss ways to improve your estimation process by using historic data to accurately (but perhaps not precisely) forecast into the future. We’ll also cover some commonly used Lean forecasting terms like Lead Time, Cycle Time, and Waste and how they apply to software development estimation as well as some caveats and pitfalls to the Lean Estimation approach.
 
@@ -245,13 +245,23 @@ class: center
 ### If you must, do it as inexpensively as possible and just in time.
 --
 
-### Empiracal and data driven.
+### Empirical and data driven.
 
 ---
 
+layout:true
+class: center
+
+# Lean Estimates
 ## Techniques
-### Short Term Estimation
-### Long Term Estimation
+
+---
+
+### Short Term 
+
+---
+
+### Long Term 
 
 ???
 Caveat & Warning
