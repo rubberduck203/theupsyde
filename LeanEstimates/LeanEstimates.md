@@ -284,7 +284,6 @@ class: center
 # Lean Estimates
 ## Techniques
 
-
 ---
 
 ![Our belief is that complex formulas will produce more accurate results than a simple formula like "Effort equals Number of Requirements times Average Effort per requirement", but complex formulas aren't necessarily better.](img/ComplexFormulasSteveMcConnel.jpg)
@@ -320,56 +319,73 @@ class: center
 
 In English....
 
-> Avg. Cycle Time = ( Avg. Work in Progress / Avg. Throughput )
-
-???
-We can check it.
+$$ Avg. Cycle Time = \frac{ Avg. WIP } {Avg. Throughput } $$
 
 ---
 
 ### Little's Law
 
-> Cycle Time = ( WIP / Throughput )
->
-> WIP = CycleTime * Throughput
-> 
-> Throughput = ( WIP / Cycle Time )
+$$ Cycle Time = \frac{ WIP } { Throughput } $$
+--
+
+$$ WIP = CycleTime * Throughput $$
+--
+
+$$ Throughput = \frac{ WIP } { Cycle Time } $$
 
 ---
 
+layout:true
+class: center
+
+# Lean Estimates
+## Techniques
 ### Little's Law Applied
 
-> AVg. Throughput per Iteration = ( WIP / Cycle Time ) * Days per Iteration
---
-
-> 
-> T = ( 2 stories /  3 days ) * ( 10 days / iteration )
---
-
-> 
-> T = ( 0.6666 stories / day ) * ( 10 days / iteration )
---
-
-> 
-> T = 6.666 stories / iteration
+$$ \frac{Avg. Stories } { Iteration } = \left( \frac{ WIP } { Cycle Time } \right) \left( \frac{ Days } { Iteration } \right) $$
 
 ---
 
+---
+
+$$ T = \left( \frac{ 2 stories } { \frac{3 days}{story} } \right) \left( \frac{ 10 days } { iteration } \right) $$
+
+---
+
+$$ T = \left( \frac{ 0.6666 stories } { day } \right) \left( \frac{ 10 days } { iteration } \right) $$
+
+---
+
+$$ T = \frac{ 6.666 stories } { iteration } $$
+
+---
+
+layout:true
+class: center
+
+# Lean Estimates
+## Techniques
 ### Little's Law Applied (The hard way.)
 
-> Avg. Stories per Iteration = ( Days per Iteration / Avg. Cycle Time ) * Avg. WIP
+$$ \frac{ Stories }{ Iteration } = \left( \frac{\frac{ Days } { Iteration } } { Cycle Time } \right)( WIP ) $$
 
-???
-This should be very close to your Avg. Throughput
---
+---
 
-> 
-> Avg. Stories per Iteration = 
-> ( (10 days / iteration) / ( 3 days / story ) ) * 2 in progress
---
+---
 
->
-> Avg. Stories per Iteration = 3.333 stories * 2 in progress = 6.666 stories / iteration
+$$ \frac{ Stories }{ Iteration } =  \left( \frac{\frac{ 10 Days } { Iteration } } { \frac{3 days}{story} } \right)( 2 ) $$
+
+---
+
+$$ \frac{ Stories }{ Iteration } =  \left( \frac{ 10 Days }{ Iteration } \right)\left(\frac{1 story}{3 days}\right)(2) $$
+
+---
+
+$$ \frac{ Stories }{ Iteration } =  \left( \frac{ 10 stories }{ 3 iterations } \right)(2) $$
+
+---
+
+$$ \frac{ Stories }{ Iteration } =  \left( \frac{3.333 stories}{Iteration} \right)(2) = \frac{6.666 stories}{Iteration} $$
 
 ---
 layout:true

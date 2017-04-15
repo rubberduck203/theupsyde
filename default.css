@@ -7,7 +7,7 @@ img {
     font-size: 40px;
 }
 
-blockquote {
+blockquote, .MathJax_Display {
     background-color: aliceblue;
     padding: 1.5em;
     border-radius: 2em;
