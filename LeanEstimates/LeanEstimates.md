@@ -381,6 +381,10 @@ class: center
 
 ---
 
+Effort = Number of Stories * Avg. Effort per Story
+
+---
+
 ???
 Caveat & Warning
 I've never been able to compare the long term technique to actuals. Once people saw how expensive it would be, they decided to either buy something off the shelf or simply spend their money elsewhere.
