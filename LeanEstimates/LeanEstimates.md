@@ -201,7 +201,9 @@ Forecast implements Estimate.
 ### Forecasts are a kind of estimate
 --
 
-![Say what you mean and mean what you say.](img/saywhatyourmean.jpg)
+> ***Say what you mean and mean what you say.***
+> 
+> ***Let your words and actions match.***
 
 ???
 Developers, if there was a method or a class in your codebase and it had a misleading name, what woud you do?
