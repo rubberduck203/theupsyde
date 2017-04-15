@@ -254,6 +254,12 @@ class: center
 
 ### In other words, eliminate the waste in your estimation process.
 
+???
+- In a recent conversation I was having with Ryan Ripley, he described it as the
+"Cheapest estimate/metric/process that meets the needs of the customer."
+  - https://twitter.com/ryanripley/status/851914164754927617
+
+- Next -> Characteristics of Lean Estimates
 ---
 
 ### If you don't need to estimate, don't.
@@ -276,6 +282,7 @@ class: center
 
 ### Short Term 
 
+[//]: # (Card counting. Challenge audience to run an experiment: count and story point for a while. See for themselves.)
 ---
 
 ### Long Term 
