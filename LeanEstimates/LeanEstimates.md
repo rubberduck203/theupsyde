@@ -165,6 +165,10 @@ That was a decade ago.
 
 ---
 
+![Bar graph with many tall columns on the left, and a few short ones on the right.](img/CycleTimeDistribution.png)
+
+---
+
 layout: true
 class: center
 
@@ -173,7 +177,7 @@ class: center
 
 ???
 \#NoEstimates was created in an effort to try to solve these issues with story points.
----
+
 ---
 
 ### Should we do this project?
@@ -280,14 +284,102 @@ class: center
 # Lean Estimates
 ## Techniques
 
+
+---
+
+![Our belief is that complex formulas will produce more accurate results than a simple formula like "Effort equals Number of Requirements times Average Effort per requirement", but complex formulas aren't necessarily better.](img/ComplexFormulasSteveMcConnel.jpg)
+
+~ [Steve McConnell - *Software Estimation: Demystifying the Black Art*](http://www.stevemcconnell.com/est.htm)
+
 ---
 
 ### Short Term 
 
-[//]: # (Card counting. Challenge audience to run an experiment: count and story point for a while. See for themselves.)
 ---
 
+### Measure Throughput
+--
+
+### i.e Count Stories Completed
+
+???
+
+- Card/Story counting
+- Challenge audience to run an experiment: 
+  - Count and story point for a while. Decide for yourselves.
+
+---
+
+### Little's Law
+
+> The long-term average number of customers in a stable system L is equal to the long-term average effective arrival rate, λ, multiplied by the average time a customer spends in the system, W; or expressed algebraically: L = λW
+
+---
+
+### Little's Law
+
+In English....
+
+> Avg. Cycle Time = ( Avg. Work in Progress / Avg. Throughput )
+
+???
+We can check it.
+
+---
+
+### Little's Law
+
+> Cycle Time = ( WIP / Throughput )
+>
+> WIP = CycleTime * Throughput
+> 
+> Throughput = ( WIP / Cycle Time )
+
+---
+
+### Little's Law Applied
+
+> AVg. Throughput per Iteration = ( WIP / Cycle Time ) * Days per Iteration
+--
+
+> 
+> T = ( 2 stories /  3 days ) * ( 10 days / iteration )
+--
+
+> 
+> T = ( 0.6666 stories / day ) * ( 10 days / iteration )
+--
+
+> 
+> T = 6.666 stories / iteration
+
+---
+
+### Little's Law Applied (The hard way.)
+
+> Avg. Stories per Iteration = ( Days per Iteration / Avg. Cycle Time ) * Avg. WIP
+
+???
+This should be very close to your Avg. Throughput
+--
+
+> 
+> Avg. Stories per Iteration = 
+> ( (10 days / iteration) / ( 3 days / story ) ) * 2 in progress
+--
+
+>
+> Avg. Stories per Iteration = 3.333 stories * 2 in progress = 6.666 stories / iteration
+
+---
+layout:true
+class: center
+
+# Lean Estimates
+## Techniques
 ### Long Term 
+
+---
 
 ???
 Caveat & Warning
