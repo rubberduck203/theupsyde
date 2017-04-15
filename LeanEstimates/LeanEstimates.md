@@ -16,11 +16,6 @@ class: center, middle
 ## That is the Question
 
 ???
-- This is my first time presenting like this, so let's talk about something really controversial.
-- Todd Little has a talk called "To Estimate or #NoEstimates, that is the question".
-I had seen the talk before coming up with this title, but it was unintentional.
-Maybe a Freudian slip but not a concious decision.
-  - I originally was going to call this Refactor.Rename(NE -> LE).
 - Who am I?
   - Nobody. 
     - Just a software developer here in central OH.
@@ -29,6 +24,12 @@ Maybe a Freudian slip but not a concious decision.
   software by doing it and *helping others do it*."
   - Worked on a (nearly) no estimates project.
   - Worked on a team who used the Lean Estimation techniques we'll talk about. 
+- Todd Little has a talk called "To Estimate or #NoEstimates, that is the question".
+I had seen the talk before coming up with this title, but it was unintentional.
+Maybe a Freudian slip but not a concious decision.
+  - I originally was going to call this Refactor.Rename(NE -> LE).
+- This is my first time presenting like this, so let's talk about something really controversial.
+
 
 ---
 
