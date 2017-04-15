@@ -182,7 +182,7 @@ class: center
 ### How do you know without an estimate? 
 ???
 Both cost & value
-
+- What if you have two projects? How do you decide which one to do?
 ---
 
 ### What would happen if you told your manager/client that you're not going to estimate?
