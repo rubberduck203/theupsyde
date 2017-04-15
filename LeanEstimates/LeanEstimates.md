@@ -170,6 +170,9 @@ class: center
 
 # \#NoEstimates
 ## What's Wrong with \#NoEstimates?
+
+???
+\#NoEstimates was created in an effort to try to solve these issues with story points.
 ---
 ---
 
