@@ -233,6 +233,17 @@ class: center
 ### Cycle Time
 ### Lead Time
 
+???
+- Waste
+  - Non value add activites.
+  - If a customer won't buy it, or it doesn't directly produce something a customer will buy, it's waste.
+- Throughput
+  - The number of widgets that can be produced in X amount of time.
+- Cycle Time
+  - How long it takes to make a widget.
+- Lead Time
+  - The amount of time between a customer ordering a widget, and them recieving the widget.
+
 ---
 
 ## What are Lean Estimates?
