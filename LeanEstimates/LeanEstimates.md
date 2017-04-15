@@ -70,6 +70,7 @@ It's meant to get us thinking about and questioning how we estimate.
 - Woody Zuill
 - A common NE model for contractors is to have a client that pays by the iteration.
   - CorgiBytes/Woody Zuill
+- Delivering so frequently and building so much trust that estimates aren't required.
 - Nearly No Estimates Research Project
   - Prioritized backlog
   - Just do the next most important thing
