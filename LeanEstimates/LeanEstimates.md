@@ -102,6 +102,7 @@ class: center
 
 ???
 - We'll skip over hourly estimations, Agile practioners can generally agree they're unreliable and a source of dysfunction.
+- But story points were created to solve issues with task level, hourly estimates, so what's wrong with them?
 
 ---
 
