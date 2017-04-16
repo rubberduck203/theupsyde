@@ -169,9 +169,7 @@ That was a decade ago.
 ---
 
 ![Bar graph with many tall columns on the left, and a few short ones on the right.](img/CycleTimeDistribution.png)
-
 ???
-
 - Story count on the vertical
 - Days to completion on the horizontal
 - Most stories are done within a week or 2, but notice the long tail
@@ -188,6 +186,8 @@ class: center
 
 ???
 \#NoEstimates was created in an effort to try to solve these issues with story points.
+
+---
 
 ---
 
@@ -456,7 +456,8 @@ class: center
 ---
 
 ### Never give a single point estimate.
-
+???
+If you give someone a single point estimate, you've just given yourself a deadline.
 --
 
 ![Bar graph with many tall columns on the left, and a few short ones on the right.](img/CycleTimeDistribution.png)
