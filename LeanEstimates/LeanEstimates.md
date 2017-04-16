@@ -126,6 +126,9 @@ How many folks in the room have had an extremely hard time getting someone in ma
 > 
 > ~ [Joshua Kerievsky - Stop Using Story Points](https://www.industriallogic.com/blog/stop-using-story-points/)
 
+???
+If you have someone breathing down your neck telling you to "Go faster", it's very easy to just start inflating your story points.
+
 ---
 
 ### Unreliable
@@ -166,6 +169,14 @@ That was a decade ago.
 ---
 
 ![Bar graph with many tall columns on the left, and a few short ones on the right.](img/CycleTimeDistribution.png)
+
+???
+
+- Story count on the vertical
+- Days to completion on the horizontal
+- Most stories are done within a week or 2, but notice the long tail
+- None of those were estimated to take longer than a 2 week iteration.
+- None of them.
 
 ---
 
@@ -215,6 +226,10 @@ You'd *rename* it, wouldn't you?
 
 It is *terribly* important that we communicate clearly with the folks who sign the checks.
 Most of the people talking about \#NoEstimates are talking about forecasting, so why are we continuing to use the word "No" when we don't mean it?
+
+---
+
+![Boss: I'm skeptical of this \#NoEstimates thing. Me: I am too, but what would you think about Lean Estimates? Boss: You have my attention.](img/Skeptical.png)
 
 ---
 
@@ -290,9 +305,8 @@ class: center
 
 ~ [Steve McConnell - *Software Estimation: Demystifying the Black Art*](http://www.stevemcconnell.com/est.htm)
 
----
-
-### Short Term 
+???
+Next Slide -> Short Term 
 
 ---
 
@@ -388,6 +402,7 @@ $$ \frac{ Stories }{ Iteration } =  \left( \frac{ 10 stories }{ 3 iterations } \
 $$ \frac{ Stories }{ Iteration } =  \left( \frac{3.333 stories}{Iteration} \right)(2) = \frac{6.666 stories}{Iteration} $$
 
 ---
+
 layout:true
 class: center
 
@@ -397,74 +412,156 @@ class: center
 
 ---
 
-Effort = Number of Stories * Avg. Effort per Story
+$$ Effort = Number Of Requirements * Avg. Effort Per Story $$
+
+--
+
+$$ Effort = Number Of Stories * Cycle Time $$
 
 ---
 
+layout:true
+class: center
+
+# Lean Estimates
+## Techniques
+
+$$ Project Lifetime = \frac{ Number Of Stories * Cycle Time } { WIP Limit } $$
+
+---
+
+---
+
+$$ Project Lifetime = \frac{ (30 stories) \left( \frac {3 days}{story} \right) } { 2 } $$
+--
+
+$$ Project Lifetime = \frac { 60 days } { 2 } = 30 days $$
+
 ???
-Caveat & Warning
-I've never been able to compare the long term technique to actuals. Once people saw how expensive it would be, they decided to either buy something off the shelf or simply spend their money elsewhere.
+- Where WIP limit is the number of devs or pair you have to dedicate to the project.
+- We know there will be stories added & removed over the life of the project.
+  - If you need to get even more accurate, start measuring how many and account for them.
+- At this timescale, it's a good idea to account for holidays, vacations, etc. 
+
+- But what's wrong with that estimate!?
+
+---
+
+layout:true
+class: center
+
+# Lean Estimates
+## Techniques
+
+---
+
+### Never give a single point estimate.
+
+--
+
+![Bar graph with many tall columns on the left, and a few short ones on the right.](img/CycleTimeDistribution.png)
+
+???
+- Remember this graph?
+- Our average may be 3 days, but that also means that 50% take longer. 
+- We can this this information to help us give 3 point estimates with confidence levels.
+- We can get about 75% confidence by going out to 5 days and running our calculations again.
+- Notice that to get 90% confidence, we have to go way out.
+
+---
+
+layout:true
+class: center
+
+# Lean Estimates
 
 ---
 
 ## Assumptions
+--
 
-- It's safe to be wrong.
+#### It's safe to be wrong
 ???
 - Because you will be... but you'll be good enough on average.
   - "All estimates are wrong. Some are useful."
 --
 
-- Work is sliced vertically, thinly, and reasonably consistently. 
+#### Work is sliced vertically, thinly, and reasonably consistently
 ???
 - Stories are small enough to finish in < 1 wk, preferably < 3 days
 - Big lumps of work will throw your estimates off.
 - ["Mixed nuts are fine, but look out for coconuts"](http://toddlittleweb.com/wordpress/2016/03/14/to-estimate-or-noestimates-that-is-the-question-2/)
 --
 
-- Deliver as soon as it's done, not on a sprint boundary.
+#### Deliver as soon as it's done, not on a sprint boundary
 ???
 - Waiting to deliver drags your cycle times down.
 - If you *must* deliver on a boundry, adjust your cycle time to "ready", but really just deliver when it's ready.
 --
 
-- You have control over your process.
+#### You have control over your process
 ???
 - This will be hard to do if you're forced into working with Scrumfall or even inside a larger system like SAFe.
 --
 
-- You have *good* and *tested* code.
+#### You have a reasonably flushed out backlog
 ???
-If you have crap code, you'll have crap predictability.
+- If you have no idea how much work there is to do, it'll be hard to predict how long the project will last.
+--
 
-[//]: # (Maybe moved assumptions & benefits up a bit.)
+#### You have *good* and *tested* code
+???
+- If you have crap code, you'll have crap predictability.
+  -This applies to any estimate though.
 
 ---
 
 ## Benefits
-
-- Nearly zero time spent estimating. 
 --
 
-  - One time investment into a worksheet.
+### Nearly zero time spent estimating
+???
+- And therefore less money spent estimating.
+- One time investment into a worksheet.
+- Minimal tracking overhead, none if using a work tracker like Jira or VSTS.
 --
 
-  - Minimal tracking overhead, none if using a work tracker like Jira or VSTS.
+### Less friction
+???
+- No arguing or negotiting estimates.
 --
 
-- Less friction.
+### Builds Trust.
+???
+- Business people think in numbers.
+- Giving them data backed estimates builds trust.
 --
 
-  - No arguing or negotiating estimates.
---
-
-- Business people think in numbers. 
---
-
-  - Giving them estimates based on data builds trust.
+### You can show stakeholders how changes affect the schedule
 
 ---
 
-## References & Resources
+## Tips 
 
-[//]: # (Link to this slide deck online)
+--
+
+### Don't forget to add in time for holidays/vacations
+--
+
+### Slice your work thinly & vertically
+--
+
+### Update your estimates frequently
+???
+- Based on the latest information/data.
+--
+
+### And *broadcast* them
+???
+- As soon as you think you're getting behind schedule, make sure your stakeholders know.
+
+---
+
+## THANK YOU!
+#### Twitter: @rubberduck203
+#### Slides: https://theupsyde.net/presentations/LeanEstimates/
