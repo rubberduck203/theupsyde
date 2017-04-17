@@ -14,5 +14,5 @@ blockquote, .MathJax_Display {
 }
 
 .remark-slide-content {
-    background-color: whitesmoke;
+    background: radial-gradient(at top right, white 65%, blue);
 }
