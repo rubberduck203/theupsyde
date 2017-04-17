@@ -1,0 +1,11 @@
+body { 
+  font-family: 'Droid Serif'; 
+}
+
+h1, h2, h3 {
+  font-family: 'Droid Serif';
+}
+
+.remark-slide-content { 
+  background: radial-gradient(at top right, white 65%, blue); 
+}
