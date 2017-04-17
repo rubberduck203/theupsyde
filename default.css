@@ -1,18 +1,46 @@
+@font-face{
+  font-family: 'Droid Serif';
+  src: url('fonts/Droid_Serif/DroidSerif.ttf');
+}
+
+@font-face{
+  font-family: 'Yanone Kaffeesatz';
+  src: url('fonts/Yanone_Kaffeesatz/YanoneKaffeesatz-Regular.ttf');
+}
+ 
+@font-face{
+  font-family: 'Droid Serif';
+  src: url('fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf');
+}
+
+body { 
+  font-family: 'Ubuntu Mono'; 
+}
+
+h1, h2, h3 {
+  font-family: 'Ubuntu Mono';
+  font-weight: normal;
+}
+
+.remark-code, .remark-inline-code { 
+  font-family: 'Ubuntu Mono'; 
+}
+
 img {
-    max-height: 100%;
-    max-width: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .shock {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 blockquote, .MathJax_Display {
-    background-color: aliceblue;
-    padding: 1.5em;
-    border-radius: 2em;
+  background-color: aliceblue;
+  padding: 1.5em;
+  border-radius: 2em;
 }
 
 .remark-slide-content {
-    background: radial-gradient(at top right, white 65%, blue);
+  background: whitesmoke;
 }

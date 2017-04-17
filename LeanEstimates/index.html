@@ -3,28 +3,18 @@
   <head>
     <title>Lean Estimates</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../default.css">
 	  <style type="text/css">
-      @font-face{
-        font-family: 'Droid Serif';
-        src: url('../fonts/Droid_Serif/DroidSerif.ttf');
+      body { 
+        font-family: 'Droid Serif'; 
       }
-      @font-face{
-        font-family: 'Yanone Kaffeesatz';
-        src: url('../fonts/Yanone_Kaffeesatz/YanoneKaffeesatz-Regular.ttf');
-      }
-      @font-face{
-        font-family: 'Ubuntu Mono';
-        src: url('../fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf');
-      }
-
-      body { font-family: 'Droid Serif'; }
       h1, h2, h3 {
         font-family: 'Droid Serif';
-        font-weight: normal;
       }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-slide-content { 
+        background: radial-gradient(at top right, white 65%, blue); 
+      }
     </style>
-    <link rel="stylesheet" href="../default.css">
   </head>
   <body>
     <textarea id="source">
@@ -44,6 +34,7 @@
           skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
           }
       });
+
       MathJax.Hub.Queue(function() {
           $(MathJax.Hub.getAllJax()).map(function(index, elem) {
               return(elem.SourceElement());
