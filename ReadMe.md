@@ -63,30 +63,3 @@ To access the mongo shell:
 ```bash
 docker exec -it wekandb mongo
 ```
-
----
-
-# Other Stuff
-
-The following things were experiments that aren't actively being used.
-
-## Asp.Net Core Demo Site
-
-Located in the `app/` directory is a boilerplate asp.net core site.
-It is currently running on the webserver, but isn't really being used.
-More of a proof of concept for a possible future state of the site.
-
-### Asp.Net Core Docker 
-
-*TODO: Hide this behind our firewall like we did for wekan.*
-
-Nginx proxies the /test/ directory to the docker container.
-In order for this to work properly, the ASPNETCORE_URLS environment variable must be setup to use the same directory structure.
-Otherwise, framework resolved URLs won't generate properly.
-
-https://github.com/aspnet/Hosting/issues/815
-
-
-```bash
-docker run --name aspcoretest -p 8080:80 -d -e "ASPNETCORE_URLS=http://+:80/test" rubberduck/upsyde
-```
