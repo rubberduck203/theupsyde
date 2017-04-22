@@ -2,16 +2,9 @@
 
 The simplest website that could possibly work.
 
-## Building
-
-The website includes presentations from https://github.com/rubberduck203/Presentations.
-This was a pre-existing repository, so it's been included as a submodule.
-
-The site is now build by running `npm run build`, which will drop the prepared website into the `dist/` directory.
-
 ## Deployment
 
-- Copy the contents of `dist/` to `//webserver/var/www/htdocs/prod/www.theupsyde.net`
+- Copy the contents of `src/` to `//webserver/var/www/htdocs/prod/www.theupsyde.net`
 - See below for how to start the wekan docker.
 
 ## Server
