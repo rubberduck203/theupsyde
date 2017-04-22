@@ -2,6 +2,12 @@
 
 The simplest website that could possibly work.
 
+## License
+
+*All rights reserved.*
+
+All content is my intellectual property, but please feel free to view the repository & source for educational purposes. 
+
 ## Deployment
 
 - Copy the contents of `src/` to `//webserver/var/www/htdocs/prod/www.theupsyde.net`
@@ -19,6 +25,38 @@ The simplest website that could possibly work.
     ```
 
 - Wekan runs off of it's own docker container behind a proxy.
+
+## Presentations
+
+The presentations use Remark.js to render markdown files as slides.
+I'm using external markdown, so you'll need a local webserver to serve the markdown files to Remark.
+
+[RemarkJs Wiki](https://github.com/gnab/remark/wiki)
+
+### Nginx Docker
+
+```bash
+# Navigate to correct location
+cd src
+
+# Create Container
+docker run -id --name theupsyde -p 127.0.0.1:8080:80 -v $(pwd):/usr/share/nginx/html:ro nginx
+
+# Once the container is created, you can just start and stop the container
+docker stop theupsyde
+docker start theupsyde
+```
+
+Once running, you can view the presentation by going to `http://localhost:8080/presentations` in the browser.
+
+Press `C` to clone the window and `P` to enter presentation mode.
+
+### MathJax
+
+Some presentations (Lean Estimates) required some mathematical formulas.
+You'll need to download [MathJax v2.7](https://github.com/mathjax/MathJax/archive/2.7.0.zip) and extract it into `src/presentations/mathjax/2.7.0/` or modify the HTML pages to use a cdn.
+
+I'm using a local installation so that this project is not reliant on an internet connection.
 
 ## Wekan
 ### Bringing up wekan
