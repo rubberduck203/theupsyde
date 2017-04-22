@@ -1,12 +1,18 @@
-# INVEST In Our User Stories
+name: title
+class: center, middle
 
-***
+# INVEST 
+## In Our User Stories
+
+---
+
+class: center, middle
 
 > As a user,
 > I want stuff,
 > so that I can do things.
 
-***
+---
 
 ## User stories should:
 
@@ -17,7 +23,7 @@
 
 How can we achieve that?
 
-***
+---
 
 ## INVEST
 
@@ -28,7 +34,7 @@ How can we achieve that?
  - Small
  - Testable
 
-***
+---
 
 ## Independent
 
@@ -37,7 +43,7 @@ How can we achieve that?
  - Try to find ways to break the dependencies.
  - If that's not possible, consider lumping them together.
 
-***
+---
 
 ## Negotiable
 
@@ -48,7 +54,7 @@ How can we achieve that?
 > icon when the battery is <= 20%,
 > so he doesn't kill his phone and miss calls.
 
-***
+---
 
 ## Valuable
 
@@ -59,13 +65,13 @@ How can we achieve that?
 - No story should read "As a system..."
 - Users don't want database tables or web service endpoints.
 
-***
+---
 
 ## Estimatable
 
  - If there's not enough information to estimate the story, then there's not enough information to implement it.
 
-***
+---
 
 ## Small
 
@@ -73,7 +79,7 @@ How can we achieve that?
  - Every story should be completable within an iteration.
  - Stories bigger than that should be broken down further.
 
-***
+---
 
 ## Testable
 
@@ -81,7 +87,7 @@ How can we achieve that?
  - Without a test to say "this is done", how do we know it's done?
  - If it can't be tested, the story is too vague and/or too large, so it's not ready to implement.
 
-***
+---
 
 ## What's wrong here?
 
@@ -90,7 +96,7 @@ How can we achieve that?
 > when the battery is > 20%
 > and a red icon when the battery is <= 20%
 
-***
+---
 
 ## What's wrong here?
 
@@ -104,7 +110,7 @@ How can we achieve that?
  - What is the user's problem?
  - How can we be sure this will solve it?
 
-***
+---
 
 ## Better
 
@@ -113,7 +119,7 @@ How can we achieve that?
 > icon when the battery is <= 20%,
 > so he doesn't kill his phone and miss calls.
 
-***
+---
 
 ## Better
 
@@ -124,7 +130,7 @@ How can we achieve that?
 
 But can we deliver less, faster?
 
-***
+---
 
 ## Smaller
 
@@ -133,6 +139,8 @@ But can we deliver less, faster?
 > so he doesn't kill his phone and miss calls.
 
 ---
+
+class: center, middle
 
 > Jim, the gamer,
 > wants a colored icon
