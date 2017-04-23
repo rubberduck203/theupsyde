@@ -1,4 +1,56 @@
-﻿body {
+﻿html {
+	background-color: whitesmoke;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+h2 a {
+    text-decoration: none;
+    color: black;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+header p {
+  font-size: 1.5em;
+}
+
+header, footer {
+	text-align: center;
+	background: black;
+    color: whitesmoke;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+section#main {
+	padding: 0 2%;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+    list-style-position: hanging;
+}
+
+nav ul li {
+    margin-top: inherit;
+    margin-bottom: inherit;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -34,4 +86,9 @@ textarea {
     .carousel-caption {
         display: none;
     }
+}
+
+/* Make the navbar match the header */
+nav.navbar.navbar-inverse.navbar-fixed-top {
+    background-color: black;
 }
