@@ -44,10 +44,5 @@ type Startup private () =
 
         app.UseStaticFiles() |> ignore
 
-        app.UseMvc(fun routes ->
-            routes.MapRoute(
-                name = "default",
-                template = "{controller=Home}/{action=Index}/{id?}") |> ignore
-            ) |> ignore
-
+        app.UseMvc() |> ignore
     member val Configuration : IConfigurationRoot = null with get, set
