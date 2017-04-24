@@ -31,8 +31,19 @@ header, footer {
 	text-align: center;
 	background: black;
     color: whitesmoke;
-    padding-top: 2%;
     padding-bottom: 2%;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 100;
+    border-top: 0;
+}
+
+footer {
+    padding-top: 2%;
 }
 
 section#main {
@@ -49,6 +60,8 @@ nav ul li {
     margin-top: inherit;
     margin-bottom: inherit;
 }
+
+/* Styling below this point was part of the asp.net template */
 
 body {
     padding-top: 50px;
