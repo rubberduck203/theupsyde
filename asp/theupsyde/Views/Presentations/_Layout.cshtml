@@ -4,7 +4,11 @@
     <title>@ViewData["Title"]</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="../presentations.css">
-    <link rel="stylesheet" href="style.css"/>
+    @RenderSection("Style", required: false)
+    @if (!IsSectionDefined("Style"))
+    {
+      <link rel="stylesheet" href="style.css"/>
+    }
   </head>
   <body>
     <textarea id="source">

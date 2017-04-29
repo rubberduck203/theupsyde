@@ -11,5 +11,8 @@ type PresentationsController () =
     member this.Invest () = 
         this.View()
 
-    member this.LeanEstimates() =
+    member this.LeanEstimates () =
+        this.View()
+
+    member this.Kanban101 () =
         this.View()
