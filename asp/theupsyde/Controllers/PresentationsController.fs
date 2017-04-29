@@ -10,3 +10,6 @@ type PresentationsController () =
 
     member this.Invest () = 
         this.View()
+
+    member this.LeanEstimates() =
+        this.View()
