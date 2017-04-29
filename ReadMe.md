@@ -54,9 +54,12 @@ Press `C` to clone the window and `P` to enter presentation mode.
 ### MathJax
 
 Some presentations (Lean Estimates) required some mathematical formulas.
-You'll need to download [MathJax v2.7](https://github.com/mathjax/MathJax/archive/2.7.0.zip) and extract it into `src/presentations/mathjax/2.7.0/` or modify the HTML pages to use a cdn.
+You'll need to download [MathJax v2.7](https://github.com/mathjax/MathJax/archive/2.7.0.zip) and extract it into `wwwroot/presentations/mathjax/2.7.0/` or modify the HTML pages to use a cdn.
 
 I'm using a local installation so that this project is not reliant on an internet connection.
+
+TODO: Provide a way to automatically download the package for build/new env setup. 
+        A submodule may be a good way to go about this.
 
 ## Wekan
 ### Bringing up wekan
