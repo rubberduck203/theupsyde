@@ -7,3 +7,6 @@ type PresentationsController () =
 
     member this.Index () =
         this.View()
+
+    member this.Invest () = 
+        this.View()
