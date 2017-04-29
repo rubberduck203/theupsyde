@@ -42,6 +42,7 @@ type Startup private () =
         else
             app.UseExceptionHandler("/Home/Error") |> ignore
 
+        app.UseDefaultFiles() |> ignore
         app.UseStaticFiles() |> ignore
 
         app.UseMvc(fun routes ->
