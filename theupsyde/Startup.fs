@@ -28,6 +28,11 @@ type Startup private () =
     // This method gets called by the runtime. Use this method to add services to the container.
     member this.ConfigureServices(services: IServiceCollection) =
         // Add framework services.
+        services.AddRouting(fun options ->
+            options.LowercaseUrls <- true
+            options.AppendTrailingSlash <- true
+        ) |> ignore 
+
         services.AddMvc() |> ignore
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +51,7 @@ type Startup private () =
         app.UseStaticFiles() |> ignore
 
         app.UseMvc(fun routes ->
+
             routes.MapRoute(
                 name = "default",
                 template = "{controller=Home}/{action=Index}/{id?}") |> ignore
