@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}   
+<section id="main">
+    <article id="mission">
+        <h2>Mission Statement</h2>
+        <p>
+            This my personal sketchbook, a place to organize all the half finished projects that we developers all seem to have.
+        </p>
+        <p>
+            This site is also a place for me to play with tech that I don't necessarily get an opportunity to work with at my 9-5, an
+            opportunity to learn non-Microsoft stacks and .Net Core.
+        </p>
+    </article>
+    <nav>
+        <h2>What I'm up to</h2>
+        <ul>
+            <li><a href="https://www.stirtrek.com/sessions/session/16">I&apos;m presenting at StirTrek May 5th, 2017!</a></li>
+            <li><a href="https://theupsyde.net:8081/b/wDNbFPvwNattng7b7/theupsyde-net">Kanban board</a></li>
+        </ul>
+
+        <h2>Places to find me online</h2>
+        <ul>
+            <li><a href="https://twitter.com/Rubberduck203">@@rubberduck203</a>
+            <li><a href="https://christopherjmcclellan.wordpress.com/">Blog</a></li>
+            <li><a href="https://github.com/rubberduck203">GitHub</a></li>
+            <li><a href="https://bitbucket.org">BitBucket</a></li>
+            <li><a href="https://codereview.stackexchange.com/users/41243/rubberduck?tab=profile">Code Review Stack Exchange</a></li>
+        </ul>
+
+        <h2>@Html.ActionLink("Presentations", "Index", "Presentations")</h2>
+        <ul>
+            <li>@Html.ActionLink("Lean Estimates", "LeanEstimates", "Presentations") - Presented at <a href="https://www.stirtrek.com">StirTrek</a> 2017</li>
+            <li>@Html.ActionLink("Invest", "Invest", "Presentations") - Lunch & Learn presentation 2016</li>
+        </ul>
+
+        <h2>Stuff I always forget</h2>
+        <ul>
+            <li><a href="https://help.ubuntu.com/community/IptablesHowTo">iptables</a></li>
+            <li><a href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases">Git Aliases</a></li>
+            <li><a href="https://www.liquidweb.com/kb/how-to-install-docker-on-centos-6/">How to install Docker on CentOS 6</a></li>
+        </ul>
+    </nav>
+</section>

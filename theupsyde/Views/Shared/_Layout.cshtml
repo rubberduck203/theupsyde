@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - The Upsyde</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <header>
+        <h1>The Upsyde</h1>
+        <p>The simplest website that could possibly work.</p>
+	</header>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    <footer>    
+        <p>&copy; 2017 - Christopher J. McClellan</p>
+        <p>Powerd by Nginx, CentOS, FSharp, and AspNet Core</p>
+        <img src="~/images/nginx-logo.png" />
+        <img src="~/images/poweredby.png" />
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
