@@ -8,9 +8,35 @@ The simplest website that could possibly work.
 
 All content is my intellectual property, but please feel free to view the repository & source for educational purposes. 
 
-## Deployment
+## Publish
 
-- Copy the contents of `src/` to `//webserver/var/www/htdocs/prod/www.theupsyde.net`
+```bash 
+git tag x.x.x
+git push origin --tags
+
+dotnet publish -c Release theupsyde/theupsyde.fsproj
+docker build -t rubberduck/upsyde .
+docker tag rubberduck/upsyde rubberduck/upsyde:x.x.x
+docker push rubberduck/upsyde
+docker push rubberduck/upsyde:x.x.x
+```
+
+## Deploy
+
+- ssh into target machine
+- pick an empty port and leave the old container running
+- Start container
+
+        ```bash
+        docker run -p 127.0.0.1:18080:80 -d rubberduck/upsyde:x.x.x
+        ```
+
+- Modify the proxy_pass port in `/etc/nginx/conf.d/default.conf` to match the port of the new container, then reload the config.
+
+        ```bash
+        sudo nginx -s reload
+        ```
+
 - See below for how to start the wekan docker.
 
 ## Server
