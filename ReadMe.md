@@ -87,6 +87,23 @@ I'm using a local installation so that this project is not reliant on an interne
 TODO: Provide a way to automatically download the package for build/new env setup. 
         A submodule may be a good way to go about this.
 
+## MongoDb
+
+Wekan and Wiki.js are backed by a shared mongodb instance running in the mongodb container.
+To access the mongo shell: 
+
+```bash
+docker exec -it mongodb mongo
+```
+
+### backup
+
+Perform a backup by running the following command and then copying off the contents of /var/lib/mongo/backups to an offsite location.
+
+```bash
+docker exec mongodb mongodump --out /var/backups
+```
+
 ## Wekan
 ### Bringing up wekan
 
@@ -98,9 +115,11 @@ We publish the docker port only on local host, and then proxy to it through ngin
 
 Mac/CentOS 7
 
+TODO: update Mac/CentOs 7 instructions
+
 ```bash
 docker network create --driver bridge wekan
-docker run --name wekandb -itd --network wekan -v /Users/rubberduck/wekan/data:/data/db mongo
+docker run --name mongodb -itd --network wekan -v /Users/rubberduck/wekan/data:/data/db mongo
 docker run --name wekan -itd --network wekan -p 127.0.0.1:18081:80 -e "MONGO_URL=mongodb://wekandb/wekan" -e "ROOT_URL=https://theupsyde.net:8081" mquandalle/wekan
 ```
 
@@ -109,17 +128,23 @@ CentOS 6
 Uses docker-io instead of docker-engine, so we need to use the old --link networks
 
 ```bash
-docker run --name wekandb -d -v /var/lib/wekan:/data/db mongo
-docker run --name wekan -d --link wekandb -p 127.0.0.1:18081:80 -e "MONGO_URL=mongodb://wekandb/wekan" -e "ROOT_URL=https://theupsyde.net:8081" mquandalle/wekan
+docker run --name mongodb -d -p 127.0.0.1:27017:27017 -v /var/lib/mongo/data/db:/data/db -v /var/lib/mongo/backups:/var/backups mongo
+docker run --name wekan -d --link mongodb -p 127.0.0.1:18081:80 -e "MONGO_URL=mongodb://mongodb/wekan" -e "ROOT_URL=https://theupsyde.net:8081" mquandalle/wekan
 ```
 
-*Nginx proxies the wekan/ directory to the dockerized app. 
+Nginx proxies the wekan/ directory to the dockerized app. 
 
-### mongodb
+## Wiki.Js
 
-Wekan is backed by a mongodb instance running in the wekandb container.
-To access the mongo shell: 
+Wiki.Js runs on port 8082 and is installed in `/opt/wiki`.
 
 ```bash
-docker exec -it wekandb mongo
+cd /opt/wiki
+npm restart #useful after config changes
+npm start
+npm stop
 ```
+
+This backing git repository is automatically synced to https://github.com/rubberduck203/opened
+
+
