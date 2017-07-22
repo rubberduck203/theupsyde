@@ -107,10 +107,6 @@ docker exec mongodb mongodump --out /var/backups
 ## Wekan
 ### Bringing up wekan
 
-We can't run wekan in a virtual directory because of an issue in FlowRouter, a lib that wekan uses.
-https://github.com/wekan/wekan/issues/785
-(TODO: Fix the wekan proxy. Issue 785 has been corrected and I've updated to a version that supports it. Just need to fix the proxy now.)
-
 We publish the docker port only on local host, and then proxy to it through nginx & https.
 
 Mac/CentOS 7
@@ -120,7 +116,7 @@ TODO: update Mac/CentOs 7 instructions
 ```bash
 docker network create --driver bridge wekan
 docker run --name mongodb -itd --network wekan -v /Users/rubberduck/wekan/data:/data/db mongo
-docker run --name wekan -itd --network wekan -p 127.0.0.1:18081:80 -e "MONGO_URL=mongodb://wekandb/wekan" -e "ROOT_URL=https://theupsyde.net:8081" wekanteam/wekan:v0.29
+docker run --name wekan -itd --network wekan -p 127.0.0.1:18083:80 -e "MONGO_URL=mongodb://wekandb/wekan" -e "ROOT_URL=https://theupsyde.net/wekan" wekanteam/wekan:v0.29
 ```
 
 CentOS 6
@@ -129,7 +125,7 @@ Uses docker-io instead of docker-engine, so we need to use the old --link networ
 
 ```bash
 docker run --name mongodb -d -p 127.0.0.1:27017:27017 -v /var/lib/mongo/data/db:/data/db -v /var/lib/mongo/backups:/var/backups mongo
-docker run --name wekan -d --link mongodb -p 127.0.0.1:18081:80 -e "MONGO_URL=mongodb://mongodb/wekan" -e "ROOT_URL=https://theupsyde.net:8081" wekanteam/wekan:v0.29
+docker run --name wekan -d --link mongodb -p 127.0.0.1:18083:80 -e "MONGO_URL=mongodb://mongodb/wekan" -e "ROOT_URL=https://theupsyde.net/wekan" wekanteam/wekan:v0.29
 ```
 
 Nginx proxies the wekan/ directory to the dockerized app. 
