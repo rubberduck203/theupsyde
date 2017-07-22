@@ -116,7 +116,7 @@ TODO: update Mac/CentOs 7 instructions
 ```bash
 docker network create --driver bridge wekan
 docker run --name mongodb -itd --network wekan -v /Users/rubberduck/wekan/data:/data/db mongo
-docker run --name wekan -itd --network wekan -p 127.0.0.1:18083:80 -e "MONGO_URL=mongodb://wekandb/wekan" -e "ROOT_URL=https://theupsyde.net/wekan" wekanteam/wekan:v0.29
+docker run --name wekan -itd --network wekan -p 127.0.0.1:18083:80 -e "MONGO_URL=mongodb://wekandb/wekan" -e "ROOT_URL=https://theupsyde.net/wekan" wekanteam/wekan:v0.24
 ```
 
 CentOS 6
@@ -125,7 +125,7 @@ Uses docker-io instead of docker-engine, so we need to use the old --link networ
 
 ```bash
 docker run --name mongodb -d -p 127.0.0.1:27017:27017 -v /var/lib/mongo/data/db:/data/db -v /var/lib/mongo/backups:/var/backups mongo
-docker run --name wekan -d --link mongodb -p 127.0.0.1:18083:80 -e "MONGO_URL=mongodb://mongodb/wekan" -e "ROOT_URL=https://theupsyde.net/wekan" wekanteam/wekan:v0.29
+docker run --name wekan -d --link mongodb -p 127.0.0.1:18083:80 -e "MONGO_URL=mongodb://mongodb/wekan" -e "ROOT_URL=https://theupsyde.net/wekan" wekanteam/wekan:v0.24
 ```
 
 Nginx proxies the wekan/ directory to the dockerized app. 
