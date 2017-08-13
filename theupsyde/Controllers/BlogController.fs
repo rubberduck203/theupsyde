@@ -13,7 +13,7 @@ type BlogController () =
 
     let fetchUrl url = async {
         let req = WebRequest.Create(Uri(url)) 
-        let! resp = req.GetResponseAsync() |> Async.AwaitTask
+        use! resp = req.GetResponseAsync() |> Async.AwaitTask
         use stream = resp.GetResponseStream() 
         use reader = new IO.StreamReader(stream) 
         return reader.ReadToEnd()
@@ -39,4 +39,3 @@ type BlogController () =
             |> Seq.head
 
         this.PartialView("BlogPost", latest)
-        
