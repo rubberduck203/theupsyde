@@ -2,6 +2,4 @@
 
 <h2>Recent Blog Posts</h2>
 
-@foreach(var post in Model.Items) {
-    @Html.Partial("BlogPost", post)
-}
+@Html.Partial("BlogPosts", Model.Items)
