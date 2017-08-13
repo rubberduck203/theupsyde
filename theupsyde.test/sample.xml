@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>Christopher J. McClellan</title>
+	<atom:link href="https://christopherjmcclellan.wordpress.com/feed/" rel="self" type="application/rss+xml" />
+	<link>https://christopherjmcclellan.wordpress.com</link>
+	<description>Visual Basic, C#, and the Art of Being a Modern Man</description>
+	<lastBuildDate>Thu, 27 Jul 2017 22:12:44 +0000</lastBuildDate>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+    <cloud domain='christopherjmcclellan.wordpress.com' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+    <image>
+		<url>https://s2.wp.com/i/buttonw-com.png</url>
+		<title>Christopher J. McClellan</title>
+		<link>https://christopherjmcclellan.wordpress.com</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://christopherjmcclellan.wordpress.com/osd.xml" title="Christopher J. McClellan" />
+	<atom:link rel='hub' href='https://christopherjmcclellan.wordpress.com/?pushpress=hub'/>
+	<item>
+		<title>How to See Memory and CPU Usage for All Your Docker Containers on CentOS 6</title>
+		<link>https://christopherjmcclellan.wordpress.com/2017/07/22/docker-container-memory-usage/</link>
+		<comments>https://christopherjmcclellan.wordpress.com/2017/07/22/docker-container-memory-usage/#comments</comments>
+		<pubDate>Sat, 22 Jul 2017 11:40:25 +0000</pubDate>
+		<dc:creator><![CDATA[Christopher J. McClellan]]></dc:creator>
+		<category><![CDATA[DevOps]]></category>
+		<category><![CDATA[Programming]]></category>
+		<category><![CDATA[Docker]]></category>
+
+		<guid isPermaLink="false">http://christopherjmcclellan.wordpress.com/?p=2075</guid>
+		<description><![CDATA[I run a bunch of Docker containers on a single CentOS 6 server with a limited amount of memory. (I only recently bumped it from 0.5 to 1 whole whopping gig!) Before I bring another container online, I like to check to see how much room I&#8217;ve got. Being the newest versions of Docker aren&#8217;t [&#8230;]<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=christopherjmcclellan.wordpress.com&#038;blog=59673389&#038;post=2075&#038;subd=christopherjmcclellan&#038;ref=&#038;feed=1" width="1" height="1" />]]></description>
+		<wfw:commentRss>https://christopherjmcclellan.wordpress.com/2017/07/22/docker-container-memory-usage/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+	
+		<media:content url="http://0.gravatar.com/avatar/0b43c27212304872e59ec6c73e1e30e7?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ckuhn203</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Go away. It will all be waiting for you when you return. </title>
+		<link>https://christopherjmcclellan.wordpress.com/2017/06/10/go-away-it-will-all-be-waiting-for-you-when-you-return/</link>
+		<comments>https://christopherjmcclellan.wordpress.com/2017/06/10/go-away-it-will-all-be-waiting-for-you-when-you-return/#respond</comments>
+		<pubDate>Sat, 10 Jun 2017 12:41:57 +0000</pubDate>
+		<dc:creator><![CDATA[Christopher J. McClellan]]></dc:creator>
+				<category><![CDATA[Life]]></category>
+		<category><![CDATA[Programming]]></category>
+		<category><![CDATA[work life balance]]></category>
+
+		<guid isPermaLink="false">http://christopherjmcclellan.wordpress.com/2017/06/10/go-away-it-will-all-be-waiting-for-you-when-you-return/</guid>
+		<description><![CDATA[I realize that my posts here have become a bit infrequent and erratic. If you&#8217;re a frequent reader, you know that I changed jobs early this year. I didn&#8217;t just change jobs though; I completely swapped stacks. Learning a dozen technologies &#8220;overnight&#8221; has taken up a lot of the time that I previously dedicated to [&#8230;]<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=christopherjmcclellan.wordpress.com&#038;blog=59673389&#038;post=2059&#038;subd=christopherjmcclellan&#038;ref=&#038;feed=1" width="1" height="1" />]]></description>
+		<wfw:commentRss>https://christopherjmcclellan.wordpress.com/2017/06/10/go-away-it-will-all-be-waiting-for-you-when-you-return/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	
+		<media:content url="http://0.gravatar.com/avatar/0b43c27212304872e59ec6c73e1e30e7?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ckuhn203</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Pretend Your Users Sat Next to You Everyday</title>
+		<link>https://christopherjmcclellan.wordpress.com/2017/05/13/pretend-your-users-sat-next-to-you-everyday/</link>
+		<comments>https://christopherjmcclellan.wordpress.com/2017/05/13/pretend-your-users-sat-next-to-you-everyday/#respond</comments>
+		<pubDate>Sat, 13 May 2017 00:01:40 +0000</pubDate>
+		<dc:creator><![CDATA[Christopher J. McClellan]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+
+		<guid isPermaLink="false">http://christopherjmcclellan.wordpress.com/2017/05/13/pretend-your-users-sat-next-to-you-everyday/</guid>
+		<description><![CDATA[I&#8217;m very much a &#8220;The tests pass. Ship it.&#8221; kind of guy. I like to fail fast and have long believed that the best way to find places where we missed a requirement or made a mistake is to get it into the hands of real users as quickly as possible. Recently however, the users [&#8230;]<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=christopherjmcclellan.wordpress.com&#038;blog=59673389&#038;post=2058&#038;subd=christopherjmcclellan&#038;ref=&#038;feed=1" width="1" height="1" />]]></description>
+		<wfw:commentRss>https://christopherjmcclellan.wordpress.com/2017/05/13/pretend-your-users-sat-next-to-you-everyday/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	
+		<media:content url="http://0.gravatar.com/avatar/0b43c27212304872e59ec6c73e1e30e7?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ckuhn203</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Two Quick Tips for a Better Code Review Experience</title>
+		<link>https://christopherjmcclellan.wordpress.com/2017/04/30/two-quick-tips-for-a-better-code-review-experience/</link>
+		<comments>https://christopherjmcclellan.wordpress.com/2017/04/30/two-quick-tips-for-a-better-code-review-experience/#respond</comments>
+		<pubDate>Sun, 30 Apr 2017 11:18:46 +0000</pubDate>
+		<dc:creator><![CDATA[Christopher J. McClellan]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+		<category><![CDATA[code review]]></category>
+
+		<guid isPermaLink="false">http://christopherjmcclellan.wordpress.com/?p=2056</guid>
+		<description><![CDATA[Let&#8217;s talk about Code Reviews for a minute. They&#8217;re important; they spread knowledge around and catch bugs [citation needed], but they can be frustrating some times. They don&#8217;t need to be though. There are a few things we can do to keep the code review a pleasant experience.&#160; Review the code, not the coder.&#160; Keep [&#8230;]<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=christopherjmcclellan.wordpress.com&#038;blog=59673389&#038;post=2056&#038;subd=christopherjmcclellan&#038;ref=&#038;feed=1" width="1" height="1" />]]></description>
+		<wfw:commentRss>https://christopherjmcclellan.wordpress.com/2017/04/30/two-quick-tips-for-a-better-code-review-experience/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	
+		<media:content url="http://0.gravatar.com/avatar/0b43c27212304872e59ec6c73e1e30e7?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ckuhn203</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Tests tell stories, listen to what they say</title>
+		<link>https://christopherjmcclellan.wordpress.com/2017/03/20/tests-tell-stories-listen-to-what-they-say/</link>
+		<comments>https://christopherjmcclellan.wordpress.com/2017/03/20/tests-tell-stories-listen-to-what-they-say/#respond</comments>
+		<pubDate>Mon, 20 Mar 2017 09:13:34 +0000</pubDate>
+		<dc:creator><![CDATA[Christopher J. McClellan]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+		<category><![CDATA[clean architecture]]></category>
+		<category><![CDATA[integration tests]]></category>
+		<category><![CDATA[testing]]></category>
+
+		<guid isPermaLink="false">http://christopherjmcclellan.wordpress.com/?p=2052</guid>
+		<description><![CDATA[I&#8217;m not a big fan of integration tests. They&#8217;re often unreliable and &#8220;flaky&#8221; due to their very nature of being integration&#160;tests that rely on file systems, networks, and databases. These kinds of tests are hard to get right. At least, it&#8217;s hard to get them stable enough to be valuable and I often wonder if [&#8230;]<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=christopherjmcclellan.wordpress.com&#038;blog=59673389&#038;post=2052&#038;subd=christopherjmcclellan&#038;ref=&#038;feed=1" width="1" height="1" />]]></description>
+		<wfw:commentRss>https://christopherjmcclellan.wordpress.com/2017/03/20/tests-tell-stories-listen-to-what-they-say/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	
+		<media:content url="http://0.gravatar.com/avatar/0b43c27212304872e59ec6c73e1e30e7?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ckuhn203</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Teaching an Old Dog New Tricks</title>
+		<link>https://christopherjmcclellan.wordpress.com/2017/03/04/teaching-an-old-dog-new-tricks/</link>
+		<comments>https://christopherjmcclellan.wordpress.com/2017/03/04/teaching-an-old-dog-new-tricks/#respond</comments>
+		<pubDate>Sat, 04 Mar 2017 13:12:41 +0000</pubDate>
+		<dc:creator><![CDATA[Christopher J. McClellan]]></dc:creator>
+				<category><![CDATA[agile]]></category>
+		<category><![CDATA[Programming]]></category>
+		<category><![CDATA[tdd]]></category>
+		<category><![CDATA[pair programming]]></category>
+		<category><![CDATA[productivity]]></category>
+		<category><![CDATA[software development]]></category>
+		<category><![CDATA[test driven development]]></category>
+		<category><![CDATA[unit testing]]></category>
+
+		<guid isPermaLink="false">http://christopherjmcclellan.wordpress.com/?p=1948</guid>
+		<description><![CDATA[I had a really amazing experience this week. I had an opportunity to pair with a gentleman who has been programming since I was in diapers. He had only ever test driven code once before, but is really excited about learning. I think that in and of itself is amazing, but I learned a few [&#8230;]<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=christopherjmcclellan.wordpress.com&#038;blog=59673389&#038;post=1948&#038;subd=christopherjmcclellan&#038;ref=&#038;feed=1" width="1" height="1" />]]></description>
+		<wfw:commentRss>https://christopherjmcclellan.wordpress.com/2017/03/04/teaching-an-old-dog-new-tricks/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	
+		<media:content url="http://0.gravatar.com/avatar/0b43c27212304872e59ec6c73e1e30e7?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ckuhn203</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>The Bottleneck</title>
+		<link>https://christopherjmcclellan.wordpress.com/2017/01/22/the-bottleneck/</link>
+		<comments>https://christopherjmcclellan.wordpress.com/2017/01/22/the-bottleneck/#respond</comments>
+		<pubDate>Sun, 22 Jan 2017 14:39:09 +0000</pubDate>
+		<dc:creator><![CDATA[Christopher J. McClellan]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+
+		<guid isPermaLink="false">http://christopherjmcclellan.wordpress.com/?p=1891</guid>
+		<description><![CDATA[The monk Ahiru was pairing with the bright young apprentice, Taipisuto. The apprentice was quite impressed with his customized editor and the speed at which he could type. Ahiru was not nearly as impressed. The screen was flickering in a way that made him more than just a bit nauseous. &#8220;And what shall you do when [&#8230;]<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=christopherjmcclellan.wordpress.com&#038;blog=59673389&#038;post=1891&#038;subd=christopherjmcclellan&#038;ref=&#038;feed=1" width="1" height="1" />]]></description>
+		<wfw:commentRss>https://christopherjmcclellan.wordpress.com/2017/01/22/the-bottleneck/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	
+		<media:content url="http://0.gravatar.com/avatar/0b43c27212304872e59ec6c73e1e30e7?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ckuhn203</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Doing what&#8217;s best, even when it sucks</title>
+		<link>https://christopherjmcclellan.wordpress.com/2017/01/09/doing-whats-best-even-when-it-sucks/</link>
+		<comments>https://christopherjmcclellan.wordpress.com/2017/01/09/doing-whats-best-even-when-it-sucks/#comments</comments>
+		<pubDate>Mon, 09 Jan 2017 14:01:55 +0000</pubDate>
+		<dc:creator><![CDATA[Christopher J. McClellan]]></dc:creator>
+				<category><![CDATA[agile]]></category>
+		<category><![CDATA[Programming]]></category>
+
+		<guid isPermaLink="false">http://christopherjmcclellan.wordpress.com/?p=1795</guid>
+		<description><![CDATA[About 8 months ago, I promised you that I&#8217;d follow up and let you know how our transition to Agile software development was going. This is that long overdue follow up and I&#8217;m sad to say that six weeks ago I submitted my resignation. Tomorrow I start with my new company. I&#8217;m sitting in an airport [&#8230;]<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=christopherjmcclellan.wordpress.com&#038;blog=59673389&#038;post=1795&#038;subd=christopherjmcclellan&#038;ref=&#038;feed=1" width="1" height="1" />]]></description>
+		<wfw:commentRss>https://christopherjmcclellan.wordpress.com/2017/01/09/doing-whats-best-even-when-it-sucks/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+	
+		<media:thumbnail url="https://christopherjmcclellan.files.wordpress.com/2017/01/humanity.jpeg" />
+		<media:content url="http://christopherjmcclellan.files.wordpress.com/2017/01/humanity.jpeg" medium="image">
+			<media:title type="html">humanity</media:title>
+		</media:content>
+
+		<media:content url="http://0.gravatar.com/avatar/0b43c27212304872e59ec6c73e1e30e7?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ckuhn203</media:title>
+		</media:content>
+
+		<media:content url="http://christopherjmcclellan.files.wordpress.com/2017/01/humanity.jpeg?w=1536" medium="image">
+			<media:title type="html">humanity</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>In Depth on my first NodeJs / Express Stack</title>
+		<link>https://christopherjmcclellan.wordpress.com/2016/12/04/in-depth-on-my-first-nodejs-express-stack/</link>
+		<comments>https://christopherjmcclellan.wordpress.com/2016/12/04/in-depth-on-my-first-nodejs-express-stack/#respond</comments>
+		<pubDate>Sun, 04 Dec 2016 15:39:54 +0000</pubDate>
+		<dc:creator><![CDATA[Christopher J. McClellan]]></dc:creator>
+				<category><![CDATA[NodeJs]]></category>
+		<category><![CDATA[Programming]]></category>
+		<category><![CDATA[chai]]></category>
+		<category><![CDATA[express]]></category>
+		<category><![CDATA[handlebars]]></category>
+		<category><![CDATA[javascript]]></category>
+		<category><![CDATA[mocha]]></category>
+		<category><![CDATA[node]]></category>
+		<category><![CDATA[unit testing]]></category>
+		<category><![CDATA[unittesting]]></category>
+
+		<guid isPermaLink="false">http://christopherjmcclellan.wordpress.com/?p=1127</guid>
+		<description><![CDATA[The whole goal of my hobby site is to iteratively create the simplest website that could possibly work using all &#8220;new to me&#8221; stacks. Getting a static site up and running on my own Linux CentOS with Lighttpd was definitely simple. Getting a NodeJs web service up and running with Express was equally simple, but [&#8230;]<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=christopherjmcclellan.wordpress.com&#038;blog=59673389&#038;post=1127&#038;subd=christopherjmcclellan&#038;ref=&#038;feed=1" width="1" height="1" />]]></description>
+		<wfw:commentRss>https://christopherjmcclellan.wordpress.com/2016/12/04/in-depth-on-my-first-nodejs-express-stack/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	
+		<media:content url="http://0.gravatar.com/avatar/0b43c27212304872e59ec6c73e1e30e7?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ckuhn203</media:title>
+		</media:content>
+
+		<media:content url="http://christopherjmcclellan.files.wordpress.com/2016/11/capture.png" medium="image">
+			<media:title type="html">capture</media:title>
+		</media:content>
+
+		<media:content url="http://i.imgur.com/SAx29qc.jpg" medium="image">
+			<media:title type="html">Buzz LightYear and Woody. Callbacks Everywhere</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Initial Thoughts on Node.js</title>
+		<link>https://christopherjmcclellan.wordpress.com/2016/11/14/initial-thoughts-on-node-js/</link>
+		<comments>https://christopherjmcclellan.wordpress.com/2016/11/14/initial-thoughts-on-node-js/#comments</comments>
+		<pubDate>Mon, 14 Nov 2016 11:44:52 +0000</pubDate>
+		<dc:creator><![CDATA[Christopher J. McClellan]]></dc:creator>
+				<category><![CDATA[NodeJs]]></category>
+		<category><![CDATA[Programming]]></category>
+		<category><![CDATA[node]]></category>
+
+		<guid isPermaLink="false">http://christopherjmcclellan.wordpress.com/?p=1124</guid>
+		<description><![CDATA[I&#8217;ve been building a hobby site so I can learn about non-Microsoft stacks and I spent the weekend learning Node.js. At first I was completely amazed at how awesome it was. It took about 5 minutes to spin up a webserver and start returning HTML from an endpoint! It was easy and fun! That 5 [&#8230;]<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=christopherjmcclellan.wordpress.com&#038;blog=59673389&#038;post=1124&#038;subd=christopherjmcclellan&#038;ref=&#038;feed=1" width="1" height="1" />]]></description>
+		<wfw:commentRss>https://christopherjmcclellan.wordpress.com/2016/11/14/initial-thoughts-on-node-js/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+	
+		<media:content url="http://0.gravatar.com/avatar/0b43c27212304872e59ec6c73e1e30e7?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ckuhn203</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>
