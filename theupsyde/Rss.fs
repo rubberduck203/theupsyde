@@ -31,9 +31,9 @@ module Rss =
         
         let channelNode = rss.FirstChild
 
-        let innerText (node: XmlNode) (name: string) = 
-            let item = node.Item name
-            item.InnerText
+        let innerText (node: XmlNode) (name: string) =
+            let element = node.Item name
+            element.InnerText
 
         let itemNodeToItem node = {
             Title = innerText node "title"
@@ -61,4 +61,3 @@ module Rss =
         }
 
         {Version = Double.Parse version.Value; Channel = channel}
-        
