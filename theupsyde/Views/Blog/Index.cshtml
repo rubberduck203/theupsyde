@@ -1,0 +1,7 @@
+@model Rss.Channel
+
+<h2>Recent Blog Posts</h2>
+
+@foreach(var post in Model.Items) {
+    @Html.Partial("BlogPost", post)
+}

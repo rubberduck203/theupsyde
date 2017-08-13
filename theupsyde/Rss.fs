@@ -1,4 +1,4 @@
-module Rss =
+module Rss
     open System
 
     type Item = {
