@@ -26,9 +26,8 @@ module Rss =
     let parse input =
         let document = XmlDocument()
         document.LoadXml input
+
         let rss = document.DocumentElement
-        let version = rss.Attributes.ItemOf "version"
-        
         let channelNode = rss.FirstChild
 
         let innerText (node: XmlNode) (name: string) =
@@ -60,4 +59,8 @@ module Rss =
             Items = items
         }
 
-        {Version = Double.Parse version.Value; Channel = channel}
+        let version =
+            (rss.Attributes.ItemOf "version").Value
+            |> Double.Parse
+
+        {Version = version; Channel = channel}
