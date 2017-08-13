@@ -6,20 +6,28 @@ open System.Linq
 open System.Threading.Tasks
 open Microsoft.AspNetCore.Mvc
 open Rss
+open System.Net
 
 type BlogController () =
     inherit Controller()
 
+    let fetchUrl url = async {
+        let req = WebRequest.Create(Uri(url)) 
+        let! resp = req.GetResponseAsync() |> Async.AwaitTask
+        use stream = resp.GetResponseStream() 
+        use reader = new IO.StreamReader(stream) 
+        return reader.ReadToEnd()
+    }
+
     let rssFeed =
-        BlogService.blogFeed
+        fetchUrl "https://christopherjmcclellan.wordpress.com/feed/" 
+        |> Async.RunSynchronously
         |> Rss.parse
 
-    let recent = 
-        rssFeed
-        |> (fun rssFeed -> rssFeed.Channel.Items)
+    let recent =
+        rssFeed.Channel.Items
 
     member this.Index () =
-        let rssFeed = Rss.parse BlogService.blogFeed
         this.View(rssFeed.Channel)
 
     member this.Recent() =
