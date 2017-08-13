@@ -24,38 +24,53 @@ module Rss
 
     open System.Xml
     let parse input =
+
+        // Helper Functions
+        let innerText (elementName: string) (node: XmlNode) =
+            let element = node.Item elementName
+            element.InnerText
+
+        let titleText node =
+            node |> innerText "title"
+
+        let descriptionText node =
+            node |> innerText "description"
+
+        let elementAsDateTimeOffset elementName node =
+            node |> innerText elementName |> DateTimeOffset.Parse
+
+        let elementAsUri elementName node =
+            node |> innerText elementName |> Uri
+
+        let linkUri node =
+            node |> elementAsUri "link"
+
+        let itemNodeToItem node = {
+            Title = node |> titleText
+            Link =  node |> linkUri
+            Comments = node |> elementAsUri "comments"
+            PublishDate = node |> elementAsDateTimeOffset "pubDate"
+            Description = node |> descriptionText
+         }
+
+        // Load the document and begin parsing
         let document = XmlDocument()
         document.LoadXml input
 
         let rss = document.DocumentElement
         let channelNode = rss.FirstChild
 
-        let innerText (node: XmlNode) (name: string) =
-            let element = node.Item name
-            element.InnerText
-
-        let itemNodeToItem node = {
-            Title = innerText node "title"
-            Link = Uri(innerText node "link")
-            Comments = Uri(innerText node "comments")
-            PublishDate = DateTimeOffset.Parse(innerText node "pubDate")
-            Description = innerText node "description"
-         }
-
         let items =
             channelNode.ChildNodes
             |> Seq.cast<XmlNode>
             |> Seq.filter (fun node -> node.Name.Equals "item")
             |> Seq.map itemNodeToItem
-        
-        let channelElementValue name =
-            innerText channelNode name
 
         let channel = {
-            Title = channelElementValue "title"
-            Link = Uri(channelElementValue "link")
-            Description = channelElementValue "description"
-            LastBuildDate = DateTimeOffset.Parse(channelElementValue "lastBuildDate")
+            Title = channelNode |> titleText
+            Link = channelNode |> linkUri
+            Description = channelNode |> descriptionText
+            LastBuildDate = channelNode |> elementAsDateTimeOffset "lastBuildDate"
             Items = items
         }
 
@@ -63,4 +78,5 @@ module Rss
             (rss.Attributes.ItemOf "version").Value
             |> Double.Parse
 
-        {Version = version; Channel = channel}
+        let rssFeed = {Version = version; Channel = channel}
+        rssFeed
