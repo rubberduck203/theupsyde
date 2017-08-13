@@ -22,9 +22,8 @@ module Rss =
         Channel: Channel
     }
 
-    open System
     open System.Xml
-    let Parse input = 
+    let parse input =
         let document = XmlDocument()
         document.LoadXml input
         let rss = document.DocumentElement
@@ -36,15 +35,6 @@ module Rss =
             let item = node.Item name
             item.InnerText
 
-        let channelElementValue name =
-            innerText channelNode name
-
-        let itemNodes = seq {
-            for element in channelNode.ChildNodes do
-                if element.Name.Equals "item" then
-                    yield element
-        }
-
         let itemNodeToItem node = {
             Title = innerText node "title"
             Link = Uri(innerText node "link")
@@ -52,13 +42,22 @@ module Rss =
             PublishDate = DateTimeOffset.Parse(innerText node "pubDate")
             Description = innerText node "description"
          }
+
+        let items =
+            channelNode.ChildNodes
+            |> Seq.cast<XmlNode>
+            |> Seq.filter (fun node -> node.Name.Equals "item")
+            |> Seq.map itemNodeToItem
         
+        let channelElementValue name =
+            innerText channelNode name
+
         let channel = {
             Title = channelElementValue "title"
             Link = Uri(channelElementValue "link")
             Description = channelElementValue "description"
             LastBuildDate = DateTimeOffset.Parse(channelElementValue "lastBuildDate")
-            Items = itemNodes |> Seq.map(itemNodeToItem)
+            Items = items
         }
 
         {Version = Double.Parse version.Value; Channel = channel}
