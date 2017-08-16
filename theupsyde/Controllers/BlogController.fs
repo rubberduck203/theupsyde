@@ -19,23 +19,26 @@ type BlogController () =
         return reader.ReadToEnd()
     }
 
-    let rssFeed =
-        fetchUrl "https://christopherjmcclellan.wordpress.com/feed/" 
-        |> Async.RunSynchronously
-        |> Rss.parse
+    let fetchRss() = async {    
+        let! content = fetchUrl "https://christopherjmcclellan.wordpress.com/feed/" 
+        return Rss.parse content 
+    }
 
-    let recent =
-        rssFeed.Channel.Items
+    member this.Index () = Async.StartAsTask(async {
+        let! rss = fetchRss()
+        return this.View(rss.Channel) 
+    })
 
-    member this.Index () =
-        this.View(rssFeed.Channel)
+    member this.Recent() = Async.StartAsTask(async {
+        let! rss = fetchRss()
+        return this.PartialView("BlogPosts", rss.Channel.Items)
+    })
 
-    member this.Recent() =
-        this.PartialView("BlogPosts", recent)
-
-    member this.Latest () =
+    member this.Latest () = Async.StartAsTask(async {
+        let! rss = fetchRss()
         let latest = 
-            recent
+            rss.Channel.Items
             |> Seq.head
 
-        this.PartialView("BlogPost", latest)
+        return this.PartialView("BlogPost", latest)
+    })
