@@ -23,37 +23,48 @@ module Rss
     }
 
     open System.Xml
+    // Helper Functions
+    let private innerText (elementName: string) (node: XmlNode) =
+        let element = node.Item elementName
+        element.InnerText
+
+    let private titleText =
+        innerText "title"
+
+    let private descriptionText =
+        innerText "description"
+
+    let private elementAsDateTimeOffset elementName =
+        innerText elementName >> DateTimeOffset.Parse
+
+    let private elementAsUri elementName =
+        innerText elementName >> Uri
+
+    let private linkUri =
+        elementAsUri "link"
+
+    let private itemNodeToItem node = {
+        Title = node |> titleText
+        Link =  node |> linkUri
+        Comments = node |> elementAsUri "comments"
+        PublishDate = node |> elementAsDateTimeOffset "pubDate"
+        Description = node |> descriptionText
+     }
+
+    
+    ///**Description**
+    /// Parses an RSS feed in xml format and returns an `RssFeed` record.
+    /// This is not a full implementation of the RSS spec. 
+    /// This is only meant to parse a subset of the fields available in a Wordpress blog feed.
+    ///**Parameters**
+    ///  * `input` - a `string` containing an RSS feed in Xml format
+    ///
+    ///**Output Type**
+    ///  * `RssFeed`
+    ///
+    ///**Exceptions**
+    ///
     let parse input =
-
-        // Helper Functions
-        let innerText (elementName: string) (node: XmlNode) =
-            let element = node.Item elementName
-            element.InnerText
-
-        let titleText node =
-            node |> innerText "title"
-
-        let descriptionText node =
-            node |> innerText "description"
-
-        let elementAsDateTimeOffset elementName node =
-            node |> innerText elementName |> DateTimeOffset.Parse
-
-        let elementAsUri elementName node =
-            node |> innerText elementName |> Uri
-
-        let linkUri node =
-            node |> elementAsUri "link"
-
-        let itemNodeToItem node = {
-            Title = node |> titleText
-            Link =  node |> linkUri
-            Comments = node |> elementAsUri "comments"
-            PublishDate = node |> elementAsDateTimeOffset "pubDate"
-            Description = node |> descriptionText
-         }
-
-        // Load the document and begin parsing
         let document = XmlDocument()
         document.LoadXml input
 
