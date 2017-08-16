@@ -1,0 +1,5 @@
+@model Rss.Item    
+    <article>
+       <a href="@Model.Link"><small>@Model.PublishDate.ToString("yyyy-MM-dd")</small> @Model.Title</a>
+       <p>@Html.Raw(Model.Description)</p>
+    </article>
