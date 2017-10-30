@@ -112,3 +112,40 @@ docker run cowsay hello
 docker run -it cowsay bash
 docker run -it --entrypoint bash cowsay 
 ```
+
+---
+
+### Mounting Volumes
+
+#### Create file
+
+```bash
+echo "I say moo." > moo.txt
+```
+
+--
+
+#### Dockerfile
+
+```dockerfile
+FROM ubuntu:xenial
+RUN apt-get update \
+    && apt-get install -y cowsay \
+    && rm -rf /var/lib/apt/lists/*  
+WORKDIR /app
+VOLUME /app
+CMD ["bash"]
+```
+
+---
+
+### Mounting Volumes
+
+#### Shell
+
+```bash
+docker build -t cowsay .
+docker run -it --rm -v $(pwd):/app cowsay
+pwd && ls
+cat moo.txt | /usr/games/cowsay
+```
