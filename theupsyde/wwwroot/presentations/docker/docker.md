@@ -7,7 +7,7 @@ class: center, middle
 
 layout:true
 
-## Docker Crash Course
+## Getting Started
 
 ---
 
@@ -149,3 +149,16 @@ docker run -it --rm -v $(pwd):/app cowsay
 pwd && ls
 cat moo.txt | /usr/games/cowsay
 ```
+
+---
+
+layout:true
+
+## Docker-Compose
+
+---
+
+### TODO
+
+---
+
