@@ -61,16 +61,17 @@ I'm using external markdown, so you'll need a local webserver to serve the markd
 
 ### Nginx Docker
 
-```bash
-# Navigate to correct location
-cd src
+For rapid development of presentations, use the nginx docker.
+For the following to work, the presentation directory requires an `index.html` file.
+This should be migrated to the netcore app controller & view prior to shipping.
 
+```bash
 # Create Container
-docker run -id --name theupsyde -p 127.0.0.1:8080:80 -v $(pwd):/usr/share/nginx/html:ro nginx
+docker run -id --name presentations -p 127.0.0.1:8080:80 -v $(pwd)/theupsyde/wwwroot:/usr/share/nginx/html:ro nginx
 
 # Once the container is created, you can just start and stop the container
-docker stop theupsyde
-docker start theupsyde
+docker stop presentations
+docker start presentations
 ```
 
 Once running, you can view the presentation by going to `http://localhost:8080/presentations` in the browser.
