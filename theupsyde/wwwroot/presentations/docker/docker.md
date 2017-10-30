@@ -23,6 +23,30 @@ layout:true
 
 ---
 
+### Why Docker?
+
+--
+
+ * Easily Version Controlled
+
+--
+
+ * Standardized Developer Tools
+
+--
+
+ * Fast & Easy to stand up services
+
+--
+ 
+ * Consistent Environments
+
+--
+
+ * Don't deploy *to* an environment, deploy *the* environment
+
+---
+
 ### Hello World!
 
 ```bash
