@@ -59,7 +59,12 @@ Navigate to http://localhost:8983/solr
 --
 
  * --name
- * -d (daemon)
+ * -d (detached)
  * -p (port map)
- * -t (tty)
+ * -t (allocate psuedo-tty)
  * solr (image name)
+
+ ---
+
+ ### Building an Image
+
