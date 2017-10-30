@@ -7,7 +7,7 @@ class: center, middle
 
 layout:true
 
-## Getting Started
+## Docker Crash Course
 
 ---
 
@@ -64,7 +64,51 @@ Navigate to http://localhost:8983/solr
  * -t (allocate psuedo-tty)
  * solr (image name)
 
- ---
+---
 
- ### Building an Image
+### Building an Image
 
+#### Dockerfile
+
+```dockerfile
+FROM ubuntu:xenial
+RUN apt-get update \
+    && apt-get install -y cowsay
+```
+
+--
+
+#### Shell
+
+```bash
+docker build -t cowsay .
+docker run -it cowsay bash
+/usr/games/cowsay moo
+```
+
+---
+
+### Specifying Commands
+
+#### Dockerfile
+
+```dockerfile
+FROM ubuntu:xenial
+RUN apt-get update \
+    && apt-get install -y cowsay \
+    && rm -rf /var/lib/apt/lists/*  
+ENTRYPOINT ["/usr/games/cowsay"]
+CMD ["moo"]
+```
+
+--
+
+#### Shell
+
+```bash
+docker build -t cowsay .
+docker run cowsay
+docker run cowsay hello
+docker run -it cowsay bash
+docker run -it --entrypoint bash cowsay 
+```
