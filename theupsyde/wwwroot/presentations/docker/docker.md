@@ -182,7 +182,104 @@ layout:true
 
 ---
 
-### TODO
+### ./fortune/index.js
+
+```javascript
+const express = require('express')
+const app = express()
+const quote = require('prog-quote')()
+
+app.get('/', function (req, res) {
+    res.send(quote.next().value.quote);
+})
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
+```
+
+### ./fortune/dockerfile
+
+```dockerfile
+FROM node
+WORKDIR /app
+EXPOSE 3000
+```
 
 ---
 
+### ./cowsay/index.js
+
+```javascript
+const express = require('express')
+const app = express()
+const cowsay = require("cowsay");
+const request = require('request');
+
+app.get('/', function (req, res) {
+    request('http://fortune:3000', function(error, response, body) {
+      let moo = '<pre>' + cowsay.say({text: body}) + '</pre>';
+      res.send(moo);
+    });
+})
+
+app.listen(3080, function () {
+  console.log('Example app listening on port 3080!')
+})
+```
+
+---
+
+### ./cowsay/dockerfile
+
+```dockerfile
+FROM node
+WORKDIR /app
+EXPOSE 3080
+```
+
+---
+
+### ./docker-compose.yml
+
+```yaml
+version: '3'
+services:
+  cowsay:
+    build: ./cowsay
+    image: cowsay
+    ports:
+      - "3080:3080"
+    volumes:
+      - ./cowsay:/app
+    command: "node index.js"
+  fortune:
+    build: ./fortune
+    image: fortune
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./fortune:/app
+    command: "node index.js"
+```
+
+---
+
+```bash
+docker-compose up -d
+```
+
+---
+
+layout:true
+
+## Cleaning Up
+
+---
+
+```bash
+# remove stopped containers
+docker rm $(docker ps --filter "status=exited" -q)
+# Remove unused intermediary images
+docker rmi $(docker images --filter dangling=true -q)
+```
