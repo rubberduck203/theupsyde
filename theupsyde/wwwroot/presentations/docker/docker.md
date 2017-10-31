@@ -1,7 +1,7 @@
 name: title
 class: center, middle
 
-# Docker Crash Course
+# Crash Course Docker
 
 ---
 
