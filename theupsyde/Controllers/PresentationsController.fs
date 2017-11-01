@@ -16,3 +16,6 @@ type PresentationsController () =
 
     member this.Kanban101 () =
         this.View()
+
+    member this.CrashCourseDocker () =
+        this.View()
