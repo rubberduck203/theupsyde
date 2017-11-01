@@ -283,3 +283,18 @@ docker rm $(docker ps --filter "status=exited" -q)
 # Remove unused intermediary images
 docker rmi $(docker images --filter dangling=true -q)
 ```
+
+---
+
+layout:false
+
+## Resources
+
+ * https://docs.docker.com/get-started
+ * https://github.com/rubberduck203/docker-compose-example
+
+## Contact
+
+ * Twitter: @rubberduck203
+
+.footnote[Copyright © 2017 - Christopher J. McClellan - All Rights Reserved]
