@@ -2,3 +2,7 @@
   bottom: 1em;
   position: absolute;
 }
+
+.remark-slide-content { 
+  background: radial-gradient(farthest-side at top, whitesmoke 5%, orange);
+}
