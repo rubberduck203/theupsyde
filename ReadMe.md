@@ -14,7 +14,6 @@ All content is my intellectual property, but please feel free to view the reposi
 git tag x.x.x
 git push origin --tags
 
-dotnet publish -c Release theupsyde/theupsyde.fsproj
 docker build -t rubberduck/upsyde .
 docker tag rubberduck/upsyde rubberduck/upsyde:x.x.x
 docker push rubberduck/upsyde
