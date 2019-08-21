@@ -128,19 +128,4 @@ docker run --name mongodb -d -p 127.0.0.1:27017:27017 -v /var/lib/mongo/data/db:
 docker run --name wekan -d --link mongodb -p 127.0.0.1:18083:80 -e "MONGO_URL=mongodb://mongodb/wekan" -e "ROOT_URL=https://theupsyde.net/wekan" wekanteam/wekan:v0.24
 ```
 
-Nginx proxies the wekan/ directory to the dockerized app. 
-
-## Wiki.Js
-
-Wiki.Js runs on port 8082 and is installed in `/opt/wiki`.
-
-```bash
-cd /opt/wiki
-npm restart #useful after config changes
-npm start
-npm stop
-```
-
-This backing git repository is automatically synced to https://github.com/rubberduck203/opened
-
-
+Nginx proxies the wekan/ directory to the dockerized app.
