@@ -19,3 +19,6 @@ type PresentationsController () =
 
     member this.CrashCourseDocker () =
         this.View()
+
+    member this.ElixirLogger () =
+        this.View()
