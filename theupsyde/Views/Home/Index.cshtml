@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-}   
+}
+@model Rss.Channel
+
 <section id="main">
     <article id="mission">
         <h2>Mission Statement</h2>
@@ -15,7 +17,6 @@
     <nav>
         <h2>What I'm up to</h2>
         <ul>
-            <li>@Html.ActionLink("Recent Blog Posts", "Index", "Blog")</li>
             <li><a href="https://theupsyde.net/wekan/b/wDNbFPvwNattng7b7/theupsyde-net">Kanban board</a></li>
             <li>Teaching a series of <a href="https://github.com/rubberduck203/embedded-101">Embedded 101</a> lunch & learns.</li>
             <li>Desinging, building, and programming a <a href="https://github.com/rubberduck203/digital-thermometer/">digital thermometer.</a></li>
@@ -43,4 +44,8 @@
             <li><a href="https://support.rackspace.com/how-to/create-a-linux-swap-file/">How to add swap space</a></li>
         </ul>
     </nav>
+    <section>
+        <h2>Recent Blog Posts</h2>
+        @Html.Partial("BlogPosts", Model.Items)
+    </section>
 </section>
