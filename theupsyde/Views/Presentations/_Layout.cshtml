@@ -3,7 +3,13 @@
   <head>
     <title>@ViewData["Title"]</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="../presentations.css">
+    <environment names="Development">
+        <link rel="stylesheet" href="../presentations.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="../presentations.min.css" asp-append-version="true" />
+    </environment>
+
     @RenderSection("Style", required: false)
     @if (!IsSectionDefined("Style"))
     {
