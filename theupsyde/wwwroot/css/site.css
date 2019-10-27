@@ -27,6 +27,10 @@ header p {
   font-size: 1.5em;
 }
 
+header {
+    margin-bottom: 3em;
+}
+
 header, footer {
 	text-align: center;
 	background: black;
@@ -36,7 +40,23 @@ header, footer {
 }
 
 section#main {
-	padding: 0 2%;
+    padding: 0 2%;
+    column-count: 2;
+    column-width: 20em;
+    column-fill: balance;
+}
+
+section,article {
+    break-inside: avoid;
+}
+
+#mission > h2:nth-child(1) {
+    /*
+     * For some reason, there's extra margin here
+     * that we need to zero on just the first element
+     * when using columns.
+     */
+    margin-top: 0;
 }
 
 nav ul {
@@ -49,3 +69,23 @@ nav ul li {
     margin-top: inherit;
     margin-bottom: inherit;
 }   
+
+/* 
+ * .video makes embedded videos responsive. Works well on most resolutions.
+ * iPad is a little wonky, has a bit too much space between the paragraph and the video
+ * https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
+ */
+.video{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+
+.video iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
