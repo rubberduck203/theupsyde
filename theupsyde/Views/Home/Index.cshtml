@@ -6,41 +6,60 @@
         <h2>Mission Statement</h2>
         <p>
             This my personal sketchbook, a place to organize all the half finished projects that we developers all seem to have.
+            It's also become a way for me to organize my online life, a kind of "one stop shop" that links to all of my online activities.
         </p>
         <p>
-            This site is also a place for me to play with tech that I don't necessarily get an opportunity to work with at my 9-5, an
-            opportunity to learn non-Microsoft stacks and .Net Core.
+            Like the title says, this is supposed to be the simplest website that could possibly work.
+            It was <a href="https://christopherjmcclellan.wordpress.com/2016/10/02/building-a-website-on-an-iphone/">originally created as a static file server from my iphone while my wife was shopping</a>.
+            Since then I've been iterating, making the simplest possible change at each step.
+            I'm keep myself fairly busy, so this has been an exercise in minimalism and maximizing the work not done for me.
         </p>
     </article>
     <nav>
-        <h2>What I'm up to</h2>
-        <ul>
-            <li>@Html.ActionLink("Recent Blog Posts", "Index", "Blog")</li>
-            <li><a href="https://theupsyde.net/wekan/b/wDNbFPvwNattng7b7/theupsyde-net">Kanban board</a></li>
-            <li>Teaching a series of <a href="https://github.com/rubberduck203/embedded-101">Embedded 101</a> lunch & learns.</li>
-            <li>Desinging, building, and programming a <a href="https://github.com/rubberduck203/digital-thermometer/">digital thermometer.</a></li>
-        </ul>
+        <section>
+            <h2>What I'm currently up to</h2>
+            <ul>
+                <li>@Html.ActionLink("Recent Blog Posts", "Index", "Blog")</li>
+                <li><a href="https://theupsyde.net/wekan/b/wDNbFPvwNattng7b7/theupsyde-net">Kanban board</a></li>
+                <li>Teaching a series of <a href="https://github.com/rubberduck203/embedded-101">Embedded 101</a> lunch & learns.</li>
+                <li>Desinging, building, and programming a <a href="https://github.com/rubberduck203/digital-thermometer/">digital thermometer.</a></li>
+            </ul>
+        </section>
 
-        <h2>Places to find me online</h2>
-        <ul>
-            <li><a href="https://twitter.com/Rubberduck203">@@rubberduck203</a>
-            <li><a href="https://christopherjmcclellan.wordpress.com/">Blog</a></li>
-            <li><a href="https://github.com/rubberduck203">GitHub</a></li>
-            <li><a href="https://bitbucket.org">BitBucket</a></li>
-            <li><a href="https://codereview.stackexchange.com/users/41243/rubberduck?tab=profile">Code Review Stack Exchange</a></li>
-        </ul>
+        <section>
+            <h2>Places to find me online</h2>
+            <ul>
+                <li><a href="https://twitter.com/Rubberduck203">@@rubberduck203</a>
+                <li><a href="https://christopherjmcclellan.wordpress.com/">Blog</a></li>
+                <li><a href="https://github.com/rubberduck203">GitHub</a></li>
+                <li><a href="https://bitbucket.org">BitBucket</a></li>
+                <li><a href="https://codereview.stackexchange.com/users/41243/rubberduck?tab=profile">Code Review Stack Exchange</a></li>
+            </ul>
+        </section>
 
-        <h2>@Html.ActionLink("Presentations", "Index", "Presentations")</h2>
-        @Html.Partial("PresentationList")
+        <section>
+            <h2>@Html.ActionLink("Presentations", "Index", "Presentations")</h2>
+            @Html.Partial("PresentationList")
+        </section>
 
-        <h2>Stuff I always forget</h2>
-        <ul>
-            <li><a href="https://help.ubuntu.com/community/IptablesHowTo">iptables</a></li>
-            <li><a href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases">Git Aliases</a></li>
-            <li><a href="https://www.liquidweb.com/kb/how-to-install-docker-on-centos-6/">How to install Docker on CentOS 6</a></li>
-            <li><a href="https://superuser.com/q/215504/361752">SSH File Permissions</a></li>
-            <li><a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart">How to create new sudo user</a></li>
-            <li><a href="https://support.rackspace.com/how-to/create-a-linux-swap-file/">How to add swap space</a></li>
-        </ul>
+        <section>
+            <h2>Resume</h2>
+            <ul>
+                <li><a href="https://stackoverflow.com/story/christopher-mcclellan-214510">Chronological</a></li>
+                <li><a href="https://stackoverflow.com/cv/christopher-mcclellan-214510">Traditional</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Random things I can't ever seem to remember</h2>
+            <ul>
+                <li><a href="https://help.ubuntu.com/community/IptablesHowTo">iptables</a></li>
+                <li><a href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases">Git Aliases</a></li>
+                <li><a href="https://www.liquidweb.com/kb/how-to-install-docker-on-centos-6/">How to install Docker on CentOS 6</a></li>
+                <li><a href="https://superuser.com/q/215504/361752">SSH File Permissions</a></li>
+                <li><a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart">How to create new sudo user</a></li>
+                <li><a href="https://support.rackspace.com/how-to/create-a-linux-swap-file/">How to add swap space</a></li>
+            </ul>
+        </section>
     </nav>
 </section>
